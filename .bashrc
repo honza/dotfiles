@@ -30,6 +30,8 @@ alias t='~/.todo.sh'
 # random fixes
 export DYLD_LIBRARY_PATH=/usr/local/mysql/lib
 PATH=/Applications/MAMP/Library/bin:$PATH
+export PATH=$PATH:/opt/local/bin
+export PATH=$PATH:/opt/local/sbin
 
 # include david wolfe's helpful functions
 source ~/.bash_david
