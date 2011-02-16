@@ -32,7 +32,7 @@ set textwidth=79  " wrap lines at 79 characters
 set relativenumber
 au BufReadPost * set relativenumber " hack to load relative number on all buffers
 set wildmenu
-set wildmode=list:longest
+set wildmode=longest,list
 set cursorline
 
 filetype on
@@ -67,7 +67,11 @@ nnoremap ; :
 " Run Python script being edited
 map <buffer> <S-e> :w<CR>:!/usr/bin/env python % <CR>
 
+" Run Python script through PEP8
+map <buffer> <leader>p :w<CR>:!pep8 % <CR>
+
 " taglist toggle
+let Tlist_Ctags_Cmd="/Users/norex/Downloads/ctags-5.8/ctags"
 nnoremap tt :TlistToggle<CR>
 
 " Easy window navigation
@@ -113,4 +117,6 @@ endif
 au BufNewFile,BufRead *.html setlocal filetype=htmldjango
 
 let g:syntastic_enable_signs=1
+let g:snips_author="Honza Pokorny"
 set statusline=%F%m%r%h%w%=(%Y)\ (line\ %l\/%L,\ col\ %c)
+set scrolloff=3
