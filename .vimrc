@@ -42,7 +42,7 @@ filetype plugin indent on
 
 set expandtab
 
-colorscheme molokai
+colorscheme sjl-molokai
 
 inoremap jj <ESC>
 
@@ -63,9 +63,6 @@ nnoremap ; :
 
 " Save on lose focus
 " au FocusLost * :wa
-
-" Run Python script being edited
-map <buffer> <S-e> :w<CR>:!/usr/bin/env python % <CR>
 
 " Run Python script through PEP8
 map <buffer> <leader>p :w<CR>:!pep8 % <CR>
@@ -118,5 +115,12 @@ au BufNewFile,BufRead *.html setlocal filetype=htmldjango
 
 let g:syntastic_enable_signs=1
 let g:snips_author="Honza Pokorny"
-set statusline=%F%m%r%h%w%=(%Y)\ (line\ %l\/%L,\ col\ %c)
+
+" Status line stuff
+set statusline=%F%m%r%h%w%=%{fugitive#statusline()}%y\[%l\/%L,%c]
+set laststatus=2
+
 set scrolloff=3
+
+" CommandT
+nmap <leader>f :CommandTFlush<CR>
