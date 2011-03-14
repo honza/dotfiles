@@ -7,6 +7,9 @@ alias envs='cd ~/Documents/workspace/envs'
 alias gitl='git log --pretty=format:"%h - %an, %ar : %s"'
 alias gits='clear; git status'
 alias gitchart="git shortlog --numbered --summary"
+alias gitg='git log --oneline --graph'
+
+alias githonza='git init; rm .git/config; cd .git; cp ~/honzagit config; cd ..;'
 
 alias l='ls'
 alias c='clear'
@@ -33,8 +36,12 @@ PATH=/Applications/MAMP/Library/bin:$PATH
 export PATH=$PATH:/opt/local/bin
 export PATH=$PATH:/opt/local/sbin
 
-# include david wolfe's helpful functions
-source ~/.bash_david
+# ssh
+alias sshw='mv ~/.ssh/id_* ~/.ssh/home/. ; mv ~/.ssh/known* ~/.ssh/home/. ; mv ~/.ssh/work/* ~/.ssh/. ;'
+alias sshh='mv ~/.ssh/id_* ~/.ssh/work/. ; mv ~/.ssh/known* ~/.ssh/work/. ; mv ~/.ssh/home/* ~/.ssh/. ;'
 
 # include project specific aliases
 source ~/.bash_projects
+
+export CLICOLOR=1
+export LSCOLORS=DxBAcxdxCxegedabagacBA
