@@ -1,7 +1,7 @@
 # virtualenv
-export WORKON_HOME=~/Documents/workspace/envs
+export WORKON_HOME=~/Code/envs
 source /usr/local/bin/virtualenvwrapper.sh
-alias envs='cd ~/Documents/workspace/envs'
+alias envs='cd ~/Code/envs'
 
 # Git
 alias gitl='git log --pretty=format:"%h - %an, %ar : %s"'
@@ -10,6 +10,10 @@ alias gitchart="git shortlog --numbered --summary"
 alias gitg='git log --oneline --graph'
 
 alias githonza='git init; rm .git/config; cd .git; cp ~/honzagit config; cd ..;'
+
+alias rmpyc='find . -name "*.pyc" -exec rm {} \;'
+
+alias lint='~/Downloads/github/npm/node_modules/jslint/bin/jslint.js'
 
 alias l='ls'
 alias c='clear'
@@ -30,11 +34,18 @@ alias gaedev='py25 /usr/local/google_appengine/dev_appserver.py'
 # todo.txt
 alias t='~/.todo.sh'
 
+# clitwi
+alias n='python ~/.clitwi/main.py | less'
+
 # random fixes
-export DYLD_LIBRARY_PATH=/usr/local/mysql/lib
-PATH=/Applications/MAMP/Library/bin:$PATH
-export PATH=$PATH:/opt/local/bin
-export PATH=$PATH:/opt/local/sbin
+#PATH=/Applications/MAMP/Library/bin:$PATH
+export PATH=/usr/local/bin:$PATH
+#export PATH=/opt/local/bin:$PATH
+export PATH=$PATH:/usr/local/sbin
+export PATH=$PATH:/Library/PostgreSQL/9.0/bin
+export PATH=$PATH:/Users/norex/Code/scripts
+
+export NODE_PATH="/Users/norex/node_modules"
 
 # ssh
 alias sshw='mv ~/.ssh/id_* ~/.ssh/home/. ; mv ~/.ssh/known* ~/.ssh/home/. ; mv ~/.ssh/work/* ~/.ssh/. ;'

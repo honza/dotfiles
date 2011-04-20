@@ -1,8 +1,10 @@
 set nocompatible
-let t_Co=256
+"let t_Co=256
 
 set guioptions=aAce
-set guifont=Menlo:h13
+"set guifont=Menlo:h13
+set guifont=Monaco:h13
+
 " Pathogen
 call pathogen#runtime_append_all_bundles()
 
@@ -33,7 +35,13 @@ set relativenumber
 au BufReadPost * set relativenumber " hack to load relative number on all buffers
 set wildmenu
 set wildmode=longest,list
+set wildignore+=*.pyc,.git
 set cursorline
+
+set undodir=~/.vim/tmp/undo//     " undo files
+set backupdir=~/.vim/tmp/backup// " backups
+set directory=~/.vim/tmp/swap//   " swap files
+set backup                        " enable backups
 
 filetype on
 filetype plugin on
@@ -41,8 +49,6 @@ filetype indent on
 filetype plugin indent on
 
 set expandtab
-
-colorscheme sjl-molokai
 
 inoremap jj <ESC>
 
@@ -113,6 +119,14 @@ endif
 
 au BufNewFile,BufRead *.html setlocal filetype=htmldjango
 
+au FileType javascript setlocal tabstop=2
+au FileType javascript setlocal shiftwidth=2
+
+au FileType coffee setlocal tabstop=2
+au FileType coffee setlocal shiftwidth=2
+
+au BufNewFile,BufRead *.coffee setlocal shiftwidth=2
+
 let g:syntastic_enable_signs=1
 let g:snips_author="Honza Pokorny"
 
@@ -124,3 +138,19 @@ set scrolloff=3
 
 " CommandT
 nmap <leader>f :CommandTFlush<CR>
+
+" Lusty juggler
+nmap <leader>a :LustyJuggler<CR>
+
+" Gui stuff
+if has('gui_running')
+
+    "colorscheme sjl-molokai
+    set background=dark
+    colorscheme solarized
+else
+    syntax enable
+    "let g:solarized_termcolors=256
+    set background=dark
+    colorscheme solarized
+endif
