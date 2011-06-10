@@ -56,3 +56,4 @@ source ~/.bash_projects
 
 export CLICOLOR=1
 export LSCOLORS=DxBAcxdxCxegedabagacBA
+export PS1='$ '
