@@ -2,8 +2,8 @@ set nocompatible
 "let t_Co=256
 
 set guioptions=aAce
-"set guifont=Menlo:h13
-set guifont=Monaco:h13
+set guifont=Menlo:h13
+"set guifont=Monaco:h13
 
 " Pathogen
 call pathogen#runtime_append_all_bundles()
