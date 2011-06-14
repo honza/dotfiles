@@ -12,8 +12,7 @@ alias gitg='git log --oneline --graph'
 alias githonza='git init; rm .git/config; cd .git; cp ~/honzagit config; cd ..;'
 
 alias rmpyc='find . -name "*.pyc" -exec rm {} \;'
-
-alias lint='~/Downloads/github/npm/node_modules/jslint/bin/jslint.js'
+alias github='cd ~/Downloads/github'
 
 alias l='ls'
 alias c='clear'
@@ -44,6 +43,7 @@ export PATH=/usr/local/bin:$PATH
 export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:/Library/PostgreSQL/9.0/bin
 export PATH=$PATH:/Users/norex/Code/scripts
+export PATH=$PATH:/usr/texbin
 
 export NODE_PATH="/Users/norex/node_modules"
 
