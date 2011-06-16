@@ -40,3 +40,6 @@
 [submodule "vim/bundle/javascript"]
 	path = vim/bundle/javascript
 	url = git://github.com/pangloss/vim-javascript.git
+[submodule "vim/bundle/mustache"]
+	path = vim/bundle/mustache
+	url = git://github.com/juvenn/mustache.vim.git
