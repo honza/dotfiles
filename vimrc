@@ -138,6 +138,7 @@ set scrolloff=3
 
 " CommandT
 nmap <leader>f :CommandTFlush<CR>
+let g:CommandTMaxHeight=20
 
 " Lusty juggler
 nmap <leader>a :LustyJuggler<CR>
