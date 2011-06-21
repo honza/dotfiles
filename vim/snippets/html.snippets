@@ -1,0 +1,92 @@
+snippet doc
+	<!doctype html>
+snippet html
+	<html>
+	<head>
+	</head>
+	<body>
+	${1}
+	</body>
+	</html>
+	</html>
+snippet body
+	<body>
+		${1}
+	</body>
+snippet head
+	<head>
+		<title>${1:`substitute(Filename('', 'Page Title'), '^.', '\u&', '')`}</title>
+		${2}
+	</head>
+snippet title
+	<title>${1:`substitute(Filename('', 'Page Title'), '^.', '\u&', '')`}</title>${2}
+snippet script
+	<script type="text/javascript">
+		${1}
+	</script>${2}
+snippet scriptsrc
+	<script src="${1}.js" type="text/javascript"></script>${2}
+snippet style
+	<style type="text/css" media="${1:screen}">
+		${2}
+	</style>${3}
+snippet div
+	<div id="${1:name}">
+		${2}
+	</div>
+snippet input
+	<input type="${1:text/submit/hidden/button}" name="${2:some_name}" value="${3}"`Close()`>${4}
+snippet link
+	<link rel="${1:stylesheet}" href="${2:/css/master.css}" type="text/css" media="${3:screen}" charset="utf-8"`Close()`>${4}
+snippet em
+	<em>${1:text}</em>${2}
+snippet li
+	<li>${1:item}</li>${2}
+snippet p
+	<p>${1:text}</p>${2}
+snippet span
+	<span${1}>${2}</span>${3}
+snippet strong
+	<strong>${1:text}</strong>${2}
+snippet ul
+	<ul>
+	  <li>${1:item}</li>${2}
+	</ul>
+snippet ulc
+	<ul class="${1:class}">
+	  <li>${2:item}</li>${3}
+	</ul>
+snippet uli
+	<ul id="${1:id}">
+	  <li>${2:item}</li>${3}
+	</ul>
+# django
+snippet %
+	{% ${1} %}${2}
+snippet %%
+	{% ${1:tag_name} %}
+	${2}
+	{% end$1 %}
+snippet {
+	{{ ${1} }}${2}
+snippet block
+	{% block ${1} %}
+	${2}
+	{% endblock %}
+snippet for
+	{% for ${1} in ${2} %}
+	${3}
+	{% endfor %}
+snippet if
+	{% if ${1} %}
+	${2}
+	{% endif %}
+snippet else
+	{% else %}
+	${1}
+snippet include
+	{% include "${1}" %}
+snippet load
+	{% load ${1} %}
+snippet url
+	{% url ${1} %}
