@@ -1,9 +1,7 @@
 set nocompatible
-"let t_Co=256
 
 set guioptions=aAce
 set guifont=Menlo:h13
-"set guifont=Monaco:h13
 
 " Pathogen
 call pathogen#runtime_append_all_bundles()
@@ -73,10 +71,6 @@ nnoremap ; :
 " Run Python script through PEP8
 map <buffer> <leader>p :w<CR>:!pep8 % <CR>
 
-" taglist toggle
-let Tlist_Ctags_Cmd="/Users/norex/Downloads/ctags-5.8/ctags"
-nnoremap tt :TlistToggle<CR>
-
 " Easy window navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -111,23 +105,14 @@ map <silent> <leader>V :source ~/.vimrc<CR>
 " Editing .bashrc
 map <leader>b :vs ~/.bashrc<CR><C-W>
 
-" Quick window resizing
-if bufwinnr(1)
-  map + <C-W>>
-  map - <C-W><
-endif
-
-au BufNewFile,BufRead *.html setlocal filetype=htmldjango
-
 au FileType javascript setlocal tabstop=2
 au FileType javascript setlocal shiftwidth=2
 
 au FileType coffee setlocal tabstop=2
 au FileType coffee setlocal shiftwidth=2
 
-au BufNewFile,BufRead *.coffee setlocal shiftwidth=2
-
 let g:syntastic_enable_signs=1
+
 let g:snips_author="Honza Pokorny"
 
 " Status line stuff
@@ -136,22 +121,20 @@ set laststatus=2
 
 set scrolloff=3
 
+" Linespacing for composing prose
+"au BufEnter *.markdown setlocal linespace=4
+"au BufLeave *.markdown setlocal linespace=2
+
 " CommandT
 nmap <leader>f :CommandTFlush<CR>
 let g:CommandTMaxHeight=20
 
-" Lusty juggler
-nmap <leader>a :LustyJuggler<CR>
-
 " Gui stuff
 if has('gui_running')
-
-    "colorscheme sjl-molokai
     set background=dark
     colorscheme solarized
 else
     syntax enable
-    "let g:solarized_termcolors=256
     set background=dark
     colorscheme solarized
 endif
