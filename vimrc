@@ -35,6 +35,7 @@ set wildmenu
 set wildmode=longest,list
 set wildignore+=*.pyc,.git
 set cursorline
+set nojoinspaces
 
 set undodir=~/.vim/tmp/undo//     " undo files
 set backupdir=~/.vim/tmp/backup// " backups
@@ -48,17 +49,13 @@ filetype plugin indent on
 
 set expandtab
 
+if has('mouse')
+    set mouse=a
+endif
+
+
 inoremap jj <ESC>
 
-" Turn off arrow keys
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
@@ -66,7 +63,7 @@ nnoremap k gk
 nnoremap ; :
 
 " Save on lose focus
-" au FocusLost * :wa
+au FocusLost * :wa
 
 " Run Python script through PEP8
 map <buffer> <leader>p :w<CR>:!pep8 % <CR>
@@ -105,12 +102,14 @@ map <silent> <leader>V :source ~/.vimrc<CR>
 " Editing .bashrc
 map <leader>b :vs ~/.bashrc<CR><C-W>
 
-au FileType javascript setlocal tabstop=2
-au FileType javascript setlocal shiftwidth=2
+au FileType javascript setlocal tabstop=2 shiftwidth=2
 
-au FileType coffee setlocal tabstop=2
-au FileType coffee setlocal shiftwidth=2
+au FileType coffee setlocal tabstop=2 shiftwidth=2
 
+au BufNewFile,BufRead *.html setlocal filetype=htmldjango
+au FileType htmldjango setlocal textwidth=0
+
+au BufNewFile,BufRead *.j setlocal filetype=objj
 let g:syntastic_enable_signs=1
 
 let g:snips_author="Honza Pokorny"
@@ -121,20 +120,51 @@ set laststatus=2
 
 set scrolloff=3
 
-" Linespacing for composing prose
-"au BufEnter *.markdown setlocal linespace=4
-"au BufLeave *.markdown setlocal linespace=2
-
 " CommandT
 nmap <leader>f :CommandTFlush<CR>
 let g:CommandTMaxHeight=20
 
-" Gui stuff
-if has('gui_running')
-    set background=dark
-    colorscheme solarized
-else
-    syntax enable
-    set background=dark
-    colorscheme solarized
-endif
+" Toggle copy writing mode
+function! s:NovelMode()
+    if !has('gui_running')
+        echo 'Sorry - only available in graphical vim.'
+        return
+    endif
+    if &linespace == 4
+        setlocal linespace=0
+    else
+        setlocal linespace=4
+    endif
+    if &number == 1
+        setlocal nonumber
+    else
+        setlocal number
+    endif
+endfunction
+
+command! Novel call s:NovelMode()
+
+function! CloseHiddenBuffers()
+  " figure out which buffers are visible in any tab
+  let visible = {}
+  for t in range(1, tabpagenr('$'))
+    for b in tabpagebuflist(t)
+      let visible[b] = 1
+    endfor
+  endfor
+  " close any buffer that are loaded and not visible
+  let l:tally = 0
+  for b in range(1, bufnr('$'))
+    if bufloaded(b) && !has_key(visible, b)
+      let l:tally += 1
+      exe 'bw ' . b
+    endif
+  endfor
+  echon "Deleted " . l:tally . " buffers"
+endfun
+
+command! -nargs=* Only call CloseHiddenBuffers()
+
+set background=dark
+colorscheme solarized
+syntax enable
