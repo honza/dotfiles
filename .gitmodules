@@ -43,3 +43,9 @@
 [submodule "vim/bundle/mustache"]
 	path = vim/bundle/mustache
 	url = git://github.com/juvenn/mustache.vim.git
+[submodule "vim/bundle/cappuccino"]
+	path = vim/bundle/cappuccino
+	url = git://github.com/hammerdr/vim-cappuccino.git
+[submodule "vim/bundle/indent-guide"]
+	path = vim/bundle/indent-guide
+	url = git://github.com/nathanaelkane/vim-indent-guides.git
