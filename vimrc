@@ -35,6 +35,7 @@ set wildmenu
 set wildmode=longest,list
 set wildignore+=*.pyc,.git
 set cursorline
+set nojoinspaces
 
 set undodir=~/.vim/tmp/undo//     " undo files
 set backupdir=~/.vim/tmp/backup// " backups
@@ -47,6 +48,11 @@ filetype indent on
 filetype plugin indent on
 
 set expandtab
+
+if has('mouse')
+    set mouse=a
+endif
+
 
 inoremap jj <ESC>
 
