@@ -51,9 +51,46 @@ export NODE_PATH="/Users/norex/node_modules"
 alias sshw='mv ~/.ssh/id_* ~/.ssh/home/. ; mv ~/.ssh/known* ~/.ssh/home/. ; mv ~/.ssh/work/* ~/.ssh/. ;'
 alias sshh='mv ~/.ssh/id_* ~/.ssh/work/. ; mv ~/.ssh/known* ~/.ssh/work/. ; mv ~/.ssh/home/* ~/.ssh/. ;'
 
+# Rename file extension
+# Usage: rn txt rst
+function rn {
+    for f in $(find . -name "*$1");
+    do 
+        mv $f `echo $f | sed 's/txt$/rst/'`
+    done;
+}
+
+# latex templates
+function lt {
+    loc=~/Dropbox/Templates/
+    if [ $1 ]
+    then
+        if [ $1 == "simple" ]
+        then
+            p="$loc"simple.tex
+        elif [ $1 == "letter" ]
+        then
+            p="$loc"letter.tex
+        else
+            echo "don't know this type"
+        fi
+        cp $p .
+    else
+        echo "You need an argument. Either 'simple' or 'letter'."
+        return
+    fi
+}
+
 # include project specific aliases
 source ~/.bash_projects
 
 export CLICOLOR=1
 export LSCOLORS=DxBAcxdxCxegedabagacBA
 export PS1='$ '
+
+export NARWHAL_ENGINE=jsc
+
+export PATH="/usr/local/narwhal/bin:$PATH"
+
+export CAPP_BUILD="/Users/honza/Downloads/github/cappuccino/Build"
+alias pg='pg_ctl -D /usr/local/var/postgres'
