@@ -124,6 +124,10 @@ set scrolloff=3
 nmap <leader>f :CommandTFlush<CR>
 let g:CommandTMaxHeight=20
 
+" tagbar
+let g:tagbar_sort = 0
+nmap <leader>d :TagbarToggle<CR>
+
 " Toggle copy writing mode
 function! s:NovelMode()
     if !has('gui_running')
