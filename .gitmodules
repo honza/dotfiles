@@ -58,3 +58,12 @@
 [submodule "vim/bundle/pathogen"]
 	path = vim/bundle/pathogen
 	url = git://github.com/tpope/vim-pathogen.git
+[submodule "vim/bundle/orgmode"]
+	path = vim/bundle/orgmode
+	url = git://github.com/jceb/vim-orgmode.git
+[submodule "vim/bundle/speeddating"]
+	path = vim/bundle/speeddating
+	url = git://github.com/tpope/vim-speeddating.git
+[submodule "vim/bundle/css-color"]
+	path = vim/bundle/css-color
+	url = git://github.com/skammer/vim-css-color.git
