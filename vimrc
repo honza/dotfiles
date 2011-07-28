@@ -11,6 +11,7 @@ call pathogen#runtime_append_all_bundles()
 
 " Change the leader to ,
 let mapleader = ","
+let maplocalleader = "\\"
 
 set hidden
 
@@ -130,6 +131,14 @@ let g:CommandTMaxHeight=20
 " tagbar
 let g:tagbar_sort = 0
 nmap <leader>d :TagbarToggle<CR>
+
+" Don't displal manual
+nnoremap K <nop>
+
+au Filetype rst nnoremap <buffer> <localleader>1 yypVr=
+au Filetype rst nnoremap <buffer> <localleader>2 yypVr-
+au Filetype rst nnoremap <buffer> <localleader>3 yypVr~
+au Filetype rst nnoremap <buffer> <localleader>4 yypVr`
 
 " Substitute
 nnoremap <leader>s :%s//g<left><left>
