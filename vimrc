@@ -131,6 +131,9 @@ let g:CommandTMaxHeight=20
 let g:tagbar_sort = 0
 nmap <leader>d :TagbarToggle<CR>
 
+" Substitute
+nnoremap <leader>s :%s//g<left><left>
+
 " Toggle copy writing mode
 function! s:NovelMode()
     if !has('gui_running')
