@@ -34,7 +34,6 @@ set hlsearch      " highlight search terms
 set incsearch     " show search matches as you type
 set textwidth=79  " wrap lines at 79 characters
 set relativenumber
-au BufReadPost * set relativenumber " hack to load relative number on all buffers
 set wildmenu
 set wildmode=longest,list
 set wildignore+=*.pyc,.git
@@ -56,9 +55,6 @@ set expandtab
 if has('mouse')
     set mouse=a
 endif
-
-
-inoremap jj <ESC>
 
 nnoremap j gj
 nnoremap k gk
