@@ -138,26 +138,6 @@ au Filetype rst nnoremap <buffer> <localleader>4 yypVr`
 " Substitute
 nnoremap <leader>s :%s//g<left><left>
 
-" Toggle copy writing mode
-function! s:NovelMode()
-    if !has('gui_running')
-        echo 'Sorry - only available in graphical vim.'
-        return
-    endif
-    if &linespace == 4
-        setlocal linespace=0
-    else
-        setlocal linespace=4
-    endif
-    if &number == 1
-        setlocal nonumber
-    else
-        setlocal number
-    endif
-endfunction
-
-command! Novel call s:NovelMode()
-
 function! CloseHiddenBuffers()
   " figure out which buffers are visible in any tab
   let visible = {}
