@@ -81,9 +81,6 @@ function lt {
     fi
 }
 
-# include project specific aliases
-source ~/.bash_projects
-
 export CLICOLOR=1
 export LSCOLORS=DxBAcxdxCxegedabagacBA
 export PS1='$ '
