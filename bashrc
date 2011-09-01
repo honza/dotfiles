@@ -31,7 +31,7 @@ alias py25='/opt/local/bin/python2.5'
 alias gaedev='py25 /usr/local/google_appengine/dev_appserver.py'
 
 # todo.txt
-alias t='~/.todo.sh'
+alias t='~/dotfiles/todo.txt/todo.sh'
 
 # clitwi
 alias n='python ~/.clitwi/main.py | less'

@@ -67,3 +67,6 @@
 [submodule "vim/bundle/commentary"]
 	path = vim/bundle/commentary
 	url = git://github.com/tpope/vim-commentary.git
+[submodule "todo.txt"]
+	path = todo.txt
+	url = git://github.com/ginatrapani/todo.txt-cli.git
