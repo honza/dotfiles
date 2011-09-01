@@ -4,7 +4,7 @@ source ~/.vim/bundle/pathogen/autoload/pathogen.vim
 set nocompatible
 
 set guioptions=aAce
-set guifont=Menlo:h13
+set guifont=Menlo:h12
 
 " Pathogen
 call pathogen#runtime_append_all_bundles()
