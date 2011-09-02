@@ -159,6 +159,8 @@ endfun
 
 command! -nargs=* Only call CloseHiddenBuffers()
 
+nmap \ <Plug>CommentaryLine
+
 set background=dark
 colorscheme solarized
 syntax enable
