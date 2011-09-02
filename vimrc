@@ -130,6 +130,9 @@ nmap <leader>d :TagbarToggle<CR>
 " Don't displal manual
 nnoremap K <nop>
 
+" Make vim able to edit crontab
+set backupskip=/tmp/*,/private/tmp/*"
+
 au Filetype rst nnoremap <buffer> <localleader>1 yypVr=
 au Filetype rst nnoremap <buffer> <localleader>2 yypVr-
 au Filetype rst nnoremap <buffer> <localleader>3 yypVr~
