@@ -33,9 +33,20 @@ set hlsearch      " highlight search terms
 set incsearch     " show search matches as you type
 set textwidth=79  " wrap lines at 79 characters
 set relativenumber
+
+" wild menu completion
 set wildmenu
-set wildmode=longest,list
-set wildignore+=*.pyc,.git
+set wildmode=list:longest
+set wildignore+=.hg,.git,.svn                    " Version control
+set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
+set wildignore+=*.luac                           " Lua byte code
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
+set wildignore+=*.pyc                            " Python byte code
+set wildignore+=*.spl                            " compiled spelling word lists
+set wildignore+=*.sw?                            " Vim swap files
+set wildignore+=*.DS_Store?                      " OSX bullshitset wildignore+=.hg,.git,.svn                    " Version control
+
 set cursorline
 set nojoinspaces
 
