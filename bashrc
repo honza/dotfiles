@@ -91,3 +91,8 @@ export PATH="/usr/local/narwhal/bin:$PATH"
 
 export CAPP_BUILD="/Users/honza/Downloads/github/cappuccino/Build"
 alias pg='pg_ctl -D /usr/local/var/postgres'
+
+# Recursive sed
+
+#alias s='find . -type f -print0 | xargs -0 sed -i'
+alias s="find . -path './.git' -prune -o -type f -print0 | xargs -0 sed -i ''"
