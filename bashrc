@@ -87,6 +87,9 @@ export LSCOLORS=DxBAcxdxCxegedabagacBA
 # Prompt stuff
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 ve () {
+    if [ -z "$VIRTUAL_EVN" ]; then
+        return
+    fi
     echo `basename $VIRTUAL_ENV`
 }
 function parse_git_branch {
