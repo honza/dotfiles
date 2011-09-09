@@ -38,6 +38,7 @@ set relativenumber
 set wildmenu
 set wildmode=list:longest
 set wildignore+=.hg,.git,.svn                    " Version control
+set wildignore+=_build                           " Sphinx build dir
 set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
 set wildignore+=*.luac                           " Lua byte code
@@ -119,6 +120,10 @@ au FileType coffee setlocal tabstop=2 shiftwidth=2
 au BufNewFile,BufRead *.html setlocal filetype=htmldjango
 au FileType htmldjango setlocal textwidth=0
 
+
+" Open help files in a vertical split
+au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
+
 au BufNewFile,BufRead *.j setlocal filetype=objj
 let g:syntastic_enable_signs=1
 
@@ -148,6 +153,9 @@ au Filetype rst nnoremap <buffer> <localleader>1 yypVr=
 au Filetype rst nnoremap <buffer> <localleader>2 yypVr-
 au Filetype rst nnoremap <buffer> <localleader>3 yypVr~
 au Filetype rst nnoremap <buffer> <localleader>4 yypVr`
+
+" vagrant
+au BufRead,BufNewFile Vagrantfile set ft=ruby
 
 " Substitute
 nnoremap <leader>s :%s//g<left><left>
