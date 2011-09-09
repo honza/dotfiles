@@ -83,7 +83,17 @@ function lt {
 
 export CLICOLOR=1
 export LSCOLORS=DxBAcxdxCxegedabagacBA
-export PS1='$ '
+
+# Prompt stuff
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+ve () {
+    echo `basename $VIRTUAL_ENV`
+}
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1]/"
+}
+
+export PS1="(\$(ve)) \w \$(parse_git_branch) $ "
 
 export NARWHAL_ENGINE=jsc
 
