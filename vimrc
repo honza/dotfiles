@@ -6,6 +6,10 @@ set nocompatible
 set guioptions=aAce
 set guifont=Menlo:h12
 
+" Silence please
+set vb
+set t_vb=
+
 " Pathogen
 call pathogen#runtime_append_all_bundles()
 
