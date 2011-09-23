@@ -115,3 +115,14 @@ alias pg='pg_ctl -D /usr/local/var/postgres'
 
 #alias s='find . -type f -print0 | xargs -0 sed -i'
 alias s="find . -path './.git' -prune -o -type f -print0 | xargs -0 sed -i ''"
+
+# Growl after something is finished
+function grr() {
+    $*
+    growlnotify -m "'$*' finished"
+}
+
+function spp() {
+    $*
+    say "'$*' finished"
+}
