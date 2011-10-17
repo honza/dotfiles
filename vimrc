@@ -96,9 +96,6 @@ nnoremap <leader>w <C-w>v<C-w>1
 " Simple clearing of search results
 nmap <silent> ,/ :nohlsearch<CR>
 
-" Bounce between brackets using <tab> instead of %
-nnoremap <tab> %
-
 " Strip all trailing whitespace
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
