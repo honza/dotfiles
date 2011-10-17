@@ -4,7 +4,8 @@ source ~/.vim/bundle/pathogen/autoload/pathogen.vim
 set nocompatible
 
 set guioptions=aAce
-set guifont=Menlo:h12
+set guifont=Droid\ Sans\ Mono:h12
+set linespace=-2
 
 " Silence please
 set vb
