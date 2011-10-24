@@ -187,6 +187,9 @@ command! -nargs=* Only call CloseHiddenBuffers()
 
 nmap \ <Plug>CommentaryLine
 
+" ctrlp
+let g:ctrlp_working_path_mode = 0
+
 set background=dark
 colorscheme solarized
 syntax enable
