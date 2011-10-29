@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
+export OH_MY_ZSH_DEBUG="true"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -24,7 +25,7 @@ ZSH_THEME="robbyrussell"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew django git github node npm osx pip python vagrant)
+plugins=(git brew django fabric git github node npm osx pip python vagrant)
 
 source $ZSH/oh-my-zsh.sh
 source ~/.bashrc
