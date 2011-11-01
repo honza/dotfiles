@@ -21,13 +21,9 @@ alias fn='find . -name'
 alias sb='source ~/.bashrc'
 alias f='fab'
 alias fv='fab -R vagrant'
-alias v='vim'
 alias envs='cd ~/Code/envs'
 # Recursive sed
 alias s="find . -path './.git' -prune -o -type f -print0 | xargs -0 sed -i ''"
-# Start an HTTP server from a directory
-alias server="open http://localhost:8080/ && python -m SimpleHTTPServer 8080"
-alias emptytrash="rm -rf ~/.Trash"
 
 function prettyjson() {
     python -mjson.tool
@@ -108,6 +104,31 @@ function lt {
 }
 
 # -----------------------------------------------------------------------------
+# Prompt
+# -----------------------------------------------------------------------------
+
+export CLICOLOR=1
+export LSCOLORS=DxBAcxdxCxegedabagacBA
+
+# Prompt stuff
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+ve () {
+    if [ -z "$VIRTUAL_ENV" ]; then
+        echo ''
+        return
+    fi
+
+    x=`basename $VIRTUAL_ENV`
+    echo "($x)"
+
+}
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1]/"
+}
+
+export PS1="\$(ve) \w \$(parse_git_branch) $ "
+
+# -----------------------------------------------------------------------------
 # Notifiers
 # -----------------------------------------------------------------------------
 function grr() {
@@ -123,9 +144,9 @@ function spp() {
 # -----------------------------------------------------------------------------
 # Completion
 # -----------------------------------------------------------------------------
-#if [ -f `brew --prefix`/etc/bash_completion ]; then
-    #. `brew --prefix`/etc/bash_completion
-#fi
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
 
 # -----------------------------------------------------------------------------
 # Other
