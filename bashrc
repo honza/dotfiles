@@ -38,8 +38,7 @@ alias gitl='git log --pretty=format:"%h - %an, %ar : %s"'
 alias gits='clear; git status'
 alias gitchart="git shortlog --numbered --summary"
 alias gitg='git log --oneline --graph'
-alias githonza='git init; rm .git/config; cd .git; cp ~/honzagit config; cd ..;'
-alias github='cd ~/Github';
+alias gall='git submodule foreach git pull'
 
 # -----------------------------------------------------------------------------
 # Python & Django
