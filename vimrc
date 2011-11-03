@@ -139,7 +139,7 @@ set laststatus=2
 set scrolloff=3
 
 " CommandT
-nmap <leader>f :CommandTFlush<CR>
+nmap <leader>f :ClearCtrlPCache<cr>
 let g:CommandTMaxHeight=20
 
 " tagbar
