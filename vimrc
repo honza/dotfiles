@@ -106,6 +106,9 @@ nnoremap <leader>ft Vatzf
 " Toggle whitespace characters
 nmap <leader>l :set list!<cr>
 
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%79v.\+/
+
 " Diplay cursor position in bottom right corner
 set ruler
 
