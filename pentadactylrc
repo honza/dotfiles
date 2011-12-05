@@ -1,0 +1,5 @@
+set editor='/usr/local/bin/mvim -f +<line> <file>'
+nnoremap j 3j
+nnoremap k 3k
+
+" vim: set ft=vim :
