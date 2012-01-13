@@ -161,6 +161,16 @@ au Filetype rst nnoremap <buffer> <localleader>2 yypVr-
 au Filetype rst nnoremap <buffer> <localleader>3 yypVr~
 au Filetype rst nnoremap <buffer> <localleader>4 yypVr`
 
+" Keep splits sized properly
+au VimResized * exe "normal! \<cw>="
+
+" Uppercase
+nnoremap <C-u> gUiw
+inoremap <C-u> <esc>gUiwea
+
+" Format
+nnoremap Q gqip
+
 " vagrant
 au BufRead,BufNewFile Vagrantfile set ft=ruby
 
