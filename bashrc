@@ -157,6 +157,9 @@ fi
 # Stop telling me I have new mail
 unset MAILCHECK
 
+export PATH=$PATH:$HOME/.rvm/bin
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
 # -----------------------------------------------------------------------------
 # Project specific, if available
 # -----------------------------------------------------------------------------
