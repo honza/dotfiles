@@ -47,12 +47,12 @@ set wildignore+=.hg,.git,.svn                    " Version control
 set wildignore+=_build                           " Sphinx build dir
 set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
-set wildignore+=*.luac                           " Lua byte code
 set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
 set wildignore+=*.pyc                            " Python byte code
 set wildignore+=*.spl                            " compiled spelling word lists
 set wildignore+=*.sw?                            " Vim swap files
-set wildignore+=*.DS_Store?                      " OSX bullshitset wildignore+=.hg,.git,.svn                    " Version control
+set wildignore+=*.DS_Store?                      " OSX bullshitset wildignore+=.hg,.git,.svn
+set wildignore+=*.CACHE                          " django-compressor cache dir
 
 set cursorline
 set nojoinspaces
@@ -141,10 +141,6 @@ set laststatus=2
 
 set scrolloff=3
 
-" CommandT
-nmap <leader>f :ClearCtrlPCache<cr>
-let g:CommandTMaxHeight=20
-
 " tagbar
 let g:tagbar_sort = 0
 let g:tagbar_ctags_bin="/usr/local/bin/ctags"
@@ -202,6 +198,7 @@ nmap \ <Plug>CommentaryLine
 
 " ctrlp
 let g:ctrlp_working_path_mode = 0
+nmap <leader>f :ClearCtrlPCache<cr>
 
 set background=dark
 colorscheme solarized
