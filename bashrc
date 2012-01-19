@@ -15,7 +15,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 # -----------------------------------------------------------------------------
 alias ls='ls -h'
 alias l='ls'
-alias c='clear'
+alias c='echo "Use Ctrl-L"' # haha!
 alias du='du -sh'
 alias fn='find . -name'
 alias sb='source ~/.bashrc'
