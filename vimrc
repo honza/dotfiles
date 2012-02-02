@@ -200,6 +200,12 @@ nmap \ <Plug>CommentaryLine
 let g:ctrlp_working_path_mode = 0
 nmap <leader>f :ClearCtrlPCache<cr>
 
+hi link coffeeObject NONE
+hi link coffeeBracket NONE
+hi link coffeeCurly NONE
+hi link coffeeParen NONE
+hi link coffeeSpecialVar Identifier
+
 set background=dark
 colorscheme solarized
 syntax enable
