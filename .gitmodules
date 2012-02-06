@@ -79,3 +79,6 @@
 [submodule "vim/bundle/matchtag"]
 	path = vim/bundle/matchtag
 	url = git://github.com/gregsexton/MatchTag.git
+[submodule "vim/bundle/haskell"]
+	path = vim/bundle/haskell
+	url = git://github.com/wlangstroth/vim-haskell.git
