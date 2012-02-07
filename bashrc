@@ -50,7 +50,7 @@ alias rmpyc='find . -name "*.pyc" -exec rm {} \;'
 alias m='python manage.py'
 alias run='python manage.py runserver'
 alias sync='python manage.py syncdb'
-alias rrun="rm dev.db ; sync --noinput ; m migrate; python generate.py ; m createsuperuser --user=honza --email=me@honza.ca; m runserver"
+alias rrun="rm dev.db ; sync --noinput ; m migrate; m createsuperuser --user=honza --email=me@honza.ca; m runserver"
 
 # -----------------------------------------------------------------------------
 # todo.txt
@@ -114,21 +114,22 @@ export LSCOLORS=DxBAcxdxCxegedabagacBA
 
 # Prompt stuff
 export VIRTUAL_ENV_DISABLE_PROMPT=1
-ve () {
+function ve () {
     if [ -z "$VIRTUAL_ENV" ]; then
         echo ''
         return
     fi
 
     x=`basename $VIRTUAL_ENV`
-    echo "($x)"
+    echo "$x"
 
 }
+
 function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1]/"
 }
 
-export PS1="\$(ve) \w \$(parse_git_branch) $ "
+export PS1="[\$(rvm-prompt) \$(ve)] \w \$(parse_git_branch) $ "
 
 # -----------------------------------------------------------------------------
 # Notifiers
@@ -156,6 +157,8 @@ fi
 
 # Stop telling me I have new mail
 unset MAILCHECK
+
+export SHELL=/usr/local/bin/bash
 
 export PATH=$PATH:$HOME/.rvm/bin
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
