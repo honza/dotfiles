@@ -159,6 +159,7 @@ fi
 unset MAILCHECK
 
 export SHELL=/usr/local/bin/bash
+export GREP_OPTIONS='--color=auto'
 
 export PATH=$PATH:$HOME/.rvm/bin
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
