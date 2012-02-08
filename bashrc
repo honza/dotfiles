@@ -145,6 +145,12 @@ function spp() {
 }
 
 # -----------------------------------------------------------------------------
+# PostgreSQL
+# -----------------------------------------------------------------------------
+alias startpostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+alias stoppostgres='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
+
+# -----------------------------------------------------------------------------
 # Completion
 # -----------------------------------------------------------------------------
 if [ -f `brew --prefix`/etc/bash_completion ]; then
