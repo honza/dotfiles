@@ -82,3 +82,6 @@
 [submodule "vim/bundle/haskell"]
 	path = vim/bundle/haskell
 	url = git://github.com/wlangstroth/vim-haskell.git
+[submodule "vim/bundle/tomorrow-night"]
+	path = vim/bundle/tomorrow-night
+	url = git://github.com/ChrisKempson/Vim-Tomorrow-Theme.git
