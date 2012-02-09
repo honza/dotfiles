@@ -51,8 +51,11 @@ set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
 set wildignore+=*.pyc                            " Python byte code
 set wildignore+=*.spl                            " compiled spelling word lists
 set wildignore+=*.sw?                            " Vim swap files
-set wildignore+=*.DS_Store?                      " OSX bullshitset wildignore+=.hg,.git,.svn
-set wildignore+=*.CACHE                          " django-compressor cache dir
+set wildignore+=*.DS_Store
+set wildignore+=*CACHE
+
+" Two spaces to end a sentence
+set cpoptions+=J
 
 set cursorline
 set nojoinspaces
@@ -200,11 +203,11 @@ nmap \ <Plug>CommentaryLine
 let g:ctrlp_working_path_mode = 0
 nmap <leader>f :ClearCtrlPCache<cr>
 
-hi link coffeeObject NONE
-hi link coffeeBracket NONE
-hi link coffeeCurly NONE
-hi link coffeeParen NONE
-hi link coffeeSpecialVar Identifier
+" hi link coffeeObject NONE
+" hi link coffeeBracket NONE
+" hi link coffeeCurly NONE
+" hi link coffeeParen NONE
+" hi link coffeeSpecialVar Identifier
 
 set background=dark
 colorscheme solarized
