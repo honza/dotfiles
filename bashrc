@@ -129,7 +129,8 @@ function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1]/"
 }
 
-export PS1="[\$(rvm-prompt) \$(ve)] \w \$(parse_git_branch) $ "
+# export PS1="[\$(rvm-prompt) \$(ve)] \w \$(parse_git_branch) $ "
+export PS1="[\$(ve)] \w \$(parse_git_branch) $ "
 
 # -----------------------------------------------------------------------------
 # Notifiers
