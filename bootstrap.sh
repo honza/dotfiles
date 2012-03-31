@@ -21,31 +21,35 @@ if [ ! -d "$GITHUB" ]; then
     mkdir $GITHUB
 fi
 
-# git submodule init
-# git submodule update
+git submodule init
+git submodule update
 
 echo "Installing pip and virtualenv..."
-# sudo easy_install pip
-# sudo pip install virtualenv virtualenvwrapper
+sudo easy_install pip
+sudo pip install virtualenv virtualenvwrapper
 
 # rc files
-# ln -s $DOTFILES/vimrc $HOME/.vimrc
-# ln -s $DOTFILES/vim $HOME/.vim
-# ln -s $DOTFILES/bashrc $HOME/.bashrc
-# ln -s $DOTFILES/ackrc $HOME/.ackrc
+ln -s $DOTFILES/vimrc $HOME/.vimrc
+ln -s $DOTFILES/vim $HOME/.vim
+ln -s $DOTFILES/bashrc $HOME/.bashrc
+ln -s $DOTFILES/ackrc $HOME/.ackrc
+
+mkdir -p $DOTFILES/vim/tmp/swap
+mkdir -p $DOTFILES/vim/tmp/backup
+mkdir -p $DOTFILES/vim/tmp/undo
 
 # # ssh
-# ln -s $DROPBOX/SSH/config $HOME/.ssh/config
-# cp $DROPBOX/SSH/honza $HOME/.ssh/honza
-# cp $DROPBOX/SSH/honza.pub $HOME/.ssh/honza.pub
+ln -s $DROPBOX/SSH/config $HOME/.ssh/config
+cp $DROPBOX/SSH/honza $HOME/.ssh/honza
+cp $DROPBOX/SSH/honza.pub $HOME/.ssh/honza.pub
 
 # # git
-# ln -s $DROPBOX/SSH/gitconfig $HOME/gitconfig
+ln -s $DROPBOX/SSH/gitconfig $HOME/.gitconfig
 
-# cd $GITHUB && git clone git://github.com/joyent/node.git
-# cd $GITHUB/node && ./configure && make && make install
+source $HOME/.bashrc
+
+cd $GITHUB && git clone git://github.com/joyent/node.git
+cd $GITHUB/node && ./configure && make && make install
 
 npm install -g coffee-script
 npm install -g uglify-js
-
-source $HOME/.bashrc
