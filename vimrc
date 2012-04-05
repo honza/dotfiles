@@ -212,6 +212,12 @@ nmap <leader>f :ClearCtrlPCache<cr>
 " hi link coffeeParen NONE
 " hi link coffeeSpecialVar Identifier
 
+" Send visual selection to gist.honza.ca (custom sprunge.us)
+" - places gist url to clipboard
+" via @dotvimrc
+" https://github.com/honza/heroku-sprunge
+vnoremap <leader>S :w !curl -sF 'sprunge=<-' 'http://gist.honza.ca' \| pbcopy<cr>
+
 set background=dark
 colorscheme solarized
 syntax enable
