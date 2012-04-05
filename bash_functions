@@ -1,5 +1,3 @@
-set -e
-
 function ghpage() {
     SUNDOWN=$HOME/Github/sundown/sundown;
     echo '
