@@ -85,3 +85,6 @@
 [submodule "vim/bundle/tomorrow-night"]
 	path = vim/bundle/tomorrow-night
 	url = git://github.com/ChrisKempson/Vim-Tomorrow-Theme.git
+[submodule "vim/bundle/clojure"]
+	path = vim/bundle/clojure
+	url = git://github.com/vim-scripts/VimClojure.git
