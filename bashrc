@@ -28,6 +28,7 @@ alias envs='cd $WORKON_HOME'
 # alias s="find . -name '.git' -prune -o -type f -print0 | xargs -0 sed -i ''"
 alias e='tar xzvf'
 alias fv='fab -R vagrant'
+alias gist='curl -F "sprunge=<-" http://gist.honza.ca'
 
 function prettyjson() {
     python -mjson.tool
