@@ -4,6 +4,7 @@
 # copy required files.
 #
 # Requires git and Dropbox
+# This should be run from the default login shell
 
 set -e
 set -u
@@ -39,6 +40,7 @@ mkdir -p $DOTFILES/vim/tmp/backup
 mkdir -p $DOTFILES/vim/tmp/undo
 
 # # ssh
+mkdir $HOME/.ssh
 ln -s $DROPBOX/SSH/config $HOME/.ssh/config
 cp $DROPBOX/SSH/honza $HOME/.ssh/honza
 cp $DROPBOX/SSH/honza.pub $HOME/.ssh/honza.pub
