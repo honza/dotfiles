@@ -1,3 +1,4 @@
+DOTFILES=$HOME/dotfiles
 # -----------------------------------------------------------------------------
 # Environment
 # -----------------------------------------------------------------------------
@@ -7,7 +8,7 @@ export PIP_DOWNLOAD_CACHE="$HOME/.pip/cache"
 # -----------------------------------------------------------------------------
 # virtualenv
 # -----------------------------------------------------------------------------
-export WORKON_HOME=~/Code/envs
+export WORKON_HOME=$HOME/Code/envs
 source /usr/local/bin/virtualenvwrapper.sh
 
 # -----------------------------------------------------------------------------
@@ -18,20 +19,19 @@ alias l='ls'
 alias c='echo "Use Ctrl-L"' # haha!
 alias du='du -sh'
 alias fn='find . -name'
-alias sb='source ~/.bashrc'
+alias sb='source $HOME/.bashrc'
 alias f='fab'
 alias fv='fab -R vagrant'
-alias envs='cd ~/Code/envs'
+alias envs='cd $WORKON_HOME'
 # Recursive sed
 # alias s="find . -path './.git' -prune -o -type f -print0 | xargs -0 sed -i ''"
-alias s="find . -name '.git' -prune -o -type f -print0 | xargs -0 sed -i ''"
+# alias s="find . -name '.git' -prune -o -type f -print0 | xargs -0 sed -i ''"
 alias e='tar xzvf'
 alias fv='fab -R vagrant'
 
 function prettyjson() {
     python -mjson.tool
 }
-alias dv='dvtm -m "^f"'
 alias goawayswapfilesyouareswapfilesidontevenneedyou='rm ~/.vim/tmp/swap/*'
 
 # -----------------------------------------------------------------------------
@@ -57,60 +57,13 @@ alias rrun="rm dev.db ; sync --noinput ; m migrate; m createsuperuser --user=hon
 # -----------------------------------------------------------------------------
 alias t='~/dotfiles/todo.txt/todo.sh'
 
-# -----------------------------------------------------------------------------
-# clitwi
-# -----------------------------------------------------------------------------
-alias n='python ~/.clitwi/main.py | less'
-
 export PATH=/usr/local/bin:$PATH
 export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:/usr/texbin
 
 # -----------------------------------------------------------------------------
-# ssh
-# -----------------------------------------------------------------------------
-alias sshw='mv ~/.ssh/id_* ~/.ssh/home/. ; mv ~/.ssh/known* ~/.ssh/home/. ; mv ~/.ssh/work/* ~/.ssh/. ;'
-alias sshh='mv ~/.ssh/id_* ~/.ssh/work/. ; mv ~/.ssh/known* ~/.ssh/work/. ; mv ~/.ssh/home/* ~/.ssh/. ;'
-
-# -----------------------------------------------------------------------------
-# LaTex
-# -----------------------------------------------------------------------------
-function rn {
-    # Rename file extension
-    # Usage: rn txt rst
-    for f in $(find . -name "*$1");
-    do
-        mv $f `echo $f | sed 's/txt$/rst/'`
-    done;
-}
-
-# templates
-function lt {
-    loc=~/Dropbox/Templates/
-    if [ $1 ]
-    then
-        if [ $1 == "simple" ]
-        then
-            p="$loc"simple.tex
-        elif [ $1 == "letter" ]
-        then
-            p="$loc"letter.tex
-        else
-            echo "don't know this type"
-        fi
-        cp $p .
-    else
-        echo "You need an argument. Either 'simple' or 'letter'."
-        return
-    fi
-}
-
-# -----------------------------------------------------------------------------
 # Prompt
 # -----------------------------------------------------------------------------
-
-export CLICOLOR=1
-export LSCOLORS=DxBAcxdxCxegedabagacBA
 
 # Prompt stuff
 export VIRTUAL_ENV_DISABLE_PROMPT=1
@@ -122,15 +75,13 @@ function ve () {
 
     x=`basename $VIRTUAL_ENV`
     echo "$x"
-
 }
 
 function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1]/"
 }
 
-# export PS1="[\$(rvm-prompt) \$(ve)] \w \$(parse_git_branch) $ "
-export PS1="[\$(ve)] \w \$(parse_git_branch) $ "
+export PS1="\$(ve) \w \$(parse_git_branch) $ "
 
 # -----------------------------------------------------------------------------
 # Notifiers
@@ -159,95 +110,17 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
 fi
 
 # -----------------------------------------------------------------------------
-# Github
-# -----------------------------------------------------------------------------
-
-function ghpage() {
-    SUNDOWN=$HOME/Github/sundown/sundown;
-    echo '
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Helvetica';
-}
-
-p, li {
-    font-family: 'Georgia';
-    font-size: 16px;
-    line-height: 140%;
-}
-
-#wrap {
-    width: 700px;
-    margin: 0 auto;
-}
-
-.left {
-    width: 420px;
-    padding-right: 55px;
-    float: left;
-}
-
-.right {
-    width: 225px;
-    float: right;
-}
-
-.normal {
-    clear:both;
-}
-
-#footer {
-    margin: 50px 0 20px;
-}
-#footer p {
-    text-align: center;
-    font-size: 12px;
-}
-' > style.css;
-    MARKDOWN=`$SUNDOWN index.md`;
-    HTML=`echo '
-<!doctype html>
-<html>
-<head>
-    <title>Honza Pokorny Project</title>
-    <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
-</head>
-<body>
-    <div id="wrap">
-    ';
-    echo $MARKDOWN;
-    echo '
-        </div>
-
-        <div id="footer">
-            <p>&copy; 2012 - Honza Pokorny - All rights reserved</p>
-        </div>
-
-    </div>
-</body>
-</html>
-    '`;
-
-
-    echo $HTML > index.html;
-};
-
-
-# -----------------------------------------------------------------------------
 # Other
 # -----------------------------------------------------------------------------
 
 # Stop telling me I have new mail
 unset MAILCHECK
 
-export SHELL=/usr/local/bin/bash
+# export SHELL=/usr/local/bin/bash
 export GREP_OPTIONS='--color=auto'
 
 export PATH=$PATH:$HOME/.rvm/bin
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
-# -----------------------------------------------------------------------------
-# Project specific, if available
-# -----------------------------------------------------------------------------
 if [[ -s $HOME/.bashrc_local ]] ; then source $HOME/.bashrc_local ; fi
+if [[ -s $DOTFILES/bash_functions ]] ; then source $DOTFILES/bash_functions ; fi
