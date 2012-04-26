@@ -124,7 +124,7 @@ map <leader>b :vs ~/.bashrc<CR><C-W>
 
 au FileType javascript setlocal tabstop=2 shiftwidth=2
 
-au FileType coffee setlocal tabstop=2 shiftwidth=2
+au FileType coffee setlocal tabstop=4 shiftwidth=4
 
 au BufNewFile,BufRead *.html setlocal filetype=htmldjango
 au FileType htmldjango setlocal textwidth=0
@@ -149,7 +149,7 @@ let g:tagbar_sort = 0
 let g:tagbar_ctags_bin="/usr/local/bin/ctags"
 nmap <leader>d :TagbarToggle<CR>
 
-" Don't displal manual
+" Don't display manual
 nnoremap K <nop>
 
 " Make vim able to edit crontab
@@ -217,6 +217,13 @@ nmap <leader>f :ClearCtrlPCache<cr>
 " via @dotvimrc
 " https://github.com/honza/heroku-sprunge
 vnoremap <leader>S :w !curl -sF 'sprunge=<-' 'http://gist.honza.ca' \| pbcopy<cr>
+
+" Space to toggle folds.
+nnoremap <Space> za
+vnoremap <Space> za
+
+" Toggle paste
+set pastetoggle=<F5>
 
 set background=dark
 colorscheme solarized

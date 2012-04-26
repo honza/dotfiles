@@ -89,4 +89,4 @@ function lt {
     fi
 }
 
-# vim:ft=sh
+# vim:filetype=sh:

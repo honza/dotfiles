@@ -2,3 +2,5 @@ vim/tmp/*
 vim/.netrwhist
 bashrc_local
 .DS_Store
+*.alias
+cache

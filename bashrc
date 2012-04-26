@@ -23,6 +23,10 @@ alias sb='source $HOME/.bashrc'
 alias f='fab'
 alias fv='fab -R vagrant'
 alias envs='cd $WORKON_HOME'
+alias smutt="$HOME/.mutt/offlineimap_sync.sh && mutt";
+alias ghcm='ghc --make -optl"-Wl,-read_only_relocs,suppress"'
+# $ proxyssh user@host
+alias proxyssh='ssh -D 8888 -f -C -q -N'
 # Recursive sed
 # alias s="find . -path './.git' -prune -o -type f -print0 | xargs -0 sed -i ''"
 # alias s="find . -name '.git' -prune -o -type f -print0 | xargs -0 sed -i ''"
@@ -82,7 +86,22 @@ function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1]/"
 }
 
-export PS1="\$(ve) \w \$(parse_git_branch) $ "
+
+function newmail() {
+    num=$(ls ~/Mail/Honza/INBOX/new ~/Mail/Gmail/INBOX/new ~/Mail/Pokorny/INBOX/new ~/Mail/Pculture/INBOX/new | wc -l | tr -d " ")
+    num=$(($num - 7))
+    if [ $num -ne "0" ];
+    then 
+        echo "[$num] - ";
+    fi
+}
+
+# yellow - \033[33m
+# blue - \033[34m
+# magenta - \033[35m
+# reset - \033[m
+
+export PS1="\033[35m\$(newmail)\033[m\033[33m\$(ve)\033[m \w \033[34m\$(parse_git_branch)\033[m $ "
 
 # -----------------------------------------------------------------------------
 # Notifiers
