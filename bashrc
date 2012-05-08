@@ -86,22 +86,12 @@ function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1]/"
 }
 
-
-function newmail() {
-    num=$(ls ~/Mail/Honza/INBOX/new ~/Mail/Gmail/INBOX/new ~/Mail/Pokorny/INBOX/new ~/Mail/Pculture/INBOX/new | wc -l | tr -d " ")
-    num=$(($num - 7))
-    if [ $num -ne "0" ];
-    then 
-        echo "[$num] - ";
-    fi
-}
-
 # yellow - \033[33m
 # blue - \033[34m
 # magenta - \033[35m
 # reset - \033[m
 
-export PS1="\033[35m\$(newmail)\033[m\033[33m\$(ve)\033[m \w \033[34m\$(parse_git_branch)\033[m $ "
+export PS1="\033[33m\$(ve)\033[m \w \033[34m\$(parse_git_branch)\033[m $ "
 
 # -----------------------------------------------------------------------------
 # Notifiers
