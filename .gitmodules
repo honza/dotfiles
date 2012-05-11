@@ -88,3 +88,6 @@
 [submodule "vim/bundle/clojure"]
 	path = vim/bundle/clojure
 	url = git://github.com/vim-scripts/VimClojure.git
+[submodule "vim/bundle/stylus"]
+	path = vim/bundle/stylus
+	url = git://github.com/wavded/vim-stylus.git

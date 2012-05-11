@@ -1,3 +1,4 @@
 --type-set=coffee=.coffee
 --type-set=scss=.scss
 --type-set=rst=.rst
+--type-set=styl=.styl
