@@ -92,6 +92,7 @@ function parse_git_branch {
 # reset - \033[m
 
 export PS1="\033[33m\$(ve)\033[m \w \033[34m\$(parse_git_branch)\033[m $ "
+export PS1="\[\033[33m\]\$(ve)\[\033[m\] \w \[\033[34m\]\$(parse_git_branch)\[\033[m\] $ "
 
 # -----------------------------------------------------------------------------
 # Notifiers
