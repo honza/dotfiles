@@ -34,6 +34,10 @@ alias e='tar xzvf'
 alias fv='fab -R vagrant'
 alias gist='curl -F "sprunge=<-" http://gist.honza.ca'
 
+# ack
+alias cack='ack --type=coffee'
+alias pack='ack --type=python'
+
 function prettyjson() {
     python -mjson.tool
 }
@@ -65,6 +69,7 @@ alias t='~/dotfiles/todo.txt/todo.sh'
 export PATH=/usr/local/bin:$PATH
 export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:/usr/texbin
+export PATH=$PATH:$HOME/.cabal/bin
 
 # -----------------------------------------------------------------------------
 # Prompt
