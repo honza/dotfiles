@@ -2,7 +2,7 @@ DOTFILES=$HOME/dotfiles
 # -----------------------------------------------------------------------------
 # Environment
 # -----------------------------------------------------------------------------
-export EDITOR='vim'
+export EDITOR='mvim -v'
 export PIP_DOWNLOAD_CACHE="$HOME/.pip/cache"
 
 # -----------------------------------------------------------------------------
@@ -38,11 +38,21 @@ alias gist='curl -F "sprunge=<-" http://gist.honza.ca'
 alias cack='ack --type=coffee'
 alias pack='ack --type=python'
 
+# tmux
+alias new='tmux new -s'
+
+
 function prettyjson() {
     python -mjson.tool
 }
 alias goawayswapfilesyouareswapfilesidontevenneedyou='rm ~/.vim/tmp/swap/*'
+alias vim='mvim -v'
 
+function psg {
+    ps auxww | grep --color=always $* | grep -v grep | sed -e 's/  */ /g' | cut -d' ' -f 2,11-
+}
+
+source $HOME/dotfiles/z/z.sh
 # -----------------------------------------------------------------------------
 # Git
 # -----------------------------------------------------------------------------
@@ -51,6 +61,8 @@ alias gits='clear; git status'
 alias gitchart="git shortlog --numbered --summary"
 alias gitg='git log --oneline --graph'
 alias gall='git submodule foreach git pull'
+alias gplo='git pull --rebase origin'
+alias gpso='git push origin'
 
 # -----------------------------------------------------------------------------
 # Python & Django
