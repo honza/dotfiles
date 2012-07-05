@@ -23,6 +23,12 @@ set hidden
 set nowrap        " don't wrap lines
 set tabstop=4     " a tab is four spaces
 set backspace=indent,eol,start
+set ttyfast
+set lazyredraw
+set splitbelow
+set splitright
+set title
+set completeopt=longest,menuone,preview
                   " allow backspacing over everything in insert mode
 set autoindent    " always set autoindenting on
 set copyindent    " copy the previous indentation on autoindenting
@@ -52,7 +58,8 @@ set wildignore+=*.pyc                            " Python byte code
 set wildignore+=*.spl                            " compiled spelling word lists
 set wildignore+=*.sw?                            " Vim swap files
 set wildignore+=*.DS_Store
-set wildignore+=*CACHE
+set wildignore+=*.rdb                            " Redis database file
+set wildignore+=*CACHE                           " django compressor cache
 
 " Two spaces to end a sentence
 set cpoptions+=J
@@ -64,6 +71,7 @@ set undodir=~/.vim/tmp/undo//     " undo files
 set backupdir=~/.vim/tmp/backup// " backups
 set directory=~/.vim/tmp/swap//   " swap files
 set backup                        " enable backups
+set noswapfile                    " It's 2012, Vim.
 
 filetype on
 filetype plugin on
@@ -82,11 +90,11 @@ nnoremap k gk
 " Remap : to ;
 nnoremap ; :
 
+" Fix syntax highlighting
+nnoremap <leader>u :syntax sync fromstart<cr>:redraw!<cr>
+
 " Save on lose focus
 au FocusLost * :wa
-
-" Run Python script through PEP8
-map <buffer> <leader>p :w<CR>:!pep8 % <CR>
 
 " Easy window navigation
 map <C-h> <C-w>h
@@ -223,7 +231,7 @@ nnoremap <Space> za
 vnoremap <Space> za
 
 " Toggle paste
-set pastetoggle=<F5>
+set pastetoggle=<F9>
 
 let g:pymode_doc = 1
 let g:pymode_doc_key = '<localleader>ds'
@@ -261,6 +269,10 @@ let g:pymode_rope_guess_project = 1
 let g:pymode_rope_goto_def_newwin = 0
 let g:pymode_rope_always_show_complete_menu = 0
 
+autocmd FileType clojure set commentstring=;;\ %s
+
 set background=dark
 colorscheme solarized
+" colorscheme badwolf
+" colorscheme Tomorrow-Night-Bright
 syntax enable
