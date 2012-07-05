@@ -2,3 +2,4 @@
 --type-set=scss=.scss
 --type-set=rst=.rst
 --type-set=styl=.styl
+--smart-case
