@@ -23,7 +23,6 @@ alias sb='source $HOME/.bashrc'
 alias f='fab'
 alias fv='fab -R vagrant'
 alias envs='cd $WORKON_HOME'
-alias smutt="$HOME/.mutt/offlineimap_sync.sh && mutt";
 alias ghcm='ghc --make -optl"-Wl,-read_only_relocs,suppress"'
 # $ proxyssh user@host
 alias proxyssh='ssh -D 8888 -f -C -q -N'
@@ -37,6 +36,8 @@ alias gist='curl -F "sprunge=<-" http://gist.honza.ca'
 # ack
 alias cack='ack --type=coffee'
 alias pack='ack --type=python'
+
+alias offline='offlineimap -qf INBOX; notmuch new'
 
 # tmux
 alias new='tmux new -s'
@@ -60,7 +61,7 @@ alias gitl='git log --pretty=format:"%h - %an, %ar : %s"'
 alias gits='clear; git status'
 alias gitchart="git shortlog --numbered --summary"
 alias gitg='git log --oneline --graph'
-alias gall='git submodule foreach git pull'
+alias gall='git submodule foreach git pull origin master'
 alias gplo='git pull --rebase origin'
 alias gpso='git push origin'
 
@@ -82,6 +83,7 @@ export PATH=/usr/local/bin:$PATH
 export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:/usr/texbin
 export PATH=$PATH:$HOME/.cabal/bin
+export PATH=$PATH:$HOME/bin
 
 # -----------------------------------------------------------------------------
 # Prompt
