@@ -7,9 +7,6 @@
 [submodule "vim/bundle/haml"]
 	path = vim/bundle/haml
 	url = git://github.com/tpope/vim-haml.git
-[submodule "vim/bundle/markdown"]
-	path = vim/bundle/markdown
-	url = git://github.com/tpope/vim-markdown.git
 [submodule "vim/bundle/solarized"]
 	path = vim/bundle/solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
@@ -103,3 +100,6 @@
 [submodule "z"]
 	path = z
 	url = git://github.com/rupa/z.git
+[submodule "vim/bundle/markdown"]
+	path = vim/bundle/markdown
+	url = git://github.com/plasticboy/vim-markdown.git
