@@ -130,7 +130,7 @@ map <silent> <leader>V :source ~/.vimrc<CR>
 " Editing .bashrc
 map <leader>b :vs ~/.bashrc<CR><C-W>
 
-au FileType javascript setlocal tabstop=2 shiftwidth=2
+au FileType javascript setlocal tabstop=4 shiftwidth=4
 
 au FileType coffee setlocal tabstop=4 shiftwidth=4
 
@@ -168,8 +168,8 @@ au Filetype rst nnoremap <buffer> <localleader>2 yypVr-
 au Filetype rst nnoremap <buffer> <localleader>3 yypVr~
 au Filetype rst nnoremap <buffer> <localleader>4 yypVr`
 
-au Filetype markdown nnoremap <buffer> <localleader>1 yypVr=
-au Filetype markdown nnoremap <buffer> <localleader>2 yypVr-
+au Filetype mkd nnoremap <buffer> <localleader>1 yypVr=
+au Filetype mkd nnoremap <buffer> <localleader>2 yypVr-
 
 " Keep splits sized properly
 au VimResized * exe "normal! \<cw>="
@@ -270,6 +270,17 @@ let g:pymode_rope_goto_def_newwin = 0
 let g:pymode_rope_always_show_complete_menu = 0
 
 autocmd FileType clojure set commentstring=;;\ %s
+
+augroup ft_javascript
+    au!
+
+    au FileType javascript setlocal foldmethod=marker
+    au FileType javascript setlocal foldmarker={,}
+
+    " Make {<cr> insert a pair of brackets in such a way that the cursor is correctly
+    " positioned inside of them AND the following code doesn't get unfolded.
+    " au Filetype javascript inoremap <buffer> {<cr> {}<left><cr><space><space><space><space>.<cr><esc>kA<bs>
+augroup END
 
 set background=dark
 colorscheme solarized
