@@ -4,3 +4,4 @@ bashrc_local
 .DS_Store
 *.alias
 cache
+offlineimap.conf

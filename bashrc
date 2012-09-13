@@ -32,6 +32,7 @@ alias proxyssh='ssh -D 8888 -f -C -q -N'
 alias e='tar xzvf'
 alias fv='fab -R vagrant'
 alias gist='curl -F "sprunge=<-" http://gist.honza.ca'
+alias copy='pbcopy'
 
 # ack
 alias cack='ack --type=coffee'
@@ -57,7 +58,7 @@ source $HOME/dotfiles/z/z.sh
 # -----------------------------------------------------------------------------
 # Git
 # -----------------------------------------------------------------------------
-alias gitl='git log --pretty=format:"%h - %an, %ar : %s"'
+alias gitl="$(which git) log --pretty=format:'%h - %an, %ar : %s'"
 alias gits='clear; git status'
 alias gitchart="git shortlog --numbered --summary"
 alias gitg='git log --oneline --graph'
@@ -110,8 +111,11 @@ function parse_git_branch {
 # magenta - \033[35m
 # reset - \033[m
 
-export PS1="\033[33m\$(ve)\033[m \w \033[34m\$(parse_git_branch)\033[m $ "
+# export PS1="\033[33m\$(ve)\033[m \w \033[34m\$(parse_git_branch)\033[m $ "
 export PS1="\[\033[33m\]\$(ve)\[\033[m\] \w \[\033[34m\]\$(parse_git_branch)\[\033[m\] $ "
+
+# export PS1="\$(ve) \w \$(parse_git_branch) $ "
+# export PS1="$ "
 
 # -----------------------------------------------------------------------------
 # Notifiers

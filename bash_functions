@@ -89,38 +89,4 @@ function lt {
     fi
 }
 
-# git wrapper
-# ===========
-# git pull and git push should always use the current branch
-# git pull will always use --rebase
-
-function git() {
-
-    REAL_GIT=$(which git)
-    BRANCH=$($REAL_GIT branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1/")
-
-    # If there is more than one parameter, proceed with normal git
-    if [ $# -gt 0 ]
-    then
-        $REAL_GIT $@
-        return
-    fi
-
-    # Check if the only argument is "push" or "pull"
-    if [ $1 ]
-    then
-        if [ $1 == "pull" ]
-        then
-            "$REAL_GIT pull --rebase origin $BRANCH"
-        elif [ $1 == "push" ]
-        then
-            "$REAL_GIT push origin $BRANCH"
-        else
-            $REAL_GIT
-        fi
-    else
-        $REAL_GIT
-    fi
-}
-
 # vim:filetype=sh:
