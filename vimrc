@@ -147,7 +147,8 @@ let g:syntastic_enable_signs=1
 let g:snips_author="Honza Pokorny"
 
 " Status line stuff
-set statusline=%F%m%r%h%w%=%{fugitive#statusline()}%y\[%l\/%L,%c]
+set statusline=%F%h%m%r%h%w%=%{\"[\".(&fenc==\"\"?&enc:&fenc).\"]\\"}%k\%=%{fugitive#statusline()}%y\[%l\/%L,%c]
+
 set laststatus=2
 
 set scrolloff=3
@@ -281,6 +282,8 @@ augroup ft_javascript
     " positioned inside of them AND the following code doesn't get unfolded.
     " au Filetype javascript inoremap <buffer> {<cr> {}<left><cr><space><space><space><space>.<cr><esc>kA<bs>
 augroup END
+
+au FileType mkd setlocal foldmethod=manual
 
 set background=dark
 colorscheme solarized
