@@ -2,8 +2,9 @@ DOTFILES=$HOME/dotfiles
 # -----------------------------------------------------------------------------
 # Environment
 # -----------------------------------------------------------------------------
-export EDITOR='mvim -v'
+export EDITOR='vim'
 export PIP_DOWNLOAD_CACHE="$HOME/.pip/cache"
+alias vim='vim'  # Override
 
 # -----------------------------------------------------------------------------
 # virtualenv
@@ -16,7 +17,6 @@ source /usr/local/bin/virtualenvwrapper.sh
 # -----------------------------------------------------------------------------
 alias ls='ls -h'
 alias l='ls'
-alias c='echo "Use Ctrl-L"' # haha!
 alias du='du -sh'
 alias fn='find . -name'
 alias sb='source $HOME/.bashrc'
@@ -48,7 +48,6 @@ function prettyjson() {
     python -mjson.tool
 }
 alias goawayswapfilesyouareswapfilesidontevenneedyou='rm ~/.vim/tmp/swap/*'
-alias vim='mvim -v'
 
 function psg {
     ps auxww | grep --color=always $* | grep -v grep | sed -e 's/  */ /g' | cut -d' ' -f 2,11-
@@ -85,6 +84,8 @@ export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:/usr/texbin
 export PATH=$PATH:$HOME/.cabal/bin
 export PATH=$PATH:$HOME/bin
+export PATH=/usr/local/share/python:$PATH
+export PATH=/usr/local/Cellar/ruby/1.9.3-p194/bin:$PATH
 
 # -----------------------------------------------------------------------------
 # Prompt
@@ -122,7 +123,7 @@ export PS1="\[\033[33m\]\$(ve)\[\033[m\] \w \[\033[34m\]\$(parse_git_branch)\[\0
 # -----------------------------------------------------------------------------
 function grr() {
     $*
-    growlnotify -m "'$*' finished"
+    terminal-notifier -title "Finished" -message "'$*' finished"
 }
 
 function spp() {
