@@ -33,15 +33,19 @@ alias e='tar xzvf'
 alias fv='fab -R vagrant'
 alias gist='curl -F "sprunge=<-" http://gist.honza.ca'
 alias copy='pbcopy'
+alias fin="open $HOME/Dropbox/Documents/finances.ods"
+
 
 # ack
 alias cack='ack --type=coffee'
 alias pack='ack --type=python'
 
 alias offline='offlineimap -qf INBOX; notmuch new'
+alias ios='open -a "iPhone Simulator.app"'
 
 # tmux
 alias new='tmux new -s'
+alias att='tmux attach -t'
 
 
 function prettyjson() {
@@ -107,16 +111,12 @@ function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1]/"
 }
 
-# yellow - \033[33m
-# blue - \033[34m
-# magenta - \033[35m
-# reset - \033[m
+c_yellow="\033[33m"
+c_blue="\033[34m"
+c_magenta="\033[35m"
+c_reset="\033[m"
 
-# export PS1="\033[33m\$(ve)\033[m \w \033[34m\$(parse_git_branch)\033[m $ "
-export PS1="\[\033[33m\]\$(ve)\[\033[m\] \w \[\033[34m\]\$(parse_git_branch)\[\033[m\] $ "
-
-# export PS1="\$(ve) \w \$(parse_git_branch) $ "
-# export PS1="$ "
+export PS1="$c_yellow\$(ve)$c_reset \w $c_blue\$(parse_git_branch)$c_reset $ "
 
 # -----------------------------------------------------------------------------
 # Notifiers
