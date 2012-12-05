@@ -111,10 +111,10 @@ function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1]/"
 }
 
-c_yellow="\033[33m"
-c_blue="\033[34m"
-c_magenta="\033[35m"
-c_reset="\033[m"
+c_yellow="\[\033[33m\]"
+c_blue="\[\033[34m\]"
+c_magenta="\[\033[35m\]"
+c_reset="\[\033[m\]"
 
 export PS1="$c_yellow\$(ve)$c_reset \w $c_blue\$(parse_git_branch)$c_reset $ "
 
