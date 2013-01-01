@@ -20,6 +20,7 @@ alias fv 'fab -R vagrant'
 alias gist 'curl -F "sprunge=<-" http://gist.honza.ca'
 alias copy 'pbcopy'
 alias fin "open $HOME/Dropbox/Documents/finances.ods"
+alias sub "subliminal -l en"
 
 # ack
 alias cack 'ack --type=coffee'
@@ -53,6 +54,9 @@ alias rmpyc 'find . -name "*.pyc" -exec rm "{}" \;'
 alias m 'python manage.py'
 alias run 'python manage.py runserver'
 alias sync 'python manage.py syncdb'
+
+alias cuts "cut -d' '"
+alias collapse="sed -e 's/  */ /g'"
 
 function psg -d "Grep for a running process, returning its PID and full string"
     ps auxww | grep --color=always $argv | grep -v grep | collapse | cuts -f 2,11-
