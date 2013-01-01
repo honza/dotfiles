@@ -5,6 +5,7 @@ set -g -x PIP_DOWNLOAD_CACHE "$HOME/.pip/cache"
 set -g -x WORKON_HOME "$HOME/Code/envs"
 . ~/.config/fish/virtualenv.fish
 
+alias tm 'tmux -u2'
 alias g 'git'
 alias l 'ls'
 alias d 'du -sh'

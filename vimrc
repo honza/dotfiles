@@ -45,6 +45,7 @@ set incsearch     " show search matches as you type
 set textwidth=79  " wrap lines at 79 characters
 set relativenumber
 set autoread      " Reload the files if they changed on disk!
+set shell=/bin/bash\ --login
 
 " wild menu completion
 set wildmenu
@@ -115,6 +116,12 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 " HTML tag folding
 nnoremap <leader>ft Vatzf
+
+function! g:CopyTheTextPlease()
+    normal! gv
+    silent '<,'>w !pbcopy
+endfunction
+vnoremap <leader>y :<c-u>call g:CopyTheTextPlease()<cr>
 
 " Toggle whitespace characters
 nmap <leader>l :set list!<cr>

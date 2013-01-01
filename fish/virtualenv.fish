@@ -30,7 +30,7 @@ function workon -d "Activate virtual environment in $WORKON_HOME"
   end
 end
 
-complete -c workon -a "(cd $WORKON_HOME; ls -d *)"
+complete -c workon -a "(ls $WORKON_HOME)"
 
 function deactivate -d "Exit virtualenv and return to normal shell environment"
     # reset old environment variables
