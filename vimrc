@@ -64,6 +64,8 @@ set wildignore+=*CACHE                           " django compressor cache
 " Two spaces to end a sentence
 set cpoptions+=J
 
+set colorcolumn=80
+
 set cursorline
 set nojoinspaces
 
@@ -143,6 +145,7 @@ au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
 
 au BufNewFile,BufRead *.j setlocal filetype=objj
 let g:syntastic_enable_signs=1
+let g:syntastic_javascript_checker="jshint"
 
 let g:snips_author="Honza Pokorny"
 
@@ -213,6 +216,13 @@ nmap \ <Plug>CommentaryLine
 
 " ctrlp
 let g:ctrlp_working_path_mode = 0
+let g:ctrlp_extensions = ['tag']
+nnoremap <leader><cr> :silent !/usr/local/bin/ctags -R . && sed -i .bak -E -e '/^[^     ]+      [^      ]+.py   .+v$/d' tags<cr>:redraw!<cr>
+
+" Use c-\ to do c-] but open it in a new split.
+nnoremap <c-\> <c-w>v<c-]>zvzz
+
+nnoremap <leader>. :CtrlPTag<cr>
 nmap <leader>f :ClearCtrlPCache<cr>
 
 " hi link coffeeObject NONE
@@ -288,5 +298,6 @@ au FileType mkd setlocal foldmethod=manual
 set background=dark
 colorscheme solarized
 " colorscheme badwolf
-" colorscheme Tomorrow-Night-Bright
+" colorscheme Tomorrow-Night
+" set t_Co=256
 syntax enable
