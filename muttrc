@@ -1,3 +1,8 @@
+# Muttrc
+# ------
+#
+# Most of this has been "stolen" from Steve Losh
+
 # Paths 
 
 set alias_file       = ~/.mutt/alias         # alias file
