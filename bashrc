@@ -154,8 +154,5 @@ unset MAILCHECK
 # export SHELL=/usr/local/bin/bash
 export GREP_OPTIONS='--color=auto'
 
-export PATH=$PATH:$HOME/.rvm/bin
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-
 if [[ -s $HOME/.bashrc_local ]] ; then source $HOME/.bashrc_local ; fi
 if [[ -s $DOTFILES/bash_functions ]] ; then source $DOTFILES/bash_functions ; fi
