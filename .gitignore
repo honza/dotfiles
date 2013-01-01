@@ -5,3 +5,5 @@ bashrc_local
 *.alias
 cache
 offlineimap.conf
+mutt/alias
+mutt/temp

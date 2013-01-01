@@ -1,0 +1,2 @@
+set from = "Honza Pokorny <honza.pokorny@radonmetrics.ca>"
+set sendmail = "/usr/local/bin/msmtp -a radon"

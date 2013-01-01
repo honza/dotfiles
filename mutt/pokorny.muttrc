@@ -1,0 +1,2 @@
+set from = "honza@pokorny.ca"
+set sendmail = "/usr/local/bin/msmtp -a pokorny"
