@@ -1,12 +1,13 @@
+# vi: set ft=conf :
+
 set BROWSER open
 set -g -x fish_greeting ''
 set -g -x EDITOR vim
 set -g -x PIP_DOWNLOAD_CACHE "$HOME/.pip/cache"
 set -g -x WORKON_HOME "$HOME/Code/envs"
 . ~/.config/fish/virtualenv.fish
+. ~/.config/fish/local.fish
 
-alias tm 'tmux -u2'
-alias g 'git'
 alias l 'ls'
 alias d 'du -sh'
 alias fn 'find . -name'
@@ -31,15 +32,34 @@ alias offline 'offlineimap -qf INBOX; notmuch new'
 alias ios 'open -a "iPhone Simulator.app"'
 
 # tmux
+alias tm 'tmux -u2'
 alias new 'tmux new -s'
 alias att 'tmux attach -t'
 
 alias prettyjson "python -mjson.tool"
+
+function grr
+    # terminal-notifier -title "Finished" -message "'$argv' finished"
+end
+
+# -----------------------------------------------------------------------------
+# Vagrant
+# -----------------------------------------------------------------------------
+alias vu 'vagrant up'
+alias vs 'vagrant ssh'
+alias vh 'vagrant halt'
+
+# -----------------------------------------------------------------------------
+# Vim
+# -----------------------------------------------------------------------------
+alias ef 'vim ~/.config/fish/config.fish'
+alias v 'vim'
 alias goawayswapfilesyouareswapfilesidontevenneedyou 'rm ~/.vim/tmp/swap/*'
 
 # -----------------------------------------------------------------------------
 # Git
 # -----------------------------------------------------------------------------
+alias g 'git'
 alias gitl "git log --pretty=format:'%h - %an, %ar : %s'"
 alias gits 'clear; git status'
 alias gitchart "git shortlog --numbered --summary"
@@ -82,6 +102,7 @@ prepend_to_path "/usr/local/share/python"
 prepend_to_path "/usr/local/sbin"
 prepend_to_path "$HOME/bin"
 prepend_to_path "$HOME/dotfiles"
+prepend_to_path "$HOME/.cabal/bin"
 prepend_to_path "/opt/local/bin"
 prepend_to_path "/usr/local/Cellar/ruby/1.9.3-p194/bin"
 prepend_to_path "/Applications/Postgres.app/Contents/MacOS/bin"
