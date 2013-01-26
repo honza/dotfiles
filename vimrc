@@ -287,7 +287,9 @@ let g:pymode_rope_guess_project = 1
 let g:pymode_rope_goto_def_newwin = 0
 let g:pymode_rope_always_show_complete_menu = 0
 
+" Clojure
 autocmd FileType clojure set commentstring=;;\ %s
+au BufRead,BufNewFile *.cljs set ft=clojure
 
 augroup ft_javascript
     au!
