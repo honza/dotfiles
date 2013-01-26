@@ -112,3 +112,6 @@
 [submodule "vim/bundle/foreplay"]
 	path = vim/bundle/foreplay
 	url = git://github.com/tpope/vim-foreplay.git
+[submodule "vim/bundle/vim-clojure-static"]
+	path = vim/bundle/vim-clojure-static
+	url = git://github.com/guns/vim-clojure-static.git
