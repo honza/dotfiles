@@ -23,6 +23,7 @@ alias gist 'curl -F "sprunge=<-" http://gist.honza.ca'
 alias copy 'pbcopy'
 alias fin "open $HOME/Dropbox/Documents/finances.ods"
 alias sub "subliminal -l en"
+alias el "echo 'Eliška' | pbcopy"
 
 # ack
 alias cack 'ack --type=coffee'
