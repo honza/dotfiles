@@ -306,7 +306,5 @@ au FileType mkd setlocal foldmethod=manual
 
 set background=dark
 colorscheme solarized
-" colorscheme badwolf
-" colorscheme Tomorrow-Night
-" set t_Co=256
+set t_Co=256
 syntax enable
