@@ -1,0 +1,17 @@
+#!/bin/sh
+# Source: https://gist.github.com/nvie/5064055
+
+ENV="$1"
+shift 1
+ 
+VIRTUAL_ENV="${WORKON_HOME}/${ENV}"
+if [ ! -f "${VIRTUAL_ENV}/bin/python" ]; then
+    echo "No virtualenv named '$ENV'."
+    exit 2
+fi
+ 
+# Activate
+export VIRTUAL_ENV="$VIRTUAL_ENV"
+export PATH="$VIRTUAL_ENV/bin:$PATH"
+unset PYTHON_HOME
+exec "${@:-$SHELL}"
