@@ -291,6 +291,9 @@ let g:pymode_rope_always_show_complete_menu = 0
 autocmd FileType clojure set commentstring=;;\ %s
 au BufRead,BufNewFile *.cljs set ft=clojure
 
+" Golang
+autocmd FileType go set commentstring=//\ %s
+
 augroup ft_javascript
     au!
 
