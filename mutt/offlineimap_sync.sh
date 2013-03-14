@@ -1,4 +1,4 @@
-#/usr/bin/env bash
+#!/usr/bin/env bash
 
 PID=`cat ~/.offlineimap/pid`
 ps aux | grep "[ ]$PID" && kill $PID
