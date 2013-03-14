@@ -36,8 +36,11 @@ alias att 'tmux attach -t'
 
 alias prettyjson "python -mjson.tool"
 
+# Run a command and notify me when it's done
+# e.g. $ grr vagrant up
 function grr
-    # terminal-notifier -title "Finished" -message "'$argv' finished"
+    eval $argv
+    terminal-notifier -title "Finished" -message "'$argv' finished" >> /dev/null
 end
 
 # -----------------------------------------------------------------------------
