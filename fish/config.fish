@@ -1,11 +1,8 @@
-# vi: set ft=conf :
-
 set BROWSER open
 set -g -x fish_greeting ''
 set -g -x EDITOR vim
 set -g -x PIP_DOWNLOAD_CACHE "$HOME/.pip/cache"
 set -g -x WORKON_HOME "$HOME/Code/envs"
-. ~/.config/fish/virtualenv.fish
 . ~/.config/fish/local.fish
 
 alias l 'ls'
@@ -49,6 +46,7 @@ end
 alias vu 'vagrant up'
 alias vs 'vagrant ssh'
 alias vh 'vagrant halt'
+alias vss 'vagrant status'
 
 # -----------------------------------------------------------------------------
 # Vim
@@ -66,8 +64,6 @@ alias gits 'clear; git status'
 alias gitchart "git shortlog --numbered --summary"
 alias gitg 'git log --oneline --graph'
 alias gall 'git submodule foreach git pull origin master'
-alias gplo 'git pull --rebase origin'
-alias gpso 'git push origin'
 
 # -----------------------------------------------------------------------------
 # Python & Django

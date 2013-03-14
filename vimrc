@@ -195,6 +195,15 @@ nnoremap Q gqip
 " vagrant
 au BufRead,BufNewFile Vagrantfile set ft=ruby
 
+" fish
+augroup ft_fish
+    au!
+
+    au BufNewFile,BufRead *.fish setlocal filetype=fish
+
+    au FileType fish setlocal foldmethod=marker foldmarker={{{,}}}
+augroup END
+
 " Substitute
 nnoremap <leader>s :%s//g<left><left>
 
