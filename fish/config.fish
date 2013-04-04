@@ -2,6 +2,7 @@ set BROWSER open
 set -g -x fish_greeting ''
 set -g -x EDITOR vim
 set -g -x PIP_DOWNLOAD_CACHE "$HOME/.pip/cache"
+set -g -x PYTHONDONTWRITEBYTECODE 1
 set -g -x WORKON_HOME "$HOME/Code/envs"
 . ~/.config/fish/local.fish
 
@@ -21,6 +22,10 @@ alias copy 'pbcopy'
 alias fin "open $HOME/Dropbox/Documents/finances.ods"
 alias sub "subliminal -l en"
 alias el "echo 'Eliška' | pbcopy"
+
+function rgrep
+    grep -ir $argv *
+end
 
 # ack
 alias cack 'ack --type=coffee'
