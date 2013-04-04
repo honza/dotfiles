@@ -109,7 +109,6 @@ set spoolfile = "+aliases/honza"
 mailboxes +aliases/honza \
           +aliases/gmail \
           +aliases/pokorny \
-          +aliases/pculture \
           +aliases/radon \
           +aliases/wyatt
 
@@ -129,7 +128,6 @@ unset record
 folder-hook +aliases/honza source ~/.mutt/honza.muttrc
 folder-hook +aliases/pokorny source ~/.mutt/pokorny.muttrc
 folder-hook +aliases/gmail source ~/.mutt/gmail.muttrc
-folder-hook +aliases/pculture source ~/.mutt/pculture.muttrc
 folder-hook +aliases/radon source ~/.mutt/radon.muttrc
 folder-hook +aliases/wyatt source ~/.mutt/wyatt.muttrc
 
@@ -186,6 +184,9 @@ macro index a "<limit>all\n" "show all messages (undo limit)"
 
 # View
 bind attach <return> view-mailcap
+
+# Attach an epub version of the email
+macro compose E "<enter-command>unset wait_key<enter><shell-escape>~/bin/epubify<enter>"
 
 
 # "Open in Vim" 

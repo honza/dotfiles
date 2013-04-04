@@ -1,2 +1,0 @@
-set from = "honza@pculture.org"
-set sendmail = "/usr/local/bin/msmtp -a pculture"
