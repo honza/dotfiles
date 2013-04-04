@@ -1,0 +1,1 @@
+/Users/honza/.irssi/growl-message.py
