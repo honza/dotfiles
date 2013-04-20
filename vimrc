@@ -316,6 +316,9 @@ augroup END
 
 au FileType mkd setlocal foldmethod=manual
 
+" Remove trailing whitespace on save
+autocmd BufWritePre <buffer> :%s/\s\+$//e
+
 set background=dark
 colorscheme solarized
 set t_Co=256
