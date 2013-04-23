@@ -12,7 +12,7 @@ set vb
 set t_vb=
 
 " Pathogen
-call pathogen#runtime_append_all_bundles()
+call pathogen#incubate()
 
 " Change the leader to ,
 let mapleader = ","
