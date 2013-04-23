@@ -303,6 +303,9 @@ au BufRead,BufNewFile *.cljs set ft=clojure
 " Golang
 autocmd FileType go set commentstring=//\ %s
 
+" Fish
+autocmd FileType fish set commentstring=\#\ %s
+
 augroup ft_javascript
     au!
 
