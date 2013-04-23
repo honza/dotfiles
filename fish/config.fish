@@ -61,6 +61,7 @@ alias vss 'vagrant status'
 # -----------------------------------------------------------------------------
 alias ef 'vim ~/.config/fish/config.fish'
 alias v 'vim'
+alias ev 'vim ~/.vimrc'
 alias goawayswapfilesyouareswapfilesidontevenneedyou 'rm ~/.vim/tmp/swap/*'
 
 # -----------------------------------------------------------------------------
@@ -97,10 +98,13 @@ function prepend_to_path -d "Prepend the given dir to PATH if it exists and is n
         end
     end
 end
+
+
+set -gx PATH "/usr/bin"
+
 prepend_to_path "/sbin"
 prepend_to_path "/usr/sbin"
 prepend_to_path "/bin"
-prepend_to_path "/usr/bin"
 prepend_to_path "/usr/local/bin"
 prepend_to_path "/usr/local/share/python"
 prepend_to_path "/usr/local/sbin"
@@ -109,7 +113,7 @@ prepend_to_path "$HOME/dotfiles"
 prepend_to_path "$HOME/dotfiles/bin"
 prepend_to_path "$HOME/.cabal/bin"
 prepend_to_path "/opt/local/bin"
-prepend_to_path "/usr/local/Cellar/ruby/1.9.3-p194/bin"
+prepend_to_path "/usr/local/Cellar/ruby/2.0.0-p0/bin"
 prepend_to_path "/Applications/Postgres.app/Contents/MacOS/bin"
 prepend_to_path "/usr/texbin"
 
