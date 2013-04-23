@@ -97,9 +97,6 @@
 [submodule "vim/bundle/molokai"]
 	path = vim/bundle/molokai
 	url = git://github.com/tomasr/molokai.git
-[submodule "z"]
-	path = z
-	url = git://github.com/rupa/z.git
 [submodule "vim/bundle/markdown"]
 	path = vim/bundle/markdown
 	url = git://github.com/plasticboy/vim-markdown.git
