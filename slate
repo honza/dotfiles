@@ -1,0 +1,12 @@
+config windowHintsShowIcons true
+config windowHintsIgnoreHiddenWindows false
+config windowHintsSpread true
+
+bind e:cmd hint ASDFGHJKLQWERTYUIOPCVBN # use whatever keys you want
+
+alias hyper ctrl;shift;alt;cmd
+
+bind t:${hyper} focus 'Tweetbot'
+bind i:${hyper} focus 'iTerm'
+bind b:${hyper} focus 'Google Chrome'
+bind m:${hyper} focus 'Messages'
