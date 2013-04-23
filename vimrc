@@ -65,7 +65,7 @@ set wildignore+=*CACHE                           " django compressor cache
 " Two spaces to end a sentence
 set cpoptions+=J
 
-set colorcolumn=80
+set colorcolumn=80,73
 
 set cursorline
 set nojoinspaces
