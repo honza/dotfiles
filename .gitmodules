@@ -115,3 +115,9 @@
 [submodule "vim/bundle/fireplace"]
 	path = vim/bundle/fireplace
 	url = git://github.com/tpope/vim-fireplace.git
+[submodule "vim/bundle/americanize"]
+	path = vim/bundle/americanize
+	url = git@github.com:nelstrom/vim-americanize.git
+[submodule "vim/bundle/abolish"]
+	path = vim/bundle/abolish
+	url = git@github.com:tpope/vim-abolish.git
