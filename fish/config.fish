@@ -7,6 +7,7 @@ set -g -x WORKON_HOME "$HOME/Code/envs"
 . ~/.config/fish/local.fish
 
 alias l 'ls'
+alias ll 'ls -al'
 alias d 'du -sh'
 alias fn 'find . -name'
 alias sb '. $HOME/.config/fish/config.fish'
