@@ -2,12 +2,16 @@ set BROWSER open
 set -g -x fish_greeting ''
 set -g -x EDITOR vim
 set -g -x PIP_DOWNLOAD_CACHE "$HOME/.pip/cache"
-set -g -x PYTHONDONTWRITEBYTECODE 1
-set -g -x WORKON_HOME "$HOME/Code/envs"
+# set -g -x WORKON_HOME "$HOME/Code/envs"
+set -g -x VIRTUALFISH_HOME "$HOME/Code/envs"
+set -g -x VIRTUALFISH_COMPAT_ALIASES 1
+
+set -g -x VIRTUAL_ENV_DISABLE_PROMPT 1
+. ~/.config/fish/virtual.fish
 . ~/.config/fish/local.fish
 
 alias l 'ls'
-alias ll 'ls -al'
+alias ll 'ls -alh'
 alias d 'du -sh'
 alias fn 'find . -name'
 alias sb '. $HOME/.config/fish/config.fish'
@@ -20,7 +24,8 @@ alias e 'tar xzvf'
 alias fv 'fab -R vagrant'
 alias gist 'curl -F "sprunge=<-" http://gist.honza.ca'
 alias copy 'pbcopy'
-alias fin "open $HOME/Dropbox/Documents/finances.ods"
+alias fin "vim $HOME/Dropbox/Documents/finances.b"
+alias total "node $HOME/Dropbox/Code/budget.js/b.js $HOME/Dropbox/Documents/finances.b"
 alias sub "subliminal -l en"
 alias el "echo 'Eliška' | pbcopy"
 
