@@ -121,3 +121,6 @@
 [submodule "vim/bundle/abolish"]
 	path = vim/bundle/abolish
 	url = git@github.com:tpope/vim-abolish.git
+[submodule "vim/bundle/vim-clojure-conceal"]
+	path = vim/bundle/vim-clojure-conceal
+	url = git@github.com:honza/vim-clojure-conceal.git
