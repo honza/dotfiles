@@ -3,10 +3,6 @@ source ~/.vim/bundle/pathogen/autoload/pathogen.vim
 
 set nocompatible
 
-set guioptions=aAce
-set guifont=Droid\ Sans\ Mono:h12
-set linespace=-2
-
 " Silence please
 set vb
 set t_vb=
@@ -65,6 +61,7 @@ set wildignore+=*CACHE                           " django compressor cache
 " Two spaces to end a sentence
 set cpoptions+=J
 
+" TODO: Only add the 73 to Python files
 set colorcolumn=80,73
 
 set cursorline
@@ -152,12 +149,18 @@ au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
 
 au BufNewFile,BufRead *.j setlocal filetype=objj
 let g:syntastic_enable_signs=1
-let g:syntastic_javascript_checker="jshint"
+let g:syntastic_javascript_checkers=["jshint"]
+let g:syntastic_error_symbol='✗'
 
 let g:snips_author="Honza Pokorny"
 
 " Status line stuff
-set statusline=%F%h%m%r%h%w%=%{\"[\".(&fenc==\"\"?&enc:&fenc).\"]\\"}%k\%=%{fugitive#statusline()}%y\[%l\/%L,%c]
+set statusline=%F   " Full path to file
+set statusline+=%h  " Help buffer flag, e.g. [Help]
+set statusline+=%m  " Modified flag
+set statusline+=%r  " Read only flag
+set statusline+=%w  " Preview window flag
+set statusline+=%=%{\"[\".(&fenc==\"\"?&enc:&fenc).\"]\\"}%k\%=%{fugitive#statusline()}%y\[%l\/%L,%c]
 
 set laststatus=2
 
@@ -320,9 +323,9 @@ augroup END
 au FileType mkd setlocal foldmethod=manual
 
 " Remove trailing whitespace on save
-autocmd BufWritePre <buffer> :%s/\s\+$//e
+" autocmd BufWritePre <buffer> :%s/\s\+$//e
 
+syntax enable
 set background=dark
 colorscheme solarized
 set t_Co=256
-syntax enable
