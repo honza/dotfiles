@@ -2,22 +2,12 @@ snippet shebang
 	#!/usr/bin/env python
 snippet imp
 	import ${1:module}
+snippet d
+	print dir(${1})
 snippet for
 	for ${1:needle} in ${2:haystack}:
 		${3:# code...}
-# New Class
-snippet cl
-	class ${1:ClassName}(${2:object}):
-		"""${3:docstring for $1}"""
-		def __init__(self, ${4:arg}):
-			${5:super($1, self).__init__()}
-			self.$4 = $4
-			${6}
 # New Function
-snippet deff
-	def ${1:fname}(${2:`indent('.') ? 'self' : ''`}):
-		"""${3:docstring for $1}"""
-		${4:pass}
 snippet def
 	def ${1:fname}(${2:`indent('.') ? 'self' : ''`}):
 		${3}
