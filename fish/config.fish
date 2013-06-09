@@ -69,6 +69,7 @@ alias ef 'vim ~/.config/fish/config.fish'
 alias v 'vim'
 alias ev 'vim ~/.vimrc'
 alias goawayswapfilesyouareswapfilesidontevenneedyou 'rm ~/.vim/tmp/swap/*'
+alias emacs 'vim'
 
 # -----------------------------------------------------------------------------
 # Git
