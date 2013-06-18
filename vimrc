@@ -163,7 +163,8 @@ set statusline+=%h  " Help buffer flag, e.g. [Help]
 set statusline+=%m  " Modified flag
 set statusline+=%r  " Read only flag
 set statusline+=%w  " Preview window flag
-set statusline+=%=%{\"[\".(&fenc==\"\"?&enc:&fenc).\"]\\"}%k\%=%{fugitive#statusline()}%y\[%l\/%L,%c]
+set statusline+=%=%{\"[\".(&fenc==\"\"?&enc:&fenc).\"]\\"}%k\%=%{fugitive#statusline()}
+set statusline+=%y\[%l\/%L,%c] " file type, line num, num lines, col num
 
 set laststatus=2
 
