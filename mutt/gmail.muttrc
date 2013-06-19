@@ -1,2 +1,4 @@
 set from = "pokorny.honza@gmail.com"
 set sendmail = "/usr/local/bin/msmtp -a gmail"
+
+source ~/.mutt/crypto.muttrc

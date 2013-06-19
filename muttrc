@@ -1,9 +1,12 @@
+set smime_keys="~/.smime/keys"
+set smime_certificates="~/.smime/certificates"
+set smime_ca_location="~/.smime/strata.pem"
 # Muttrc
 # ------
 #
 # Most of this has been "stolen" from Steve Losh
 
-# Paths 
+# Paths
 
 set alias_file       = ~/.mutt/alias         # alias file
 set header_cache     = ~/.mutt/cache/headers # where to store headers
@@ -14,18 +17,19 @@ set signature        = ~/.mutt/sig           # my signature file
 set tmpdir           = ~/.mutt/temp          # where to keep temp files
 
 # Use Vim to compose email, with a few default options.
-set editor = "vim -c 'normal! }' -c 'redraw'"
+set editor = "vim -c 'normal! }' -c 'redraw' -c 'set spell'"
 
-# Contacts 
+# Contacts
 
 # Use the OS X address book
 set query_command = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
 bind editor <Tab> complete-query
 bind editor ^T    complete
 
-# Basic Options 
+# Basic Options
 
 source ~/.mutt/mutt-colors-solarized-dark-16.muttrc
+# source ~/.mutt/tomorrow.muttrc
 source ~/.mutt/sidebar.muttrc                        # sidebar
 
 set wait_key = no        # shut up, mutt
@@ -44,13 +48,13 @@ set thorough_search      # strip headers and eval mimes before searching
 auto_view text/html
 
 
-# Status Bar 
+# Status Bar
 
 set status_chars  = " *%A"
 set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
 
 
-# Index View Options 
+# Index View Options
 
 set date_format = "%Y-%m-%d %H:%M"
 set index_format = "[%Z]  %D  %-20.20F  %s"
@@ -61,7 +65,7 @@ set sort_re                                # thread based on regex
 set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 
 
-# Pager View Options 
+# Pager View Options
 
 set pager_index_lines = 10 # number of index lines to show
 set pager_context = 3      # number of context lines to show
@@ -73,7 +77,7 @@ set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
 alternative_order text/plain text/enriched text/html
 
 
-# Compose View Options 
+# Compose View Options
 
 set realname = "Honza Pokorny"       # who am i?
 set envelope_from                    # which from?
@@ -93,14 +97,14 @@ set include                          # include message in replies
 set forward_quote                    # include message in forwards
 
 
-# Headers 
+# Headers
 
 ignore *                                # ignore all headers
 unignore from: to: cc: date: subject:   # show only these
 hdr_order from: to: cc: date: subject:  # and in this order
 
 
-# honza.ca 
+# honza.ca
 
 # Default inbox.
 set spoolfile = "+aliases/honza"
@@ -110,6 +114,7 @@ mailboxes +aliases/honza \
           +aliases/gmail \
           +aliases/pokorny \
           +aliases/radon \
+          +aliases/strata \
           +aliases/wyatt
 
 # Other special folders.
@@ -123,24 +128,25 @@ set sendmail_wait = 0 # no please don't silently fail, email is important
 unset record
 
 
-# Account Hooks 
+# Account Hooks
 
 folder-hook +aliases/honza source ~/.mutt/honza.muttrc
 folder-hook +aliases/pokorny source ~/.mutt/pokorny.muttrc
 folder-hook +aliases/gmail source ~/.mutt/gmail.muttrc
 folder-hook +aliases/radon source ~/.mutt/radon.muttrc
+folder-hook +aliases/strata source ~/.mutt/strata.muttrc
 folder-hook +aliases/wyatt source ~/.mutt/wyatt.muttrc
 
-# Key Bindings 
+# Key Bindings
 
-# Unbind Stupid Keys 
+# Unbind Stupid Keys
 
 bind index,pager \# noop
 bind index i        noop
 bind index w        noop
 
 
-# Pager 
+# Pager
 
 bind pager i  exit
 bind pager /  search
@@ -154,7 +160,7 @@ macro pager \Cu "|urlview<enter>" "call urlview to open links"
 macro pager s "<pipe-message>cat > ~/Desktop/"  "save message as"
 
 
-# Index 
+# Index
 
 bind index R  group-reply
 bind index <tab>    sync-mailbox
@@ -171,6 +177,7 @@ macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "ma
 
 # Sync email
 macro index o "<shell-escape>~/dotfiles/mutt/offlineimap_sync.sh --inbox<enter>"
+macro index O "<shell-escape>~/dotfiles/mutt/offlineimap_sync.sh<enter>"
 
 # Just use notmuch for everything
 macro index / "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-py<enter><change-folder-readonly>~/.cache/mutt_results<enter>" \
@@ -180,7 +187,7 @@ macro index / "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-py
 macro index a "<limit>all\n" "show all messages (undo limit)"
 
 
-# Attachment 
+# Attachment
 
 # View
 bind attach <return> view-mailcap
@@ -189,8 +196,6 @@ bind attach <return> view-mailcap
 macro compose E "<enter-command>unset wait_key<enter><shell-escape>~/bin/epubify<enter>"
 
 
-# "Open in Vim" 
+# "Open in Vim"
 
 macro index,pager V "|vim -c 'setlocal ft=mail' -c 'setlocal buftype=nofile' -<enter>"              "open in vim"
-
-source ~/.mutt/crypto.muttrc
