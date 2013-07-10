@@ -329,6 +329,14 @@ au FileType mkd setlocal foldmethod=manual
 " Remove trailing whitespace on save
 " autocmd BufWritePre <buffer> :%s/\s\+$//e
 
+" GUI stuff
+
+if has("gui_running")
+    set guioptions=aAce
+    set guifont=Droid\ Sans\ Mono:h12
+    set linespace=02
+endif
+
 syntax enable
 set background=dark
 colorscheme solarized
