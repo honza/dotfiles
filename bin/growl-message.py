@@ -12,6 +12,9 @@ def main(message, title):
     if message.startswith('#'):
         return
 
+    if 'honzakral' in message:
+        return
+
     if 'honza:' in message:
         # Someone talking to me in the room
         # e.g.
