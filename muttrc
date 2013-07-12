@@ -199,3 +199,5 @@ macro compose E "<enter-command>unset wait_key<enter><shell-escape>~/bin/epubify
 # "Open in Vim"
 
 macro index,pager V "|vim -c 'setlocal ft=mail' -c 'setlocal buftype=nofile' -<enter>"              "open in vim"
+
+set display_filter = "wrap"
