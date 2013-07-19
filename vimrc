@@ -325,6 +325,7 @@ augroup ft_javascript
 augroup END
 
 au FileType mkd setlocal foldmethod=manual
+let g:vim_markdown_folding_disabled=1
 
 " Remove trailing whitespace on save
 " autocmd BufWritePre <buffer> :%s/\s\+$//e
