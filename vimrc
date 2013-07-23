@@ -106,7 +106,7 @@ map <C-l> <C-w>l
 nnoremap <leader>w <C-w>v<C-w>1
 
 " Simple clearing of search results
-nmap <silent> ,/ :nohlsearch<CR>
+:nnoremap <CR> :nohlsearch<cr>
 
 " Strip all trailing whitespace
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
