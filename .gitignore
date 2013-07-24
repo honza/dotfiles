@@ -7,3 +7,5 @@ cache
 offlineimap.conf
 mutt/alias
 mutt/temp
+*.pem
+openssl
