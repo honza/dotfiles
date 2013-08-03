@@ -17,6 +17,11 @@ application/vnd.ms-excel; ~/.mutt/view_attachment.sh %s
 # use textedit to open .doc files as it's more light-weight
 application/msword; ~/.mutt/view_attachment.sh %s "-" '/Applications/TextEdit.app'
 
+# docx
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; ~/.mutt/view_attachment.sh %s "-" '/Applications/LibreOffice.app'
+# xlsx
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; ~/.mutt/view_attachment.sh %s "-" '/Applications/LibreOffice.app'
+
 # Images
 image/jpeg; ~/.mutt/view_attachment.sh %s jpg
 image/pjpeg; ~/.mutt/view_attachment.sh %s jpg
