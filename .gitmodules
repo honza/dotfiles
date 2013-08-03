@@ -124,3 +124,6 @@
 [submodule "vim/bundle/vim-clojure-conceal"]
 	path = vim/bundle/vim-clojure-conceal
 	url = git@github.com:honza/vim-clojure-conceal.git
+[submodule "vim/bundle/puppet"]
+	path = vim/bundle/puppet
+	url = git@github.com:rodjek/vim-puppet.git
