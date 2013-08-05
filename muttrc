@@ -113,9 +113,7 @@ set spoolfile = "+aliases/honza"
 mailboxes +aliases/honza \
           +aliases/gmail \
           +aliases/pokorny \
-          +aliases/radon \
-          +aliases/strata \
-          +aliases/wyatt
+          +aliases/radon
 
 # Other special folders.
 set mbox      = "honza/archive"
