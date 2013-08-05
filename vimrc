@@ -330,6 +330,9 @@ let g:vim_markdown_folding_disabled=1
 " Remove trailing whitespace on save
 " autocmd BufWritePre <buffer> :%s/\s\+$//e
 
+" Salt files
+au BufRead,BufNewFile *.sls set ft=yaml
+
 " GUI stuff
 
 if has("gui_running")
