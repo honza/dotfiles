@@ -174,3 +174,7 @@ function fish_prompt
 
     echo " \$ "
 end
+
+function move_to_movies
+    mv $argv /Volumes/Drive/movies/.
+end
