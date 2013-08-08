@@ -136,7 +136,7 @@ map <silent> <leader>V :source ~/.vimrc<CR>
 " Editing .bashrc
 map <leader>b :vs ~/.bashrc<CR><C-W>
 
-au FileType javascript setlocal tabstop=4 shiftwidth=4
+au FileType javascript setlocal tabstop=2 shiftwidth=2
 
 au FileType coffee setlocal tabstop=4 shiftwidth=4
 
