@@ -5,6 +5,7 @@ set -g -x PIP_DOWNLOAD_CACHE "$HOME/.pip/cache"
 # set -g -x WORKON_HOME "$HOME/Code/envs"
 set -g -x VIRTUALFISH_HOME "$HOME/Code/envs"
 set -g -x VIRTUALFISH_COMPAT_ALIASES 1
+set -g -x GOPATH "$HOME/Code/Go"
 
 set -g -x VIRTUAL_ENV_DISABLE_PROMPT 1
 . ~/.config/fish/virtual.fish
