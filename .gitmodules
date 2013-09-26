@@ -133,3 +133,6 @@
 [submodule "vim/bundle/projectlocal"]
 	path = vim/bundle/projectlocal
 	url = git@github.com:krisajenkins/vim-projectlocal.git
+[submodule "vim/bundle/vim-python-indent"]
+	path = vim/bundle/vim-python-indent
+	url = git@github.com:hynek/vim-python-pep8-indent.git
