@@ -40,6 +40,7 @@ set hlsearch      " highlight search terms
 set incsearch     " show search matches as you type
 set textwidth=79  " wrap lines at 79 characters
 set relativenumber
+set number
 set autoread      " Reload the files if they changed on disk!
 set shell=/bin/bash\ --login
 
