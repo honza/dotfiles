@@ -142,7 +142,7 @@ au FileType javascript setlocal tabstop=2 shiftwidth=2
 au FileType coffee setlocal tabstop=4 shiftwidth=4
 
 au BufNewFile,BufRead *.html setlocal filetype=htmldjango
-au FileType htmldjango setlocal textwidth=0
+au FileType htmldjango setlocal textwidth=0 tabstop=2 shiftwidth=2
 
 
 " Open help files in a vertical split
