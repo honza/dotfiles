@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+echo 'CET' `date "+%H:%M"`
+echo 'UTC' `date -u "+%H:%M"`
+echo 'ADT' `date -v-3H -u "+%H:%M"`
+echo 'EST' `date -v-4H -u "+%H:%M"`
+echo 'PST' `date -v-7H -u "+%H:%M"`
