@@ -7,14 +7,15 @@
     <list> 
         <item> 
             <name>Google Chrome</name> 
-            <identifier>private.appdef</identifier>
             <list> 
                 <item>
+                    <identifier>private.chrome_down</identifier>
                     <appendix>Change Control+J to Cursor Down</appendix>
                     <autogen>--KeyToKey-- KeyCode::J, VK_CONTROL, KeyCode::CURSOR_DOWN</autogen>
                     <only>CHROME</only>
                 </item>
                 <item>
+                    <identifier>private.chrome_up</identifier>
                     <appendix>Change Control+K to Cursor Up</appendix>
                     <autogen>--KeyToKey-- KeyCode::K, VK_CONTROL, KeyCode::CURSOR_UP</autogen>
                     <only>CHROME</only>
