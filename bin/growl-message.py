@@ -4,7 +4,7 @@ import subprocess
 
 
 def notify(message, title):
-    cmd = "terminal-notifier -message '%s' -title '%s' >> /dev/null 2>&1" % (message, title)
+    cmd = "terminal-notifier -message '%s' -title '%s' -sender com.apple.Terminal >> /dev/null 2>&1" % (message, title)
     subprocess.call(cmd, shell=True)
 
 
