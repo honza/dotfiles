@@ -76,9 +76,6 @@
 [submodule "vim/bundle/matchtag"]
 	path = vim/bundle/matchtag
 	url = git://github.com/gregsexton/MatchTag.git
-[submodule "vim/bundle/haskell"]
-	path = vim/bundle/haskell
-	url = git://github.com/wlangstroth/vim-haskell.git
 [submodule "vim/bundle/tomorrow-night"]
 	path = vim/bundle/tomorrow-night
 	url = git://github.com/ChrisKempson/Vim-Tomorrow-Theme.git
@@ -139,3 +136,9 @@
 [submodule "vim/bundle/less"]
 	path = vim/bundle/less
 	url = git@github.com:groenewege/vim-less.git
+[submodule "vim/bundle/base16"]
+	path = vim/bundle/base16
+	url = git@github.com:chriskempson/base16-vim.git
+[submodule "vim/bundle/haskell"]
+	path = vim/bundle/haskell
+	url = git@github.com:dag/vim2hs.git
