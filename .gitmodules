@@ -142,3 +142,9 @@
 [submodule "vim/bundle/haskell"]
 	path = vim/bundle/haskell
 	url = git@github.com:dag/vim2hs.git
+[submodule "vim/bundle/cmatcher"]
+	path = vim/bundle/cmatcher
+	url = git@github.com:JazzCore/ctrlp-cmatcher.git
+[submodule "vim/bundle/idris"]
+	path = vim/bundle/idris
+	url = git@github.com:idris-hackers/idris-vim.git
