@@ -1,6 +1,3 @@
-set smime_keys="~/.smime/keys"
-set smime_certificates="~/.smime/certificates"
-set smime_ca_location="~/.smime/strata.pem"
 # Muttrc
 # ------
 #
@@ -113,7 +110,8 @@ set spoolfile = "+aliases/honza"
 mailboxes +aliases/honza \
           +aliases/gmail \
           +aliases/pokorny \
-          +aliases/radon
+          +aliases/radon \
+          +aliases/publet
 
 # Other special folders.
 set mbox      = "honza/archive"
@@ -132,8 +130,7 @@ folder-hook +aliases/honza source ~/.mutt/honza.muttrc
 folder-hook +aliases/pokorny source ~/.mutt/pokorny.muttrc
 folder-hook +aliases/gmail source ~/.mutt/gmail.muttrc
 folder-hook +aliases/radon source ~/.mutt/radon.muttrc
-folder-hook +aliases/strata source ~/.mutt/strata.muttrc
-folder-hook +aliases/wyatt source ~/.mutt/wyatt.muttrc
+folder-hook +aliases/publet source ~/.mutt/publet.muttrc
 
 # Key Bindings
 
