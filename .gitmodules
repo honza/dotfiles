@@ -148,3 +148,18 @@
 [submodule "vim/bundle/idris"]
 	path = vim/bundle/idris
 	url = git@github.com:idris-hackers/idris-vim.git
+[submodule "vim/bundle/rust"]
+	path = vim/bundle/rust
+	url = git@github.com:wting/rust.vim.git
+[submodule "vim/bundle/vim-clojure-highlight"]
+	path = vim/bundle/vim-clojure-highlight
+	url = git@github.com:guns/vim-clojure-highlight.git
+[submodule "vim/bundle/slamhound"]
+	path = vim/bundle/slamhound
+	url = git@github.com:guns/vim-slamhound.git
+[submodule "vim/bundle/rainbow"]
+	path = vim/bundle/rainbow
+	url = git@github.com:kien/rainbow_parentheses.vim.git
+[submodule "vim/bundle/vim-sexp"]
+	path = vim/bundle/vim-sexp
+	url = git@github.com:guns/vim-sexp.git
