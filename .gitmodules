@@ -97,9 +97,6 @@
 [submodule "vim/bundle/markdown"]
 	path = vim/bundle/markdown
 	url = git://github.com/plasticboy/vim-markdown.git
-[submodule "vim/bundle/go"]
-	path = vim/bundle/go
-	url = git://github.com/fsouza/go.vim.git
 [submodule "vim/bundle/vimclojure"]
 	path = vim/bundle/vimclojure
 	url = git://github.com/vim-scripts/VimClojure.git
