@@ -166,3 +166,6 @@
 [submodule "vim/bundle/purescript"]
 	path = vim/bundle/purescript
 	url = git@github.com:raichoo/purescript-vim.git
+[submodule "vim/bundle/go"]
+	path = vim/bundle/go
+	url = git@github.com:fatih/vim-go.git
