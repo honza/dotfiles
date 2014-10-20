@@ -163,3 +163,9 @@
 [submodule "vim/bundle/vim-sexp"]
 	path = vim/bundle/vim-sexp
 	url = git@github.com:guns/vim-sexp.git
+[submodule "vim/bundle/toml"]
+	path = vim/bundle/toml
+	url = git@github.com:cespare/vim-toml.git
+[submodule "vim/bundle/purescript"]
+	path = vim/bundle/purescript
+	url = git@github.com:raichoo/purescript-vim.git
