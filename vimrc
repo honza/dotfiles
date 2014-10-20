@@ -1,6 +1,5 @@
 " Load pathogen
-source ~/.vim/bundle/pathogen/autoload/pathogen.vim
-
+source ~/.vim/bundle/pathogen/autoload/pathogen.vim 
 set nocompatible
 
 " Silence please
@@ -8,7 +7,7 @@ set vb
 set t_vb=
 
 " Pathogen
-call pathogen#incubate()
+call pathogen#interpose('bundle/{}')
 
 " Change the leader to ,
 let mapleader = ","
@@ -30,7 +29,7 @@ set autoindent    " always set autoindenting on
 set copyindent    " copy the previous indentation on autoindenting
 set shiftwidth=4  " number of spaces to use for autoindenting
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
-set showmatch     " set show matching parenthesis
+" set showmatch     " set show matching parenthesis
 set ignorecase    " ignore case when searching
 set smartcase     " ignore case if search pattern is all lowercase,
                   "    case-sensitive otherwise
@@ -42,7 +41,8 @@ set textwidth=79  " wrap lines at 79 characters
 set relativenumber
 set number
 set autoread      " Reload the files if they changed on disk!
-set shell=/bin/bash\ --login
+" set shell=/bin/bash\ --login
+set shell=bash
 
 " wild menu completion
 set wildmenu
@@ -94,9 +94,6 @@ nnoremap ; :
 " Fix syntax highlighting
 nnoremap <leader>u :syntax sync fromstart<cr>:redraw!<cr>
 
-" Save on lose focus
-au FocusLost * :wa
-
 " Easy window navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -125,7 +122,7 @@ vnoremap <leader>y :<c-u>call g:CopyTheTextPlease()<cr>
 nmap <leader>l :set list!<cr>
 
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%79v.\+/
+match OverLength /\%80v.\+/
 
 " Diplay cursor position in bottom right corner
 set ruler
@@ -155,6 +152,7 @@ let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='✗'
 
 let g:syntastic_python_checkers=["flake8"]
+let g:syntastic_haskell_checkers=["hlint"]
 
 let g:snips_author="Honza Pokorny"
 
@@ -239,8 +237,54 @@ command! -nargs=* Only call CloseHiddenBuffers()
 nmap \ <Plug>CommentaryLine
 
 " ctrlp
+" let g:loaded_ctrlp = 1
 let g:ctrlp_working_path_mode = 0
+" let g:ctrlp_custom_ignore = ['\v[\/]node_modules$', '\v[\/]target']
 let g:ctrlp_extensions = ['tag']
+
+let my_ctrlp_ffind_command = "ffind --dir %s --type e -B -f"
+
+let g:ctrlp_user_command = ['.git/', my_ctrlp_ffind_command, my_ctrlp_ffind_command]
+let g:selecta_path = "pyselecta"
+
+function! SelectaMatch(items, str, limit, mmode, ispath, crfile, regex)
+    let cachefile = ctrlp#utils#cachedir().'/selecta.cache'
+
+    if !( filereadable(cachefile) && a:items == readfile(cachefile) )
+        call writefile(a:items, cachefile)
+    endif
+
+    if !filereadable(cachefile)
+        return []
+    endif
+
+    let cmd = "cat ".cachefile." | ".g:selecta_path." ".a:str
+    return split(system(cmd), "\n")
+
+endfunction
+
+let g:ctrlp_match_func = {'match' : 'SelectaMatch' }
+
+" Run a given vim command on the results of fuzzy selecting from a given shell
+" command. See usage below.
+function! SelectaCommand(choice_command, selecta_args, vim_command)
+  try
+    silent let selection = system(a:choice_command . " | selecta " . a:selecta_args)
+  catch /Vim:Interrupt/
+    " Swallow the ^C so that the redraw below happens; otherwise there will be
+    " leftovers from selecta on the screen
+    redraw!
+    return
+  endtry
+  redraw!
+  exec a:vim_command . " " . selection
+endfunction
+
+" Find all files in all non-dot directories starting in the working directory.
+" Fuzzy select one of those. Open the selected file with :e.
+" nnoremap <leader>f :call SelectaCommand("find * -type f", "", ":e")<cr>
+" nnoremap <c-p> :call SelectaCommand("ffind -t f", "", ":e")<cr>
+
 nnoremap <leader><cr> :silent !/usr/local/bin/ctags -R . && sed -i .bak -E -e '/^[^     ]+      [^      ]+.py   .+v$/d' tags<cr>:redraw!<cr>
 
 " Use c-\ to do c-] but open it in a new split.
@@ -306,24 +350,19 @@ let g:pymode_rope_always_show_complete_menu = 0
 
 " Clojure
 autocmd FileType clojure set commentstring=;;\ %s
-au BufRead,BufNewFile *.cljs set ft=clojure
+
+" let g:rbpt_loadcmd_toggle = 0
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 " Golang
 autocmd FileType go set commentstring=//\ %s
 
 " Fish
 autocmd FileType fish set commentstring=\#\ %s
-
-augroup ft_javascript
-    au!
-
-    au FileType javascript setlocal foldmethod=marker
-    au FileType javascript setlocal foldmarker={,}
-
-    " Make {<cr> insert a pair of brackets in such a way that the cursor is correctly
-    " positioned inside of them AND the following code doesn't get unfolded.
-    " au Filetype javascript inoremap <buffer> {<cr> {}<left><cr><space><space><space><space>.<cr><esc>kA<bs>
-augroup END
 
 au FileType mkd setlocal foldmethod=manual
 let g:vim_markdown_folding_disabled=1
@@ -334,15 +373,29 @@ let g:vim_markdown_folding_disabled=1
 " Salt files
 au BufRead,BufNewFile *.sls set ft=yaml
 
+let g:haskell_conceal = 0
+
 " GUI stuff
 
 if has("gui_running")
     set guioptions=aAce
-    set guifont=Droid\ Sans\ Mono:h12
-    set linespace=02
+    " set guifont=Droid\ Sans\ Mono:h14
+    " set guifont=Source\ Code\ Pro:h14
+    " set guifont=Source\ Code\ Pro:h14
+    " set guifont=Droid\ Sans\ Mono:h12
+    set guifont=Ubuntu\ Mono:h14
+    set linespace=1
 endif
 
 syntax enable
 set background=dark
+" set background=light
+" let base16colorspace=256
+" colorscheme badwolf
 colorscheme solarized
-set t_Co=256
+" colorscheme molokai
+" colorscheme base16-bright
+" colorscheme base16-monokai
+" colorscheme base16-default
+" colorscheme base16-mocha
+" set t_Co=256

@@ -1,6 +1,7 @@
 config windowHintsShowIcons true
 config windowHintsIgnoreHiddenWindows false
 config windowHintsSpread true
+config checkDefaultsOnLoad true
 
 # Default to the current screen if the screen the reference does not exist.
 config defaultToCurrentScreen true
@@ -25,12 +26,19 @@ bind return:shift;cmd ${full}
 bind h:${hyper} ${lefthalf}
 bind l:${hyper} ${righthalf}
 
+alias 1-full move screenOriginX;screenOriginY screenSizeX;screenSizeY        0
+
+layout small-monitor 'Google Chrome':REPEAT ${1-full}
+layout small-monitor 'Skype':REPEAT ${1-full}
+layout small-monitor 'Slack':REPEAT ${1-full}
+layout small-monitor 'Twitter':REPEAT ${righthalf}
+
+default small-monitor count:1
+
 alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
 
 bind e:cmd hint ASDFGHJKLQWERTYUIOPCVBN # use whatever keys you want
 
-
 bind i:${hyper} focus 'iTerm'
 bind b:${hyper} focus 'Google Chrome'
 bind k:${hyper} focus 'Skype'
-bind c:${hyper} focus 'Textual'
