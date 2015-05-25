@@ -172,3 +172,9 @@
 [submodule "vim/bundle/scala"]
 	path = vim/bundle/scala
 	url = git@github.com:derekwyatt/vim-scala.git
+[submodule "vim/bundle/vim-markdown"]
+	path = vim/bundle/vim-markdown
+	url = git@github.com:plasticboy/vim-markdown.git
+[submodule "vim/bundle/ledger"]
+	path = vim/bundle/ledger
+	url = git@github.com:ledger/vim-ledger.git
