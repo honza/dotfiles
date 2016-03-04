@@ -1,15 +1,22 @@
 set BROWSER open
 set -g -x fish_greeting ''
 set -g -x EDITOR vim
-set -g -x PIP_DOWNLOAD_CACHE "$HOME/.pip/cache"
 # set -g -x WORKON_HOME "$HOME/Code/envs"
 set -g -x VIRTUALFISH_HOME "$HOME/Code/envs"
 set -g -x VIRTUALFISH_COMPAT_ALIASES 1
 set -g -x GOPATH "$HOME/Code/Go"
+set -g -x GVM_ROOT "$HOME/.gvm"
+function gvm
+  bash -c '. ~/.gvm/bin/gvm; gvm "$@"' gvm $argv
+end
+# set -g -x PYTHONHOME "/usr/local/lib/python2.7"
+# set -g -x LEIN_JVM_OPTS "-XX:+TieredCompilation -XX:TieredStopAtLevel=1 -Djava.awt.headless=true"
 
 set -g -x VIRTUAL_ENV_DISABLE_PROMPT 1
 . ~/.config/fish/virtual.fish
 . ~/.config/fish/local.fish
+
+# eval sh $HOME/Github/base16-shell/base16-ocean.dark.sh
 
 alias l 'ls'
 alias ll 'ls -alh'
@@ -19,6 +26,7 @@ alias sb '. $HOME/.config/fish/config.fish'
 alias f 'fab'
 alias fv 'fab -R vagrant'
 alias envs 'cd $WORKON_HOME'
+alias ghc 'ghc -XSafe'
 alias ghcm 'ghc --make -optl"-Wl,-read_only_relocs,suppress"'
 alias proxyssh 'ssh -D 8888 -f -C -q -N'
 alias e 'tar xzvf'
@@ -27,19 +35,32 @@ alias gist 'curl -F "sprunge=<-" http://gist.honza.ca'
 alias copy 'pbcopy'
 alias fin "vim $HOME/Dropbox/Documents/finances.b"
 alias total "node $HOME/Dropbox/Code/budget.js/b.js $HOME/Dropbox/Documents/finances.b"
-alias sub "subliminal -l en"
+alias sub "subliminal -l en -s --"
 alias el "echo 'Eliška' | pbcopy"
+alias ip "dig +short myip.opendns.com @resolver1.opendns.com"
+alias sign "gpg --armor --detach-sig"
+alias gemacs "/usr/local/Cellar/emacs/24.5/Emacs.app/Contents/MacOS/Emacs"
+alias em "emacsclient -c"
+alias cd.. "cd .."
+
 
 function rgrep
     grep -ir $argv *
 end
 
+function p
+    pannote $HOME/Dropbox/Notes $argv | fpp
+end
+
 # ack
 alias cack 'ack --type=coffee'
 alias pack 'ack --type=python'
+alias pag 'ag --python --ignore-dir "migrations"'
 
 alias offline 'offlineimap -qf INBOX; notmuch new'
-alias ios 'open -a "iPhone Simulator.app"'
+# alias ios 'open -a "iPhone Simulator.app"'
+alias ios 'open -a "iOS Simulator.app" --args -CurrentDeviceUDID 2B8B2067-7EC5-4882-AEF1-743184549F16'
+
 
 # tmux
 alias tm 'tmux -u2'
@@ -53,6 +74,10 @@ alias prettyjson "python -mjson.tool"
 function grr
     eval $argv
     terminal-notifier -title "Finished" -message "'$argv' finished" >> /dev/null
+end
+
+function notify
+    terminal-notifier -message $argv[1] -title "shell" -sender com.apple.Terminal
 end
 
 # -----------------------------------------------------------------------------
@@ -70,7 +95,6 @@ alias ef 'vim ~/.config/fish/config.fish'
 alias v 'vim'
 alias ev 'vim ~/.vimrc'
 alias goawayswapfilesyouareswapfilesidontevenneedyou 'rm ~/.vim/tmp/swap/*'
-alias emacs 'vim'
 
 # -----------------------------------------------------------------------------
 # Git
@@ -108,22 +132,32 @@ function prepend_to_path -d "Prepend the given dir to PATH if it exists and is n
 end
 
 
+set -gx JAVA_HOME (/usr/libexec/java_home)
 set -gx PATH "/usr/bin"
 
 prepend_to_path "/sbin"
 prepend_to_path "/usr/sbin"
 prepend_to_path "/bin"
 prepend_to_path "/usr/local/bin"
-prepend_to_path "/usr/local/share/python"
+prepend_to_path "/usr/X11/bin"
 prepend_to_path "/usr/local/sbin"
+prepend_to_path $JAVA_HOME/bin
 prepend_to_path "$HOME/bin"
+prepend_to_path "$HOME/.local/bin"
 prepend_to_path "$HOME/dotfiles"
 prepend_to_path "$HOME/dotfiles/bin"
-prepend_to_path "$HOME/.cabal/bin"
 prepend_to_path "/opt/local/bin"
 prepend_to_path "/usr/local/Cellar/ruby/2.0.0-p0/bin"
 prepend_to_path "/Applications/Postgres.app/Contents/MacOS/bin"
-prepend_to_path "/usr/texbin"
+prepend_to_path "/Applications/calibre.app/Contents/MacOS"
+prepend_to_path "/usr/local/texlive/2015basic/bin/x86_64-darwin"
+prepend_to_path $GOPATH/bin
+
+set -gx GHC_DOT_APP "/Applications/ghc-7.8.4.app"
+prepend_to_path "$HOME/.cabal/bin"
+prepend_to_path "$HOME/.cabal/general/.cabal-sandbox/bin"
+prepend_to_path "$GHC_DOT_APP/Contents/bin"
+prepend_to_path "$HOME/.stack/programs/x86_64-osx/ghc-7.10.2/bin"
 
 
 # Prompt {{{
@@ -139,6 +173,12 @@ patches: <patches|join( → )|pre_applied($yellow)|post_applied($normal)|pre_una
 function virtualenv_prompt
     if [ -n "$VIRTUAL_ENV" ]
         printf '(%s)' (basename "$VIRTUAL_ENV")
+    end
+end
+
+function cabal_prompt
+    if [ -e "cabal.sandbox.config" ]
+        printf '(cabal sandbox)'
     end
 end
 
@@ -171,6 +211,7 @@ function fish_prompt
 
     set_color blue
     virtualenv_prompt
+    cabal_prompt
     set_color normal
 
     echo " \$ "
@@ -179,3 +220,6 @@ end
 function move_to_movies
     mv $argv /Volumes/Drive/movies/.
 end
+
+# OPAM configuration
+# . /Users/honza/.opam/opam-init/init.fish > /dev/null 2> /dev/null || true
