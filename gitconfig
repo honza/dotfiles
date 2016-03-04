@@ -1,0 +1,41 @@
+[user]
+	name = Honza Pokorny
+	email = me@honza.ca
+
+[github]
+	user = honza
+
+[color]
+	ui = true
+
+[push]
+	default = current
+
+[alias]
+    me = merge --no-ff
+    pl = pull --rebase
+    co = checkout
+    weekly = log --all --oneline --author='honza' --since='1 week ago'
+    ; gl  = log -20 --color=always --all --graph --topo-order --pretty='format:%Cgreen%h%Creset %s (by %an)%C(yellow bold)%d%Creset'
+    ; l  = log --color=always --all --graph --topo-order --pretty='format:%Cgreen%h%Creset %s (by %an)%C(yellow bold)%d%Creset'
+    l  = log --color=always --all --graph --topo-order --pretty='format:%Cgreen%h%Creset %an - %s%C(yellow)%d%Creset - %C(blue)[%ar]%Creset'
+    ll  = log --color=always --graph --topo-order --pretty='format:%Cgreen%h%Creset %an - %s%C(yellow)%d%Creset - %C(blue)[%ar]%Creset'
+    root = rev-parse --show-toplevel
+    currentbranch = !git branch --contains HEAD | grep '*' | tr -s ' ' | cut -d ' ' -f2
+    ; l = "!source ~/dotfiles/git_helpers && pretty_git_log"
+    s = status -uno
+    ss = status
+    mle = diff --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'
+    chart = shortlog --numbered --summary
+    dc = diff --cached
+    dry-merge = merge --no-commit --no-ff
+    difff = !git diff --color | diff-so-fancy
+
+[difftool]
+    prompt = false
+
+[core]
+    editor = vim
+
+[web]
+    browser = open
