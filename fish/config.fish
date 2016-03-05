@@ -14,7 +14,7 @@ end
 
 set -g -x VIRTUAL_ENV_DISABLE_PROMPT 1
 . ~/.config/fish/virtual.fish
-. ~/.config/fish/local.fish
+# . ~/.config/fish/local.fish
 
 # eval sh $HOME/Github/base16-shell/base16-ocean.dark.sh
 
@@ -121,8 +121,6 @@ function psg -d "Grep for a running process, returning its PID and full string"
     ps auxww | grep --color=always $argv | grep -v grep | collapse | cuts -f 2,11-
 end
 
-set -gx GREP_OPTIONS '--color=auto'
-
 function prepend_to_path -d "Prepend the given dir to PATH if it exists and is not already in it"
     if test -d $argv[1]
         if not contains $argv[1] $PATH
@@ -132,7 +130,7 @@ function prepend_to_path -d "Prepend the given dir to PATH if it exists and is n
 end
 
 
-set -gx JAVA_HOME (/usr/libexec/java_home)
+# set -gx JAVA_HOME (/usr/libexec/java_home)
 set -gx PATH "/usr/bin"
 
 prepend_to_path "/sbin"
@@ -148,12 +146,9 @@ prepend_to_path "$HOME/dotfiles"
 prepend_to_path "$HOME/dotfiles/bin"
 prepend_to_path "/opt/local/bin"
 prepend_to_path "/usr/local/Cellar/ruby/2.0.0-p0/bin"
-prepend_to_path "/Applications/Postgres.app/Contents/MacOS/bin"
-prepend_to_path "/Applications/calibre.app/Contents/MacOS"
 prepend_to_path "/usr/local/texlive/2015basic/bin/x86_64-darwin"
 prepend_to_path $GOPATH/bin
 
-set -gx GHC_DOT_APP "/Applications/ghc-7.8.4.app"
 prepend_to_path "$HOME/.cabal/bin"
 prepend_to_path "$HOME/.cabal/general/.cabal-sandbox/bin"
 prepend_to_path "$GHC_DOT_APP/Contents/bin"
