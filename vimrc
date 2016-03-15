@@ -141,6 +141,7 @@ au FileType coffee setlocal tabstop=4 shiftwidth=4
 au BufNewFile,BufRead *.html setlocal filetype=htmldjango
 au FileType htmldjango setlocal textwidth=0 tabstop=2 shiftwidth=2
 
+au FileType mail setlocal textwidth=72
 
 " Open help files in a vertical split
 au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
