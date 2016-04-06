@@ -175,3 +175,12 @@
 [submodule "vim/bundle/ledger"]
 	path = vim/bundle/ledger
 	url = git@github.com:ledger/vim-ledger.git
+[submodule "vim/bundle/supertab"]
+	path = vim/bundle/supertab
+	url = git@github.com:ervandew/supertab.git
+[submodule "vim/bundle/alduin"]
+	path = vim/bundle/alduin
+	url = git@github.com:AlessandroYorba/Alduin.git
+[submodule "vim/bundle/elm"]
+	path = vim/bundle/elm
+	url = git@github.com:lambdatoast/elm.vim.git
