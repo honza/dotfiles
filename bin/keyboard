@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+killall xcape
+
+setxkbmap -option 'caps:ctrl_modifier'
+xcape -e 'Caps_Lock=Escape'
+xcape -e "Shift_R=parenright"
+xcape -e "Shift_L=parenleft"
+xcape
