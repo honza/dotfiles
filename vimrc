@@ -150,7 +150,7 @@ au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
 
 au BufNewFile,BufRead *.j setlocal filetype=objj
 let g:syntastic_enable_signs=1
-let g:syntastic_javascript_checkers=["jshint"]
+let g:syntastic_javascript_checkers=["eslint"]
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='✗'
 
