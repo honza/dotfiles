@@ -143,6 +143,8 @@ au FileType htmldjango setlocal textwidth=0 tabstop=2 shiftwidth=2
 
 au FileType mail setlocal textwidth=72
 
+au FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8 noexpandtab cindent
+
 " Open help files in a vertical split
 au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
 
