@@ -9,3 +9,4 @@ mutt/alias
 mutt/temp
 *.pem
 openssl
+fish/fish_history
