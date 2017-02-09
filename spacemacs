@@ -55,9 +55,9 @@
      html
      react
      go
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
+     (shell :variables
+            shell-default-height 30
+            shell-default-position 'bottom)
      rust
      sql
      extra-langs
