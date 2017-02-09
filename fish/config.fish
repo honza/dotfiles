@@ -1,73 +1,36 @@
 set BROWSER open
+
 set -g -x fish_greeting ''
 set -g -x EDITOR vim
-# set -g -x WORKON_HOME "$HOME/Code/envs"
 set -g -x VIRTUALFISH_HOME "$HOME/code/envs"
 set -g -x VIRTUALFISH_COMPAT_ALIASES 1
 set -g -x GOPATH "$HOME/code/go"
-set -g -x GVM_ROOT "$HOME/.gvm"
 set -g -x PYENV_ROOT "$HOME/.pyenv"
 set -g -x KEYID "0xFFBD0899F2AD6A2B"
-set -g -x  ANSIBLE_NOCOWS 1
-
-
-function gvm
-  bash -c '. ~/.gvm/bin/gvm; gvm "$@"' gvm $argv
-end
-# set -g -x PYTHONHOME "/usr/local/lib/python2.7"
-# set -g -x LEIN_JVM_OPTS "-XX:+TieredCompilation -XX:TieredStopAtLevel=1 -Djava.awt.headless=true"
-
+set -g -x ANSIBLE_NOCOWS 1
 set -g -x VIRTUAL_ENV_DISABLE_PROMPT 1
-. ~/.config/fish/virtual.fish
-# . ~/.config/fish/local.fish
 
-# eval sh $HOME/Github/base16-shell/base16-ocean.dark.sh
+. ~/.config/fish/virtual.fish
 
 alias l 'ls -1'
 alias ll 'ls -alh'
 alias d 'du -sh'
 alias fn 'find . -name'
 alias sb '. $HOME/.config/fish/config.fish'
-alias f 'fab'
-alias fv 'fab -R vagrant'
 alias envs 'cd $WORKON_HOME'
-alias ghc 'ghc -XSafe'
-alias ghcm 'ghc --make -optl"-Wl,-read_only_relocs,suppress"'
-alias proxyssh 'ssh -D 8888 -f -C -q -N'
 alias e 'tar xzvf'
-alias fv 'fab -R vagrant'
-alias gist 'curl -F "sprunge=<-" http://gist.honza.ca'
 alias copy 'xsel --clipboard --input'
 alias paste 'xsel --clipboard --output'
-alias fin "vim $HOME/Dropbox/Documents/finances.b"
-alias total "node $HOME/Dropbox/Code/budget.js/b.js $HOME/Dropbox/Documents/finances.b"
 alias sub "subliminal download -l en -s --"
 alias el "echo 'Eliška' | xsel --clipboard --input"
 alias myip "dig +short myip.opendns.com @resolver1.opendns.com"
-alias sign "gpg --armor --detach-sig"
-alias em "emacsclient -c"
 alias cd.. "cd .."
 
-alias screen-dual   'xrandr --output eDP2 --primary --output DP1 --auto --left-of eDP2'
-alias screen-laptop 'xrandr --output eDP2 --primary --output DP1 --off'
 
-function rgrep
-    grep -ir $argv *
-end
-
+# TODO: currently broken
 function p
     pannote $HOME/Dropbox/Notes $argv | fpp
 end
-
-# ack
-alias cack 'ack --type=coffee'
-alias pack 'ack --type=python'
-alias pag 'ag --python --ignore-dir "migrations"'
-
-alias offline 'offlineimap -qf INBOX; notmuch new'
-# alias ios 'open -a "iPhone Simulator.app"'
-alias ios 'open -a "iOS Simulator.app" --args -CurrentDeviceUDID 2B8B2067-7EC5-4882-AEF1-743184549F16'
-
 
 # tmux
 alias tm 'tmux -u2'
@@ -77,28 +40,11 @@ alias att 'tmux attach -t'
 alias prettyjson "python -mjson.tool"
 
 # Run a command and notify me when it's done
-# e.g. $ grr vagrant up
-function grr
-    eval $argv
-    terminal-notifier -title "Finished" -message "'$argv' finished" >> /dev/null
-end
-
+# e.g. $ notify vagrant up
 function notify
-    terminal-notifier -message $argv[1] -title "shell" -sender com.apple.Terminal
-end
-
-function gr
     eval $argv
     notify-send "Finished" "'$argv' finished"
 end
-
-# -----------------------------------------------------------------------------
-# Vagrant
-# -----------------------------------------------------------------------------
-alias vu 'vagrant up'
-alias vs 'vagrant ssh'
-alias vh 'vagrant halt'
-alias vss 'vagrant status'
 
 # -----------------------------------------------------------------------------
 # Vim
@@ -106,25 +52,17 @@ alias vss 'vagrant status'
 alias ef 'vim ~/.config/fish/config.fish'
 alias v 'vim'
 alias ev 'vim ~/.vimrc'
-alias goawayswapfilesyouareswapfilesidontevenneedyou 'rm ~/.vim/tmp/swap/*'
 
 # -----------------------------------------------------------------------------
 # Git
 # -----------------------------------------------------------------------------
 alias g 'git'
-alias gitl "git log --pretty=format:'%h - %an, %ar : %s'"
 alias gits 'clear; git status'
-alias gitchart "git shortlog --numbered --summary"
-alias gitg 'git log --oneline --graph'
-alias gall 'git submodule foreach git pull origin master'
 
 # -----------------------------------------------------------------------------
-# Python & Django
+# Python
 # -----------------------------------------------------------------------------
 alias rmpyc 'find . -name "*.pyc" -exec rm "{}" \;'
-alias m 'python manage.py'
-alias run 'python manage.py runserver'
-alias sync 'python manage.py syncdb'
 
 alias cuts "cut -d' '"
 alias collapse="sed -e 's/  */ /g'"
@@ -141,35 +79,21 @@ function prepend_to_path -d "Prepend the given dir to PATH if it exists and is n
     end
 end
 
-# set -gx JAVA_HOME (/usr/libexec/java_home)
 set -gx PATH "/usr/bin"
 
 prepend_to_path "/sbin"
 prepend_to_path "/usr/sbin"
 prepend_to_path "/bin"
 prepend_to_path "/usr/local/bin"
-# prepend_to_path "/usr/X11/bin"
 prepend_to_path "/usr/local/sbin"
 prepend_to_path $JAVA_HOME/bin
 prepend_to_path "$HOME/bin"
 prepend_to_path "$HOME/.local/bin"
 prepend_to_path "$HOME/dotfiles"
 prepend_to_path "$HOME/dotfiles/bin"
-# prepend_to_path "/opt/local/bin"
-# prepend_to_path "/usr/local/Cellar/ruby/2.0.0-p0/bin"
-# prepend_to_path "/usr/local/texlive/2015basic/bin/x86_64-darwin"
 prepend_to_path $GOPATH/bin
 prepend_to_path $PYENV_ROOT/bin
 status --is-interactive; and source (pyenv init -|psub)
-
-
-# prepend_to_path "$HOME/.cabal/bin"
-# prepend_to_path "$HOME/.cabal/general/.cabal-sandbox/bin"
-# prepend_to_path "$GHC_DOT_APP/Contents/bin"
-# prepend_to_path "$HOME/.stack/programs/x86_64-osx/ghc-7.10.2/bin"
-
-
-# Prompt {{{
 
 set normal (set_color normal)
 set magenta (set_color magenta)
@@ -229,6 +153,3 @@ end
 function move_to_movies
     mv $argv /Volumes/Drive/movies/.
 end
-
-# OPAM configuration
-# . /Users/honza/.opam/opam-init/init.fish > /dev/null 2> /dev/null || true
