@@ -5,7 +5,6 @@ set -g -x EDITOR vim
 set -g -x VIRTUALFISH_HOME "$HOME/code/envs"
 set -g -x VIRTUALFISH_COMPAT_ALIASES 1
 set -g -x GOPATH "$HOME/code/go"
-set -g -x PYENV_ROOT "$HOME/.pyenv"
 set -g -x KEYID "0xFFBD0899F2AD6A2B"
 set -g -x ANSIBLE_NOCOWS 1
 set -g -x VIRTUAL_ENV_DISABLE_PROMPT 1
@@ -92,8 +91,6 @@ prepend_to_path "$HOME/.local/bin"
 prepend_to_path "$HOME/dotfiles"
 prepend_to_path "$HOME/dotfiles/bin"
 prepend_to_path $GOPATH/bin
-prepend_to_path $PYENV_ROOT/bin
-status --is-interactive; and source (pyenv init -|psub)
 
 set normal (set_color normal)
 set magenta (set_color magenta)
