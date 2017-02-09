@@ -2,10 +2,15 @@ set BROWSER open
 set -g -x fish_greeting ''
 set -g -x EDITOR vim
 # set -g -x WORKON_HOME "$HOME/Code/envs"
-set -g -x VIRTUALFISH_HOME "$HOME/Code/envs"
+set -g -x VIRTUALFISH_HOME "$HOME/code/envs"
 set -g -x VIRTUALFISH_COMPAT_ALIASES 1
-set -g -x GOPATH "$HOME/Code/Go"
+set -g -x GOPATH "$HOME/code/go"
 set -g -x GVM_ROOT "$HOME/.gvm"
+set -g -x PYENV_ROOT "$HOME/.pyenv"
+set -g -x KEYID "0xFFBD0899F2AD6A2B"
+set -g -x  ANSIBLE_NOCOWS 1
+
+
 function gvm
   bash -c '. ~/.gvm/bin/gvm; gvm "$@"' gvm $argv
 end
@@ -18,7 +23,7 @@ set -g -x VIRTUAL_ENV_DISABLE_PROMPT 1
 
 # eval sh $HOME/Github/base16-shell/base16-ocean.dark.sh
 
-alias l 'ls'
+alias l 'ls -1'
 alias ll 'ls -alh'
 alias d 'du -sh'
 alias fn 'find . -name'
@@ -32,17 +37,19 @@ alias proxyssh 'ssh -D 8888 -f -C -q -N'
 alias e 'tar xzvf'
 alias fv 'fab -R vagrant'
 alias gist 'curl -F "sprunge=<-" http://gist.honza.ca'
-alias copy 'pbcopy'
+alias copy 'xsel --clipboard --input'
+alias paste 'xsel --clipboard --output'
 alias fin "vim $HOME/Dropbox/Documents/finances.b"
 alias total "node $HOME/Dropbox/Code/budget.js/b.js $HOME/Dropbox/Documents/finances.b"
-alias sub "subliminal -l en -s --"
-alias el "echo 'Eliška' | pbcopy"
-alias ip "dig +short myip.opendns.com @resolver1.opendns.com"
+alias sub "subliminal download -l en -s --"
+alias el "echo 'Eliška' | xsel --clipboard --input"
+alias myip "dig +short myip.opendns.com @resolver1.opendns.com"
 alias sign "gpg --armor --detach-sig"
-alias gemacs "/usr/local/Cellar/emacs/24.5/Emacs.app/Contents/MacOS/Emacs"
 alias em "emacsclient -c"
 alias cd.. "cd .."
 
+alias screen-dual   'xrandr --output eDP2 --primary --output DP1 --auto --left-of eDP2'
+alias screen-laptop 'xrandr --output eDP2 --primary --output DP1 --off'
 
 function rgrep
     grep -ir $argv *
@@ -78,6 +85,11 @@ end
 
 function notify
     terminal-notifier -message $argv[1] -title "shell" -sender com.apple.Terminal
+end
+
+function gr
+    eval $argv
+    notify-send "Finished" "'$argv' finished"
 end
 
 # -----------------------------------------------------------------------------
@@ -129,7 +141,6 @@ function prepend_to_path -d "Prepend the given dir to PATH if it exists and is n
     end
 end
 
-
 # set -gx JAVA_HOME (/usr/libexec/java_home)
 set -gx PATH "/usr/bin"
 
@@ -137,22 +148,25 @@ prepend_to_path "/sbin"
 prepend_to_path "/usr/sbin"
 prepend_to_path "/bin"
 prepend_to_path "/usr/local/bin"
-prepend_to_path "/usr/X11/bin"
+# prepend_to_path "/usr/X11/bin"
 prepend_to_path "/usr/local/sbin"
 prepend_to_path $JAVA_HOME/bin
 prepend_to_path "$HOME/bin"
 prepend_to_path "$HOME/.local/bin"
 prepend_to_path "$HOME/dotfiles"
 prepend_to_path "$HOME/dotfiles/bin"
-prepend_to_path "/opt/local/bin"
-prepend_to_path "/usr/local/Cellar/ruby/2.0.0-p0/bin"
-prepend_to_path "/usr/local/texlive/2015basic/bin/x86_64-darwin"
+# prepend_to_path "/opt/local/bin"
+# prepend_to_path "/usr/local/Cellar/ruby/2.0.0-p0/bin"
+# prepend_to_path "/usr/local/texlive/2015basic/bin/x86_64-darwin"
 prepend_to_path $GOPATH/bin
+prepend_to_path $PYENV_ROOT/bin
+status --is-interactive; and source (pyenv init -|psub)
 
-prepend_to_path "$HOME/.cabal/bin"
-prepend_to_path "$HOME/.cabal/general/.cabal-sandbox/bin"
-prepend_to_path "$GHC_DOT_APP/Contents/bin"
-prepend_to_path "$HOME/.stack/programs/x86_64-osx/ghc-7.10.2/bin"
+
+# prepend_to_path "$HOME/.cabal/bin"
+# prepend_to_path "$HOME/.cabal/general/.cabal-sandbox/bin"
+# prepend_to_path "$GHC_DOT_APP/Contents/bin"
+# prepend_to_path "$HOME/.stack/programs/x86_64-osx/ghc-7.10.2/bin"
 
 
 # Prompt {{{

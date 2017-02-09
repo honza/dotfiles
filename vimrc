@@ -1,5 +1,6 @@
 " Load pathogen
 source ~/.vim/bundle/pathogen/autoload/pathogen.vim 
+
 set nocompatible
 
 " Silence please
@@ -248,7 +249,7 @@ let g:ctrlp_extensions = ['tag']
 let my_ctrlp_ffind_command = "ffind --dir %s --type e -B -f"
 
 let g:ctrlp_user_command = ['.git/', my_ctrlp_ffind_command, my_ctrlp_ffind_command]
-let g:selecta_path = "pyselecta"
+let g:selecta_path = "selecta"
 
 function! SelectaMatch(items, str, limit, mmode, ispath, crfile, regex)
     let cachefile = ctrlp#utils#cachedir().'/selecta.cache'
@@ -267,26 +268,6 @@ function! SelectaMatch(items, str, limit, mmode, ispath, crfile, regex)
 endfunction
 
 let g:ctrlp_match_func = {'match' : 'SelectaMatch' }
-
-" Run a given vim command on the results of fuzzy selecting from a given shell
-" command. See usage below.
-function! SelectaCommand(choice_command, selecta_args, vim_command)
-  try
-    silent let selection = system(a:choice_command . " | selecta " . a:selecta_args)
-  catch /Vim:Interrupt/
-    " Swallow the ^C so that the redraw below happens; otherwise there will be
-    " leftovers from selecta on the screen
-    redraw!
-    return
-  endtry
-  redraw!
-  exec a:vim_command . " " . selection
-endfunction
-
-" Find all files in all non-dot directories starting in the working directory.
-" Fuzzy select one of those. Open the selected file with :e.
-" nnoremap <leader>f :call SelectaCommand("find * -type f", "", ":e")<cr>
-" nnoremap <c-p> :call SelectaCommand("ffind -t f", "", ":e")<cr>
 
 nnoremap <leader><cr> :silent !/usr/local/bin/ctags -R . && sed -i .bak -E -e '/^[^     ]+      [^      ]+.py   .+v$/d' tags<cr>:redraw!<cr>
 

@@ -1,39 +1,38 @@
-# ~/.mutt/mailcap
+# ~/dotfiles/mutt/mailcap
 #
-# this uses the view_attachment script found in ~/.mutt/view_attachment.sh
+# this uses the view_attachment script found in ~/dotfiles/mutt/view_attachment.sh
 #
 # this is meant for an OS X system
 
 # MS Excel
 # this will use the default xls spreadsheet handler from open
-application/x-msexcel; ~/.mutt/view_attachment.sh %s
-application/ms-exc; ~/.mutt/view_attachment.sh %s
-application/excel; ~/.mutt/view_attachment.sh %s
-application/msexcel; ~/.mutt/view_attachment.sh %s
-application/vnd.ms-exc; ~/.mutt/view_attachment.sh %s
-application/vnd.ms-excel; ~/.mutt/view_attachment.sh %s
+application/x-msexcel; ~/dotfiles/mutt/view_attachment.sh %s doc
+application/ms-exc; ~/dotfiles/mutt/view_attachment.sh %s doc
+application/excel; ~/dotfiles/mutt/view_attachment.sh %s doc
+application/msexcel; ~/dotfiles/mutt/view_attachment.sh %s doc
+application/vnd.ms-exc; ~/dotfiles/mutt/view_attachment.sh %s doc
+application/vnd.ms-excel; ~/dotfiles/mutt/view_attachment.sh %s doc
 
 # MS Word
 # use textedit to open .doc files as it's more light-weight
-application/msword; ~/.mutt/view_attachment.sh %s "-" '/Applications/TextEdit.app'
+application/msword; ~/dotfiles/mutt/view_attachment.sh %s doc
 
 # docx
-application/vnd.openxmlformats-officedocument.wordprocessingml.document; ~/.mutt/view_attachment.sh %s "-" '/Applications/LibreOffice.app'
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; ~/dotfiles/mutt/view_attachment.sh %s doc
 # xlsx
-application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; ~/.mutt/view_attachment.sh %s "-" '/Applications/LibreOffice.app'
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; ~/dotfiles/mutt/view_attachment.sh %s doc
 
 # Images
-image/jpeg; ~/.mutt/view_attachment.sh %s jpg
-image/pjpeg; ~/.mutt/view_attachment.sh %s jpg
-image/png; ~/.mutt/view_attachment.sh %s png
-image/gif; ~/.mutt/view_attachment.sh %s gif
+image/jpeg; ~/dotfiles/mutt/view_attachment.sh %s img
+image/pjpeg; ~/dotfiles/mutt/view_attachment.sh %s img
+image/png; ~/dotfiles/mutt/view_attachment.sh %s img
+image/gif; ~/dotfiles/mutt/view_attachment.sh %s img
 
 # PDF
-application/pdf; ~/.mutt/view_attachment.sh %s pdf
+application/pdf; ~/dotfiles/mutt/view_attachment.sh %s pdf
 
 # HTML
-text/html; ~/.mutt/view_attachment.sh %s html
+text/html; ~/dotfiles/mutt/view_attachment.sh %s html
 
 # Unidentified.
-application/octet-stream; ~/.mutt/view_attachment.sh %s "-" 
-
+application/octet-stream; ~/dotfiles/mutt/view_attachment.sh %s "-" 

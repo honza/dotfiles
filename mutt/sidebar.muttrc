@@ -3,9 +3,9 @@
 ###
 
 # settings
-set sidebar_delim       = '  │'
+# set sidebar_delim       = '  │'
 set sidebar_visible     = yes
-set sidebar_width       = 24
+set sidebar_width       = 30
 
 # colors
 color sidebar_new color221 color233

@@ -56,6 +56,9 @@
 # See Also:  The man pages for open, file, basename
 #
 
+echo "hi from view attachment"
+echo $@
+
 # the tmp directory to use.
 tmpdir="$HOME/.tmp/mutt_attach"
 
@@ -120,8 +123,29 @@ fi
 # If there's no 'open with' then we can let preview do it's thing.
 # Otherwise we've been told what to use.  So do an open -a.
 
+echo "near the end"
+echo $open_with
+echo $newfile
+
+if [ $type = "img" ]; then
+    eog $newfile
+    exit 0;
+fi
+
+if [ $type = "doc" ]; then
+    libreoffice $newfile
+    exit 0;
+fi
+
+if [ $type = "pdf" ]; then
+    evince $newfile
+    exit 0;
+fi
+
 if [ -z $open_with ]; then
-    open $newfile
+    echo "simple"
+    xdg-open $newfile
 else
-    open -a "$open_with" $newfile
+    echo "with -a"
+    xdg-open -a "$open_with" $newfile
 fi

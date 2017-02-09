@@ -6,9 +6,9 @@
 # Paths
 
 set alias_file       = ~/.mutt/alias         # alias file
-set header_cache     = ~/.mutt/cache/headers # where to store headers
-set message_cachedir = ~/.mutt/cache/bodies  # where to store bodies
-set certificate_file = ~/.mutt/certificates  # where to store certs
+# set header_cache     = ~/.mutt/cache/headers # where to store headers
+# set message_cachedir = ~/.mutt/cache/bodies  # where to store bodies
+# set certificate_file = ~/.mutt/certificates  # where to store certs
 set mailcap_path     = ~/.mutt/mailcap       # entries for filetypes
 set signature        = ~/.mutt/sig           # my signature file
 set tmpdir           = ~/.mutt/temp          # where to keep temp files
@@ -25,13 +25,13 @@ bind editor ^T    complete
 
 # Basic Options
 
-source ~/.mutt/mutt-colors-solarized-dark-16.muttrc
+source ~/dotfiles/mutt/mutt-colors-solarized-dark-16.muttrc
 # source ~/.mutt/tomorrow.muttrc
-source ~/.mutt/sidebar.muttrc                        # sidebar
+source ~/dotfiles/mutt/sidebar.muttrc                        # sidebar
 
 set wait_key = no        # shut up, mutt
 set mbox_type = Maildir  # mailbox type
-set folder = ~/.mail     # mailbox location
+set folder = ~/.mail    # mailbox location
 set timeout = 3          # idle time before scanning
 set mail_check = 0       # minimum time between scans
 unset move               # gmail does that
@@ -110,8 +110,7 @@ set spoolfile = "+aliases/honza"
 mailboxes +aliases/honza \
           +aliases/gmail \
           +aliases/pokorny \
-          +aliases/radon \
-          +aliases/publet
+          +aliases/wyatt
 
 # Other special folders.
 set mbox      = "honza/archive"
@@ -119,18 +118,17 @@ set postponed = "honza/drafts"
 
 # Sending email.
 set from     = "me@honza.ca"
-set sendmail = "/usr/local/bin/msmtp -a honza"
+set sendmail = "/usr/bin/msmtp -a honza"
 set sendmail_wait = 0 # no please don't silently fail, email is important
 unset record
 
 
 # Account Hooks
 
-folder-hook +aliases/honza source ~/.mutt/honza.muttrc
-folder-hook +aliases/pokorny source ~/.mutt/pokorny.muttrc
-folder-hook +aliases/gmail source ~/.mutt/gmail.muttrc
-folder-hook +aliases/radon source ~/.mutt/radon.muttrc
-folder-hook +aliases/publet source ~/.mutt/publet.muttrc
+folder-hook +aliases/honza source ~/dotfiles/mutt/honza.muttrc
+folder-hook +aliases/pokorny source ~/dotfiles/mutt/pokorny.muttrc
+folder-hook +aliases/gmail source ~/dotfiles/mutt/gmail.muttrc
+folder-hook +aliases/wyatt source ~/dotfiles/mutt/wyatt.muttrc
 
 # Key Bindings
 
@@ -175,7 +173,7 @@ macro index o "<shell-escape>~/dotfiles/mutt/offlineimap_sync.sh --inbox<enter>"
 macro index O "<shell-escape>~/dotfiles/mutt/offlineimap_sync.sh<enter>"
 
 # Just use notmuch for everything
-macro index / "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-py<enter><change-folder-readonly>~/.cache/mutt_results<enter>" \
+macro index / "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-py -G<enter><change-folder-readonly>~/.cache/mutt_results<enter>" \
           "search mail (using notmuch)"
 
 # Unlimit aka show [a]ll
