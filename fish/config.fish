@@ -90,6 +90,7 @@ prepend_to_path "$HOME/bin"
 prepend_to_path "$HOME/.local/bin"
 prepend_to_path "$HOME/dotfiles"
 prepend_to_path "$HOME/dotfiles/bin"
+prepend_to_path "$HOME/.cargo/bin"
 prepend_to_path $GOPATH/bin
 
 set normal (set_color normal)
