@@ -10,3 +10,5 @@ mutt/temp
 *.pem
 openssl
 fish/fish_history
+fish/fishd.localhost.localdomain
+fish/fishd.unknown
