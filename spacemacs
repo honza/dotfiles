@@ -48,7 +48,8 @@
      ansible
      markdown
      notmuch
-     org
+     (org :variables
+          org-enable-bootstrap-support t)
      python
      clojure
      javascript
