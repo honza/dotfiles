@@ -260,7 +260,7 @@ before layers configuration."
    ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
    ;; derivatives. If set to `relative', also turns on relative line numbers.
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers 'relative
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -353,14 +353,11 @@ user code."
   (add-to-list 'auto-mode-alist '("\\.js\\'" . react-mode))
   (add-to-list 'auto-mode-alist '("\\.sls\\'" . yaml-mode))
 
-  ;; Enable relative line numbers
-  (global-linum-mode)
-  (with-eval-after-load 'linum
-                        (linum-relative-toggle)))
-
   (with-eval-after-load 'org
     (setq org-agenda-files '("~/Dropbox/org/agenda.org"))
     (setq org-default-notes-file '("~/Dropbox/org/notes.org")))
+
+  )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
