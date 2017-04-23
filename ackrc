@@ -1,8 +1,0 @@
---type-set=coffee=.coffee
---type-set=md=.md
---type-set=json=.json
---type-set=scss=.scss
---type-set=rst=.rst
---type-set=styl=.styl
---smart-case
---ignore-dir=migrations
