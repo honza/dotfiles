@@ -52,6 +52,14 @@ end
 alias em 'emacsclient -nc'
 alias ef 'emacsclient -nc ~/.config/fish/config.fish'
 
+if test -n "$EMACS"
+  set -x TERM eterm-color
+end
+
+function fish_title
+  true
+end
+
 # -----------------------------------------------------------------------------
 # Vim
 # -----------------------------------------------------------------------------
