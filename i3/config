@@ -130,7 +130,7 @@ bindsym Shift+Print exec gnome-screenshot active
 bar {
         position top
         status_command i3status -c ~/.i3/i3status.conf | ~/.i3/i3status.py
-        font pango:Monoid 8
+        font pango:Hack 10
 }
 
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
