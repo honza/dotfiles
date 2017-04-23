@@ -304,6 +304,9 @@ user code."
   (setq-default auto-fill-function 'do-auto-fill)
   (setq-default fill-column 79)
 
+  ;; Window numbering should start from "1" for each new frame.
+  (setq-default winum-scope 'frame-local)
+
   ;; JS
 
   (setq-default
