@@ -1,4 +1,9 @@
 dotfiles
 ========
 
-This is how I roll. It's mostly vim and bash config things.
+This is how I roll
+
+* Spacemacs
+* i3
+* Mutt
+* Fish
