@@ -9,4 +9,4 @@ else
     offlineimap -c ~/Dropbox/Code/email-conf/offlineimaprc -o
 fi
 
-# /usr/local/bin/notmuch new
+~/dotfiles/mutt/post-sync.sh
