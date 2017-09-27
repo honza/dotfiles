@@ -11,8 +11,6 @@ set -g -x VIRTUAL_ENV_DISABLE_PROMPT 1
 set -g -x LEIN_GPG gpg2  # yes, in 2017
 set -g -x PYENV_ROOT "$HOME/.pyenv"
 
-. ~/.config/fish/virtual.fish
-
 alias l 'ls -1'
 alias ll 'ls -alh'
 alias d 'du -sh'
