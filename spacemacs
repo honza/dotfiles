@@ -351,7 +351,6 @@ user code."
   (define-key evil-normal-state-map (kbd "Q") (kbd "gqip"))
   (setq sentence-end-double-space t)
 
-  (add-to-list 'auto-mode-alist '("\\.js\\'" . react-mode))
   (add-to-list 'auto-mode-alist '("\\.sls\\'" . yaml-mode))
 
   (with-eval-after-load 'org
