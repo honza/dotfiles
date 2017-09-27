@@ -195,4 +195,6 @@ macro compose E "<enter-command>unset wait_key<enter><shell-escape>~/bin/epubify
 
 macro index,pager V "|vim -c 'setlocal ft=mail' -c 'setlocal buftype=nofile' -<enter>"              "open in vim"
 
-set display_filter = "wrap"
+# Wrap plan-text email bodies to 79 characters using the `wrap` command in
+# ~/bin
+# set display_filter = "wrap"
