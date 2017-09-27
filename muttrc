@@ -107,7 +107,8 @@ hdr_order from: to: cc: date: subject:  # and in this order
 set spoolfile = "+aliases/honza"
 
 # Mailboxes to show in the sidebar.
-mailboxes +aliases/honza \
+mailboxes +aliases/redhat \
+          +aliases/honza \
           +aliases/gmail \
           +aliases/pokorny \
           +aliases/wyatt
@@ -125,6 +126,7 @@ unset record
 
 # Account Hooks
 
+folder-hook +aliases/redhat source ~/dotfiles/mutt/redhat.muttrc
 folder-hook +aliases/honza source ~/dotfiles/mutt/honza.muttrc
 folder-hook +aliases/pokorny source ~/dotfiles/mutt/pokorny.muttrc
 folder-hook +aliases/gmail source ~/dotfiles/mutt/gmail.muttrc
