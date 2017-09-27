@@ -9,6 +9,7 @@ set -g -x KEYID "0xFFBD0899F2AD6A2B"
 set -g -x ANSIBLE_NOCOWS 1
 set -g -x VIRTUAL_ENV_DISABLE_PROMPT 1
 set -g -x LEIN_GPG gpg2  # yes, in 2017
+set -g -x PYENV_ROOT "$HOME/.pyenv"
 
 . ~/.config/fish/virtual.fish
 
@@ -105,6 +106,7 @@ prepend_to_path "$HOME/.local/bin"
 prepend_to_path "$HOME/dotfiles"
 prepend_to_path "$HOME/dotfiles/bin"
 prepend_to_path "$HOME/.cargo/bin"
+prepend_to_path "$HOME/.pyenv/bin"
 prepend_to_path $GOPATH/bin
 
 set normal (set_color normal)
@@ -165,3 +167,6 @@ end
 function move_to_movies
     mv $argv /Volumes/Drive/movies/.
 end
+
+status --is-interactive; and source (pyenv init -|psub)
+status --is-interactive; and source (pyenv virtualenv-init -|psub)
