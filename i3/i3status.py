@@ -54,8 +54,8 @@ def read_line():
     except KeyboardInterrupt:
         sys.exit()
 
-if __name__ == '__main__':
 
+def main():
     # The first line is just a Header, with the version
     print_line(read_line())
 
@@ -73,3 +73,7 @@ if __name__ == '__main__':
         j.insert(0, get_vpn())
 
         print_line(prefix+json.dumps(j))
+
+
+if __name__ == '__main__':
+    main()
