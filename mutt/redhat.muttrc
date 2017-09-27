@@ -1,0 +1,2 @@
+set from = "honza@redhat.com"
+set sendmail = "/bin/msmtp -a redhat"
