@@ -112,9 +112,6 @@
 [submodule "vim/bundle/puppet"]
 	path = vim/bundle/puppet
 	url = git@github.com:rodjek/vim-puppet.git
-[submodule "vim/bundle/nginx"]
-	path = vim/bundle/nginx
-	url = git@github.com:evanmiller/nginx-vim-syntax.git
 [submodule "vim/bundle/projectlocal"]
 	path = vim/bundle/projectlocal
 	url = git@github.com:krisajenkins/vim-projectlocal.git
