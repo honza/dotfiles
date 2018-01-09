@@ -34,15 +34,9 @@
 [submodule "vim/bundle/mustache"]
 	path = vim/bundle/mustache
 	url = git://github.com/juvenn/mustache.vim.git
-[submodule "vim/bundle/cappuccino"]
-	path = vim/bundle/cappuccino
-	url = git://github.com/hammerdr/vim-cappuccino.git
 [submodule "vim/bundle/indent-guide"]
 	path = vim/bundle/indent-guide
 	url = git://github.com/nathanaelkane/vim-indent-guides.git
-[submodule "vim/bundle/tagbar"]
-	path = vim/bundle/tagbar
-	url = git://github.com/majutsushi/tagbar
 [submodule "vim/bundle/pathogen"]
 	path = vim/bundle/pathogen
 	url = git://github.com/tpope/vim-pathogen.git
@@ -61,9 +55,6 @@
 [submodule "vim/bundle/indent-object"]
 	path = vim/bundle/indent-object
 	url = git://github.com/michaeljsmith/vim-indent-object.git
-[submodule "vim/bundle/ctrlp"]
-	path = vim/bundle/ctrlp
-	url = git://github.com/kien/ctrlp.vim.git
 [submodule "vim/bundle/css-color"]
 	path = vim/bundle/css-color
 	url = git://github.com/skammer/vim-css-color.git
@@ -106,15 +97,9 @@
 [submodule "vim/bundle/abolish"]
 	path = vim/bundle/abolish
 	url = git@github.com:tpope/vim-abolish.git
-[submodule "vim/bundle/vim-clojure-conceal"]
-	path = vim/bundle/vim-clojure-conceal
-	url = git@github.com:honza/vim-clojure-conceal.git
 [submodule "vim/bundle/puppet"]
 	path = vim/bundle/puppet
 	url = git@github.com:rodjek/vim-puppet.git
-[submodule "vim/bundle/projectlocal"]
-	path = vim/bundle/projectlocal
-	url = git@github.com:krisajenkins/vim-projectlocal.git
 [submodule "vim/bundle/vim-python-indent"]
 	path = vim/bundle/vim-python-indent
 	url = git@github.com:hynek/vim-python-pep8-indent.git
@@ -127,9 +112,6 @@
 [submodule "vim/bundle/haskell"]
 	path = vim/bundle/haskell
 	url = git@github.com:dag/vim2hs.git
-[submodule "vim/bundle/cmatcher"]
-	path = vim/bundle/cmatcher
-	url = git@github.com:JazzCore/ctrlp-cmatcher.git
 [submodule "vim/bundle/idris"]
 	path = vim/bundle/idris
 	url = git@github.com:idris-hackers/idris-vim.git
