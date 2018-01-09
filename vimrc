@@ -42,7 +42,6 @@ set textwidth=79  " wrap lines at 79 characters
 set relativenumber
 set number
 set autoread      " Reload the files if they changed on disk!
-" set shell=/bin/bash\ --login
 set shell=bash
 
 " wild menu completion
@@ -149,7 +148,6 @@ au FileType c setlocal tabstop=8 shiftwidth=8 softtabstop=8 noexpandtab cindent
 " Open help files in a vertical split
 au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
 
-au BufNewFile,BufRead *.j setlocal filetype=objj
 let g:syntastic_enable_signs=1
 let g:syntastic_javascript_checkers=["eslint"]
 let g:syntastic_error_symbol='✗'
@@ -168,15 +166,8 @@ set statusline+=%r  " Read only flag
 set statusline+=%w  " Preview window flag
 set statusline+=%=%{\"[\".(&fenc==\"\"?&enc:&fenc).\"]\\"}%k\%=%{fugitive#statusline()}
 set statusline+=%y\[%l\/%L,%c] " file type, line num, num lines, col num
-
 set laststatus=2
-
 set scrolloff=3
-
-" tagbar
-let g:tagbar_sort = 0
-let g:tagbar_ctags_bin="/usr/local/bin/ctags"
-nmap <leader>d :TagbarToggle<CR>
 
 " Don't display manual
 nnoremap K <nop>
@@ -241,9 +232,7 @@ command! -nargs=* Only call CloseHiddenBuffers()
 nmap \ <Plug>CommentaryLine
 
 " ctrlp
-" let g:loaded_ctrlp = 1
 let g:ctrlp_working_path_mode = 0
-" let g:ctrlp_custom_ignore = ['\v[\/]node_modules$', '\v[\/]target']
 let g:ctrlp_extensions = ['tag']
 
 let my_ctrlp_ffind_command = "ffind --dir %s --type e -B -f"
@@ -269,19 +258,8 @@ endfunction
 
 let g:ctrlp_match_func = {'match' : 'SelectaMatch' }
 
-nnoremap <leader><cr> :silent !/usr/local/bin/ctags -R . && sed -i .bak -E -e '/^[^     ]+      [^      ]+.py   .+v$/d' tags<cr>:redraw!<cr>
-
 " Use c-\ to do c-] but open it in a new split.
 nnoremap <c-\> <c-w>v<c-]>zvzz
-
-nnoremap <leader>. :CtrlPTag<cr>
-nmap <leader>f :ClearCtrlPCache<cr>
-
-" hi link coffeeObject NONE
-" hi link coffeeBracket NONE
-" hi link coffeeCurly NONE
-" hi link coffeeParen NONE
-" hi link coffeeSpecialVar Identifier
 
 " Send visual selection to gist.honza.ca (custom sprunge.us)
 " - places gist url to clipboard
@@ -335,8 +313,6 @@ let g:pymode_rope_always_show_complete_menu = 0
 " Clojure
 autocmd FileType clojure set commentstring=;;\ %s
 
-" let g:rbpt_loadcmd_toggle = 0
-
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
@@ -348,38 +324,15 @@ autocmd FileType go set commentstring=//\ %s
 " Fish
 autocmd FileType fish set commentstring=\#\ %s
 
+" Markdown
 au FileType mkd setlocal foldmethod=manual
 let g:vim_markdown_folding_disabled=1
-
-" Remove trailing whitespace on save
-" autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " Salt files
 au BufRead,BufNewFile *.sls set ft=yaml
 
 let g:haskell_conceal = 0
 
-" GUI stuff
-
-if has("gui_running")
-    set guioptions=aAce
-    " set guifont=Droid\ Sans\ Mono:h14
-    " set guifont=Source\ Code\ Pro:h14
-    " set guifont=Source\ Code\ Pro:h14
-    " set guifont=Droid\ Sans\ Mono:h12
-    set guifont=Ubuntu\ Mono:h14
-    set linespace=1
-endif
-
 syntax enable
 set background=dark
-" set background=light
-" let base16colorspace=256
-" colorscheme badwolf
 colorscheme solarized
-" colorscheme molokai
-" colorscheme base16-bright
-" colorscheme base16-monokai
-" colorscheme base16-default
-" colorscheme base16-mocha
-" set t_Co=256
