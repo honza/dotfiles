@@ -149,3 +149,6 @@ exec dropbox 'start'
 exec nm-applet
 # exec workrave
 # exec redshift
+
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+
