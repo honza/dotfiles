@@ -54,9 +54,8 @@
      clojure
      html
      go
-     ;; aj-javascript handles both js and react
-     ;; https://github.com/aaronjensen/spacemacs.d
-     aj-javascript
+     javascript
+     react
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
