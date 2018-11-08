@@ -56,12 +56,14 @@
      go
      javascript
      react
+     mu4e
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
      rust
      sql
-     extra-langs
+     groovy
+     major-modes ;; this used to be called 'extra-langs'
      syntax-checking
      version-control
      yaml
@@ -72,11 +74,12 @@
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
-   dotspacemacs-additional-packages '(elm-mode)
+   dotspacemacs-additional-packages '(elm-mode prettier-js)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(org-bullets
+                                    magithub
                                     anaconda-mode)
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -144,8 +147,8 @@ before layers configuration."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Hack"
-                               :size 16
+   dotspacemacs-default-font '("Fira Mono"
+                               :size 14
                                :weight normal
                                :width normal
                                :powerline-scale 1.5)
@@ -353,8 +356,29 @@ user code."
   (add-to-list 'auto-mode-alist '("\\.sls\\'" . yaml-mode))
 
   (with-eval-after-load 'org
-    (setq org-agenda-files '("~/Dropbox/org/agenda.org"))
-    (setq org-default-notes-file '("~/Dropbox/org/notes.org"))))
+    (setq org-capture-templates
+      '(("t" "TODO entry human" entry
+         (file+headline "~/Dropbox/org/inbox.org" "Tasks")
+         "* TODO %i%? \n %U"
+         )))
+
+    (setq org-agenda-custom-commands
+      '(("o" "At the office" tags-todo "@office"
+         ((org-agenda-overriding-header "Office")))))
+
+    (setq org-refile-targets
+      '(("~/Dropbox/org/gtd.org" :maxlevel . 3)
+        ("~/Dropbox/org/someday.org" :level . 1)
+        ("~/Dropbox/org/tickler.org" :maxlevel . 2)))
+
+    (setq org-agenda-files '("~/Dropbox/org/inbox.org"
+                             "~/Dropbox/org/gtd.org"
+                             "~/Dropbox/org/tickler.org"))
+    (setq org-default-notes-file "~/Dropbox/org/inbox.org"))
+
+  (eval-after-load 'magit-popup
+    '(magit-define-popup-switch 'magit-log-popup
+      ?m "Omit merge commits" "--no-merges")))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -386,7 +410,7 @@ This function is called at the very end of Spacemacs initialization."
  '(evil-want-Y-yank-to-eol t)
  '(package-selected-packages
    (quote
-    (cmake-ide levenshtein vala-snippets vala-mode pkgbuild-mode org-brain logcat kivy-mode impatient-mode hoon-mode ebuild-mode evil-org ruby-refactor godoctor flycheck-bashate dante powerline purescript-mode pcre2el alert log4e gntp org-plus-contrib ghub+ apiwrap ghub skewer-mode simple-httpd json-snatcher json-reformat js2-mode parent-mode projectile request haml-mode gmail-message-mode ham-mode markdown-mode html-to-markdown gitignore-mode fringe-helper git-gutter+ git-gutter gh marshal logito pcache ht flyspell-correct flymd pos-tip flycheck flx magit magit-popup git-commit with-editor smartparens iedit anzu evil goto-chg undo-tree edit-server diminish web-completion-data dash-functional tern go-mode ghc haskell-mode anaconda-mode pythonic company hydra inflections edn multiple-cursors paredit peg eval-sexp-fu highlight cider seq spinner queue pkg-info clojure-mode epl rust-mode inf-ruby bind-map bind-key yasnippet packed f dash s helm avy helm-core async auto-complete popup sparql-mode sayid realgud test-simple loc-changes load-relative password-generator evil-lion editorconfig company-lua symon string-inflection magithub helm-purpose window-purpose imenu-list go-rename browse-at-remote xkcd yapfify yaml-mode xterm-color ws-butler wolfram-mode winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill toml-mode toc-org thrift tagedit stan-mode sql-indent spaceline solarized-theme smeargle slim-mode shell-pop scss-mode scad-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rjsx-mode restart-emacs rbenv rake rainbow-delimiters racer qml-mode pyvenv pytest pyenv-mode py-isort puppet-mode pug-mode psci psc-ide popwin pip-requirements persp-mode paradox ox-twbs orgit org-projectile org-present org-pomodoro org-download open-junk-file notmuch neotree mwim multi-term move-text mmm-mode minitest matlab-mode markdown-toc magit-gitflow magit-gh-pulls macrostep lua-mode lorem-ipsum livid-mode live-py-mode linum-relative link-hint less-css-mode julia-mode json-mode js2-refactor js-doc jinja2-mode intero insert-shebang info+ indent-guide hy-mode hungry-delete htmlize hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-hoogle helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag haskell-snippets google-translate golden-ratio go-guru go-eldoc gnuplot github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gist gh-md fuzzy flyspell-correct-helm flycheck-rust flycheck-pos-tip flycheck-haskell flx-ido fish-mode fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eslintd-fix eshell-z eshell-prompt-extras esh-help emmet-mode elm-mode elisp-slime-nav dumb-jump disaster diff-hl define-word cython-mode company-web company-tern company-statistics company-shell company-go company-ghci company-ghc company-cabal company-c-headers company-ansible company-anaconda column-enforce-mode coffee-mode cmm-mode cmake-mode clojure-snippets clj-refactor clean-aindent-mode clang-format cider-eval-sexp-fu chruby cargo bundler auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile arduino-mode ansible-doc ansible aggressive-indent add-node-modules-path adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+    (helm-org-rifle xkcd yapfify yaml-mode xterm-color ws-butler wolfram-mode winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill toml-mode toc-org thrift tagedit stan-mode sql-indent spaceline solarized-theme smeargle slim-mode shell-pop scss-mode scad-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rjsx-mode restart-emacs rbenv rake rainbow-delimiters racer qml-mode pyvenv pytest pyenv-mode py-isort puppet-mode pug-mode psci psc-ide popwin pip-requirements persp-mode paradox ox-twbs orgit org-projectile org-present org-pomodoro org-download open-junk-file notmuch neotree mwim multi-term move-text mmm-mode minitest matlab-mode markdown-toc magit-gitflow magit-gh-pulls macrostep lua-mode lorem-ipsum livid-mode live-py-mode linum-relative link-hint less-css-mode julia-mode json-mode js2-refactor js-doc jinja2-mode intero insert-shebang info+ indent-guide hy-mode hungry-delete htmlize hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-hoogle helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag haskell-snippets google-translate golden-ratio go-guru go-eldoc gnuplot github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gist gh-md fuzzy flyspell-correct-helm flycheck-rust flycheck-pos-tip flycheck-haskell flx-ido fish-mode fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eslintd-fix eshell-z eshell-prompt-extras esh-help emmet-mode elm-mode elisp-slime-nav dumb-jump disaster diff-hl define-word cython-mode company-web company-tern company-statistics company-shell company-go company-ghci company-ghc company-cabal company-c-headers company-ansible company-anaconda column-enforce-mode coffee-mode cmm-mode cmake-mode clojure-snippets clj-refactor clean-aindent-mode clang-format cider-eval-sexp-fu chruby cargo bundler auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile arduino-mode ansible-doc ansible aggressive-indent add-node-modules-path adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
  '(psc-ide-add-import-on-completion t t)
  '(psc-ide-rebuild-on-save nil t))
 (custom-set-faces
