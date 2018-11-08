@@ -1,5 +1,6 @@
 set BROWSER open
 
+set -g -x SHELL /bin/fish
 set -g -x fish_greeting ''
 set -g -x EDITOR vim
 set -g -x VIRTUALFISH_HOME "$HOME/code/envs"
@@ -13,6 +14,7 @@ set -g -x PYENV_ROOT "$HOME/.pyenv"
 
 alias l 'ls -1'
 alias ll 'ls -alh'
+alias lt 'ls -1tr'
 alias d 'du -sh'
 alias fn 'find . -name'
 alias sb '. $HOME/.config/fish/config.fish'
@@ -26,9 +28,12 @@ alias myip "dig +short myip.opendns.com @resolver1.opendns.com"
 alias cd.. "cd .."
 
 
-# TODO: currently broken
 function p
+  if count $argv > /dev/null
     pannote $HOME/Dropbox/Notes $argv | fpp
+  else
+    echo 'Usage: p <term>'
+  end
 end
 
 # tmux
@@ -112,8 +117,6 @@ set magenta (set_color magenta)
 set yellow (set_color yellow)
 set green (set_color green)
 set gray (set_color -o black)
-set hg_promptstring "< on $magenta<branch>$normal>< at $yellow<tags|$normal, $yellow>$normal>$green<status|modified|unknown><update>$normal<
-patches: <patches|join( → )|pre_applied($yellow)|post_applied($normal)|pre_unapplied($gray)|post_unapplied($normal)>>" 2>/dev/null
 
 function virtualenv_prompt
     if [ -n "$VIRTUAL_ENV" ]
@@ -121,22 +124,14 @@ function virtualenv_prompt
     end
 end
 
-function cabal_prompt
-    if [ -e "cabal.sandbox.config" ]
-        printf '(cabal sandbox)'
-    end
-end
-
-function hg_prompt
-    hg prompt --angle-brackets $hg_promptstring 2>/dev/null
-end
-
 function git_prompt
-    if git root >/dev/null 2>&1
+    set -l branch_name (command git symbolic-ref --short HEAD ^/dev/null)
+
+    if test -n "$branch_name"
         set_color normal
         printf ' on '
         set_color magenta
-        printf '%s ' (git currentbranch ^/dev/null)
+        printf '%s ' "$branch_name"
         set_color normal
     end
 end
@@ -156,7 +151,6 @@ function fish_prompt
 
     set_color blue
     virtualenv_prompt
-    cabal_prompt
     set_color normal
 
     echo " \$ "
@@ -165,6 +159,8 @@ end
 function move_to_movies
     mv $argv /Volumes/Drive/movies/.
 end
+
+alias reindex "ssh silo '/usr/syno/bin/synoindex -R /volume1/video'"
 
 status --is-interactive; and source (pyenv init -|psub)
 status --is-interactive; and source (pyenv virtualenv-init -|psub)
