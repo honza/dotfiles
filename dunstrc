@@ -1,5 +1,5 @@
 [global]
-    font = Hack 12
+    font = Fira Mono 12
 
     # Allow a small subset of html markup:
     #   <b>bold</b>
@@ -11,7 +11,7 @@
     # <http://developer.gnome.org/pango/stable/PangoMarkupFormat.html>.
     # If markup is not allowed, those tags will be stripped out of the
     # message.
-    allow_markup = yes
+    markup = yes
 
     # The format of the message.  Possible variables are:
     #   %a  appname
@@ -64,6 +64,8 @@
     # the top and down respectevly.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
+
+    # Original from d0ugal
     geometry = "600x5-30+20"
 
     # Shrink window if it's smaller than the width.  Will be ignored if
@@ -73,7 +75,7 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing windowmanager is
     # present (e.g. xcompmgr, compiz, etc.).
-    transparency = 0
+    transparency = 5
 
     # Don't remove messages, if the user is idle (no mouse or keyboard input)
     # for longer than idle_threshold seconds.
@@ -117,10 +119,10 @@
     separator_height = 2
 
     # Padding between text and separator.
-    padding = 8
+    padding = 6
 
     # Horizontal padding.
-    horizontal_padding = 8
+    horizontal_padding = 6
 
     # Define a color for the separator.
     # possible values are:
@@ -147,9 +149,8 @@
     # Paths to default icons.
     icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
 
-[frame]
-    width = 3
-    color = "#aaaaaa"
+    frame_width = 2
+    frame_color = "#ffffff"
 
 [shortcuts]
 
@@ -180,12 +181,13 @@
     timeout = 2
 
 [urgency_normal]
-    background = "#285577"
+    # background = "#285577"
     foreground = "#ffffff"
+    background = "#268bd2"
     timeout = 2
 
 [urgency_critical]
-    background = "#900000"
+    background = "#dc322f"
     foreground = "#ffffff"
     timeout = 2
 
