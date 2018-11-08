@@ -40,6 +40,43 @@ def get_vpn():
     }
 
 
+def get_battery():
+    battery_path = '/sys/class/power_supply/BAT0/uevent'
+    battery_level = 0
+    battery_status = ''
+    battery_critical = False
+
+    f = open(battery_path)
+    battery_data = f.readlines()
+    f.close()
+
+    for line in battery_data:
+        label, value = line.split('=')
+        value = value.replace('\n', '')
+
+        if label == 'POWER_SUPPLY_CAPACITY':
+            battery_level = int(value)
+
+        if label == 'POWER_SUPPLY_STATUS':
+            battery_status = value
+
+    if battery_level < 15:
+        battery_critical = True
+
+    if battery_status == 'Discharging':
+        battery_status = '(bat)'
+    else:
+        battery_status = '(ac)'
+
+    text = 'B: {}% {}'.format(battery_level, battery_status)
+
+    return {
+        'full_text': text,
+        'name': 'bat',
+        'color': '#FF0000' if battery_critical else '#FFFFFF',
+    }
+
+
 def print_line(message):
     sys.stdout.write(message + '\n')
     sys.stdout.flush()
@@ -71,6 +108,7 @@ def main():
 
         j.insert(6, get_memory())
         j.insert(0, get_vpn())
+        j.insert(6, get_battery())
 
         print_line(prefix+json.dumps(j))
 

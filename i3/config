@@ -3,8 +3,7 @@ set $mod Mod4
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# font pango:Hack 10
-font pango:Ubuntu Mono 12
+font pango:NotoSans Regular 10
 
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, if you need a lot of unicode glyphs or
@@ -118,6 +117,10 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+# class                 border  backgr. text    indicator child_border
+client.focused          #333333 #333333 #ffffff #2e9ef4   #285577
+
+
 bindsym $mod+r mode "resize"
 
 bindsym $mod+i exec i3-input
@@ -147,8 +150,5 @@ focus_follows_mouse no
 exec i3-battery-check
 exec dropbox 'start'
 exec nm-applet
-# exec workrave
-# exec redshift
 
-exec_always --no-startup-id ~/.config/polybar/launch.sh
-
+# exec_always --no-startup-id ~/.config/polybar/launch.sh
