@@ -55,10 +55,6 @@
 #
 # See Also:  The man pages for open, file, basename
 #
-
-echo "hi from view attachment"
-echo $@
-
 # the tmp directory to use.
 tmpdir="$HOME/.tmp/mutt_attach"
 
@@ -141,6 +137,13 @@ if [ $type = "pdf" ]; then
     evince $newfile
     exit 0;
 fi
+
+if [ $type = "html" ]; then
+    # google-chrome --auth-server-whitelist="*.redhat.com" $newfile
+    firefox $newfile
+    exit 0;
+fi
+
 
 if [ -z $open_with ]; then
     echo "simple"
