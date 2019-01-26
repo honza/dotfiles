@@ -307,6 +307,9 @@ user code."
   (setq-default auto-fill-function 'do-auto-fill)
   (setq-default fill-column 79)
 
+  ;; Commit message body should be filled to 72
+  (setq git-commit-fill-column 72)
+
   ;; Window numbering should start from "1" for each new frame.
   (setq-default winum-scope 'frame-local)
 
