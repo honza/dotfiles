@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-killall xcape
+killall xcape 2>/dev/null ;
 
 setxkbmap -option 'caps:ctrl_modifier'
 xcape -e 'Caps_Lock=Escape'
