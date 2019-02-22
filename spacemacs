@@ -71,12 +71,18 @@
      yaml
      chrome
      xkcd
+     typescript
+     prettier
+     docker
+     restclient
+     epub
+     finance
      (spell-checking :variables spell-checking-enable-by-default nil))
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
-   dotspacemacs-additional-packages '(prettier-js forge)
+   dotspacemacs-additional-packages '(forge)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages and/or extensions that will not be install and loaded.
@@ -331,9 +337,8 @@ user code."
 
   (add-hook 'js2-mode-hook 'js2-mode-toggle-warnings-and-errors)
 
-  ;; Go
-
-  (add-hook 'go-mode-hook #'hs-minor-mode)
+  ;; Golang
+  (setq go-format-before-save t)
 
   ;; Clojure
 
