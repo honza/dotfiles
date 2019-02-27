@@ -1,159 +1,15 @@
-[submodule "vim/bundle/fugitive"]
-	path = vim/bundle/fugitive
-	url = git://github.com/tpope/vim-fugitive.git
-[submodule "vim/bundle/surround"]
-	path = vim/bundle/surround
-	url = git://github.com/tpope/vim-surround.git
-[submodule "vim/bundle/haml"]
-	path = vim/bundle/haml
-	url = git://github.com/tpope/vim-haml.git
-[submodule "vim/bundle/solarized"]
-	path = vim/bundle/solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule "vim/bundle/ack"]
-	path = vim/bundle/ack
-	url = git://github.com/mileszs/ack.vim.git
-[submodule "vim/bundle/syntastic"]
-	path = vim/bundle/syntastic
-	url = git://github.com/scrooloose/syntastic.git
-[submodule "vim/bundle/coffeescript"]
-	path = vim/bundle/coffeescript
-	url = git://github.com/kchmck/vim-coffee-script.git
-[submodule "vim/bundle/snipmate"]
-	path = vim/bundle/snipmate
-	url = git://github.com/garbas/vim-snipmate.git
-[submodule "vim/bundle/utils"]
-	path = vim/bundle/utils
-	url = git://github.com/MarcWeber/vim-addon-mw-utils.git
-[submodule "vim/bundle/tlib"]
-	path = vim/bundle/tlib
-	url = git://github.com/tomtom/tlib_vim.git
-[submodule "vim/bundle/javascript"]
-	path = vim/bundle/javascript
-	url = git://github.com/pangloss/vim-javascript.git
-[submodule "vim/bundle/mustache"]
-	path = vim/bundle/mustache
-	url = git://github.com/juvenn/mustache.vim.git
-[submodule "vim/bundle/indent-guide"]
-	path = vim/bundle/indent-guide
-	url = git://github.com/nathanaelkane/vim-indent-guides.git
-[submodule "vim/bundle/pathogen"]
-	path = vim/bundle/pathogen
-	url = git://github.com/tpope/vim-pathogen.git
-[submodule "vim/bundle/orgmode"]
-	path = vim/bundle/orgmode
-	url = git://github.com/jceb/vim-orgmode.git
-[submodule "vim/bundle/speeddating"]
-	path = vim/bundle/speeddating
-	url = git://github.com/tpope/vim-speeddating.git
-[submodule "vim/bundle/commentary"]
-	path = vim/bundle/commentary
-	url = git://github.com/tpope/vim-commentary.git
-[submodule "vim/bundle/pep8"]
-	path = vim/bundle/pep8
-	url = git://github.com/nvie/vim-pep8.git
-[submodule "vim/bundle/indent-object"]
-	path = vim/bundle/indent-object
-	url = git://github.com/michaeljsmith/vim-indent-object.git
 [submodule "vim/bundle/css-color"]
 	path = vim/bundle/css-color
 	url = git://github.com/skammer/vim-css-color.git
-[submodule "vim/bundle/matchtag"]
-	path = vim/bundle/matchtag
-	url = git://github.com/gregsexton/MatchTag.git
 [submodule "vim/bundle/tomorrow-night"]
 	path = vim/bundle/tomorrow-night
 	url = git://github.com/ChrisKempson/Vim-Tomorrow-Theme.git
 [submodule "vim/bundle/clojure"]
 	path = vim/bundle/clojure
 	url = git://github.com/vim-scripts/VimClojure.git
-[submodule "vim/bundle/stylus"]
-	path = vim/bundle/stylus
-	url = git://github.com/wavded/vim-stylus.git
-[submodule "vim/bundle/jade"]
-	path = vim/bundle/jade
-	url = git://github.com/digitaltoad/vim-jade.git
-[submodule "vim/bundle/badwolf"]
-	path = vim/bundle/badwolf
-	url = git://github.com/sjl/badwolf.git
-[submodule "vim/bundle/molokai"]
-	path = vim/bundle/molokai
-	url = git://github.com/tomasr/molokai.git
 [submodule "vim/bundle/vimclojure"]
 	path = vim/bundle/vimclojure
 	url = git://github.com/vim-scripts/VimClojure.git
-[submodule "vim/bundle/vim-clojure-static"]
-	path = vim/bundle/vim-clojure-static
-	url = git://github.com/guns/vim-clojure-static.git
-[submodule "vim/bundle/vim-classpath"]
-	path = vim/bundle/vim-classpath
-	url = git://github.com/tpope/vim-classpath.git
-[submodule "vim/bundle/fireplace"]
-	path = vim/bundle/fireplace
-	url = git://github.com/tpope/vim-fireplace.git
-[submodule "vim/bundle/americanize"]
-	path = vim/bundle/americanize
-	url = git@github.com:nelstrom/vim-americanize.git
-[submodule "vim/bundle/abolish"]
-	path = vim/bundle/abolish
-	url = git@github.com:tpope/vim-abolish.git
-[submodule "vim/bundle/puppet"]
-	path = vim/bundle/puppet
-	url = git@github.com:rodjek/vim-puppet.git
-[submodule "vim/bundle/vim-python-indent"]
-	path = vim/bundle/vim-python-indent
-	url = git@github.com:hynek/vim-python-pep8-indent.git
-[submodule "vim/bundle/less"]
-	path = vim/bundle/less
-	url = git@github.com:groenewege/vim-less.git
-[submodule "vim/bundle/base16"]
-	path = vim/bundle/base16
-	url = git@github.com:chriskempson/base16-vim.git
-[submodule "vim/bundle/haskell"]
-	path = vim/bundle/haskell
-	url = git@github.com:dag/vim2hs.git
-[submodule "vim/bundle/idris"]
-	path = vim/bundle/idris
-	url = git@github.com:idris-hackers/idris-vim.git
-[submodule "vim/bundle/rust"]
-	path = vim/bundle/rust
-	url = git@github.com:wting/rust.vim.git
-[submodule "vim/bundle/vim-clojure-highlight"]
-	path = vim/bundle/vim-clojure-highlight
-	url = git@github.com:guns/vim-clojure-highlight.git
-[submodule "vim/bundle/slamhound"]
-	path = vim/bundle/slamhound
-	url = git@github.com:guns/vim-slamhound.git
-[submodule "vim/bundle/rainbow"]
-	path = vim/bundle/rainbow
-	url = git@github.com:kien/rainbow_parentheses.vim.git
-[submodule "vim/bundle/vim-sexp"]
-	path = vim/bundle/vim-sexp
-	url = git@github.com:guns/vim-sexp.git
-[submodule "vim/bundle/toml"]
-	path = vim/bundle/toml
-	url = git@github.com:cespare/vim-toml.git
-[submodule "vim/bundle/purescript"]
-	path = vim/bundle/purescript
-	url = git@github.com:raichoo/purescript-vim.git
-[submodule "vim/bundle/go"]
-	path = vim/bundle/go
-	url = git@github.com:fatih/vim-go.git
-[submodule "vim/bundle/vim-jsx"]
-	path = vim/bundle/vim-jsx
-	url = git@github.com:mxw/vim-jsx.git
-[submodule "vim/bundle/scala"]
-	path = vim/bundle/scala
-	url = git@github.com:derekwyatt/vim-scala.git
-[submodule "vim/bundle/vim-markdown"]
-	path = vim/bundle/vim-markdown
-	url = git@github.com:plasticboy/vim-markdown.git
-[submodule "vim/bundle/ledger"]
-	path = vim/bundle/ledger
-	url = git@github.com:ledger/vim-ledger.git
-[submodule "vim/bundle/supertab"]
-	path = vim/bundle/supertab
-	url = git@github.com:ervandew/supertab.git
 [submodule "vim/bundle/alduin"]
 	path = vim/bundle/alduin
 	url = git@github.com:AlessandroYorba/Alduin.git
