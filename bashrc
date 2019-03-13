@@ -154,5 +154,13 @@ unset MAILCHECK
 # export SHELL=/usr/local/bin/bash
 export GREP_OPTIONS='--color=auto'
 
+
+# These exports are necessary for compiling and running sway
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
+export PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig:$PKG_CONFIG_PATH
+export PKG_CONFIG_PATH=/usr/local/share/pkgconfig:$PKG_CONFIG_PATH
+export LD_LIBRARY_PATH=/usr/local/lib/:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/usr/local/lib64/:$LD_LIBRARY_PATH
+
 if [[ -s $HOME/.bashrc_local ]] ; then source $HOME/.bashrc_local ; fi
 if [[ -s $DOTFILES/bash_functions ]] ; then source $DOTFILES/bash_functions ; fi

@@ -112,6 +112,10 @@ prepend_to_path "$HOME/.cargo/bin"
 prepend_to_path "$HOME/.pyenv/bin"
 prepend_to_path $GOPATH/bin
 
+# These exports are necessary for compiling and running sway
+set -gx PKG_CONFIG_PATH /usr/local/lib/pkgconfig /usr/local/lib64/pkgconfig /usr/local/share/pkgconfig $PKG_CONFIG_PATH
+set -gx LD_LIBRARY_PATH /usr/local/lib/ /usr/local/lib64/ $LD_LIBRARY_PATH
+
 set normal (set_color normal)
 set magenta (set_color magenta)
 set yellow (set_color yellow)
