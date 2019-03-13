@@ -7,12 +7,6 @@ export PIP_DOWNLOAD_CACHE="$HOME/.pip/cache"
 alias vim='vim'  # Override
 
 # -----------------------------------------------------------------------------
-# virtualenv
-# -----------------------------------------------------------------------------
-export WORKON_HOME=$HOME/Code/envs
-source /usr/local/bin/virtualenvwrapper.sh
-
-# -----------------------------------------------------------------------------
 # Shortcuts
 # -----------------------------------------------------------------------------
 alias ls='ls -h'
@@ -57,7 +51,6 @@ function psg {
     ps auxww | grep --color=always $* | grep -v grep | sed -e 's/  */ /g' | cut -d' ' -f 2,11-
 }
 
-source $HOME/dotfiles/z/z.sh
 # -----------------------------------------------------------------------------
 # Git
 # -----------------------------------------------------------------------------
@@ -136,13 +129,6 @@ function spp() {
 # -----------------------------------------------------------------------------
 alias startpostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias stoppostgres='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
-
-# -----------------------------------------------------------------------------
-# Completion
-# -----------------------------------------------------------------------------
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
-fi
 
 # -----------------------------------------------------------------------------
 # Other
