@@ -83,6 +83,22 @@ bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
 
+
+# hyper + right hand numpad on the ergodox
+bindsym $hyper+m workspace number 1
+bindsym $hyper+w workspace number 2
+bindsym $hyper+v workspace number 3
+bindsym $hyper+h workspace number 4
+bindsym $hyper+t workspace number 5
+bindsym $hyper+n workspace number 6
+bindsym $hyper+g workspace number 7
+bindsym $hyper+c workspace number 8
+bindsym $hyper+r workspace number 9
+bindsym $hyper+l workspace number 10
+
+bindsym $hyper+d focus left
+bindsym $hyper+s focus right
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1
 bindsym $mod+Shift+2 move container to workspace number 2
