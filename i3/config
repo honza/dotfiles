@@ -1,16 +1,11 @@
 set $mod Mod4
+set $hyper Mod4+Control+Shift+Mod1
 set $term --no-startup-id gnome-terminal
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-font pango:NotoSans Regular 10
-
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, if you need a lot of unicode glyphs or
-# right-to-left text rendering, you should instead use pango for rendering and
-# chose a FreeType font, such as:
-# font pango:DejaVu Sans Mono 10
+font pango:Monoid 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -37,6 +32,7 @@ bindsym $mod+d exec rofi -show run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+Shift+l exec --no-startup-id i3lock -c 000000
 
@@ -114,7 +110,7 @@ bindsym $mod+Shift+0 move container to workspace number 10
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r reload
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -150,7 +146,7 @@ bindsym Shift+Print exec gnome-screenshot active
 bar {
         position top
         status_command i3status -c ~/.i3/i3status.conf | ~/.i3/i3status.py
-        font pango:Hack 10
+        font pango:Monoid 8
 }
 
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
@@ -164,8 +160,17 @@ bindsym XF86MonBrightnessDown exec /bin/brightnessctl set 10%-
 
 focus_follows_mouse no
 
-exec i3-battery-check
+# In order for dropbox to work two things need to be installed:
+#   1.  The ~/.dropbox-dist directory
+#   2.  The dropbox.py script from the dropbox website
 exec dropbox 'start'
-exec nm-applet
 
-# exec_always --no-startup-id ~/.config/polybar/launch.sh
+# applets are useless because swaybar doesn't support old icons
+# you can use nmcli instead
+# exec nm-applet
+
+# keyboard doesn't work with wayland because it contains x11-specific settings
+# exec keyboard
+
+# mako gives you notifications (it's a dunst replacement)
+exec  mako
