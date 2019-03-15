@@ -1,3 +1,4 @@
+set -e GREP_OPTIONS
 set BROWSER open
 
 set -g -x SHELL /bin/fish
@@ -85,7 +86,7 @@ alias cuts "cut -d' '"
 alias collapse="sed -e 's/  */ /g'"
 
 function psg -d "Grep for a running process, returning its PID and full string"
-    ps auxww | grep --color=always $argv | grep -v grep | collapse | cuts -f 2,11-
+    ps auxww | grep $argv | grep -v grep | collapse | cuts -f 2,11-
 end
 
 function prepend_to_path -d "Prepend the given dir to PATH if it exists and is not already in it"
