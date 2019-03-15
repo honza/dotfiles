@@ -137,10 +137,6 @@ alias stoppostgres='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 # Stop telling me I have new mail
 unset MAILCHECK
 
-# export SHELL=/usr/local/bin/bash
-export GREP_OPTIONS='--color=auto'
-
-
 # These exports are necessary for compiling and running sway
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
 export PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig:$PKG_CONFIG_PATH
