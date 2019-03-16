@@ -11,7 +11,7 @@ font pango:Monoid 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec $term
 
 # Open a new tab of an existing firefox instance
 bindsym $mod+Shift+Delete exec firefox
