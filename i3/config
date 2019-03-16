@@ -184,3 +184,7 @@ exec  mako
 input 1:1:AT_Translated_Set_2_keyboard {
   xkb_options ctrl:nocaps
 }
+
+exec swayidle -w \
+    timeout 600 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"'
