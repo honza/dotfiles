@@ -2,8 +2,14 @@
 # -*- coding: utf-8 -*-
 
 import json
+import os
 import subprocess
 import sys
+
+RED = '#dc322f'
+GREEN = '#2aa198'
+
+NULL = open(os.devnull, 'w')
 
 
 def get_memory():
@@ -29,14 +35,17 @@ def get_memory():
 
 def get_vpn():
     try:
-        host = subprocess.check_output(["host", "mail.corp.redhat.com"])
-        vpn_connected = 'has address' in host
-    except:
+        subprocess.check_call(
+            ["/home/honza/dotfiles/bin/is-vpn-connected"],
+            stdout=NULL
+        )
+        vpn_connected = True
+    except Exception:
         vpn_connected = False
     return {
         'full_text': "VPN",
         'name': 'vpn',
-        'color': '#00FF00' if vpn_connected else '#FF0000',
+        'color': GREEN if vpn_connected else RED
     }
 
 

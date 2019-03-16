@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Status code:
+#
+#   0 => Connected
+#   1 => Not connected
+
+nmcli connection show --active | grep vpn
