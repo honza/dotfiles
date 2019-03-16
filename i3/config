@@ -34,7 +34,7 @@ bindsym $mod+d exec rofi -show run
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+Shift+l exec --no-startup-id i3lock -c 000000
+bindsym $mod+Shift+l exec --no-startup-id swaylock -c 000000 -f
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+h focus left
