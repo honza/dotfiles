@@ -146,7 +146,12 @@ bindsym Shift+Print exec gnome-screenshot active
 bar {
         position top
         status_command i3status -c ~/.i3/i3status.conf | ~/.i3/i3status.py
+        # status_command ~/bin/i3status-rs ~/dotfiles/i3/i3bar.toml
         font pango:Monoid 8
+
+        # Explicitly disable the icon tray (network, dropbox, etc) because it
+        # doesn't work with old icons yet, and just displays a red sad face
+        tray_output none
 }
 
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
