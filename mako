@@ -1,3 +1,9 @@
 default-timeout=3000
-font=Monoid 8
+font=Monoid 9
 padding=15
+background-color=#073642
+border-color=#268bd2
+border-size=2
+margin=20
+icons=0
+text-color=#93a1a1
