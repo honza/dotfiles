@@ -115,9 +115,9 @@ def main():
 
         j = json.loads(line)
 
-        j.insert(6, get_memory())
         j.insert(0, get_vpn())
-        j.insert(6, get_battery())
+        j.insert(5, get_memory())
+        j.insert(5, get_battery())
 
         print_line(prefix+json.dumps(j))
 
