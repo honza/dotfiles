@@ -14,6 +14,7 @@ set signature        = ~/.mutt/sig           # my signature file
 set tmpdir           = ~/.mutt/temp          # where to keep temp files
 
 # Use Vim to compose email, with a few default options.
+# set editor = "emacsclient -nc"
 set editor = "vim -c 'normal! }' -c 'redraw' -c 'set spell'"
 
 # Contacts
@@ -110,8 +111,7 @@ set spoolfile = "+aliases/honza"
 mailboxes +aliases/redhat \
           +aliases/honza \
           +aliases/gmail \
-          +aliases/pokorny \
-          +aliases/wyatt
+          +aliases/pokorny
 
 # Other special folders.
 set mbox      = "honza/archive"
@@ -130,7 +130,7 @@ folder-hook +aliases/redhat source ~/dotfiles/mutt/redhat.muttrc
 folder-hook +aliases/honza source ~/dotfiles/mutt/honza.muttrc
 folder-hook +aliases/pokorny source ~/dotfiles/mutt/pokorny.muttrc
 folder-hook +aliases/gmail source ~/dotfiles/mutt/gmail.muttrc
-folder-hook +aliases/wyatt source ~/dotfiles/mutt/wyatt.muttrc
+folder-hook +mbsync/redhat/inbox source ~/dotfiles/mutt/redhat.muttrc
 
 # Key Bindings
 
@@ -171,11 +171,11 @@ macro index s "<pipe-message>cat > ~/Desktop/"  "save message as"
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
 
 # Sync email
-macro index o "<shell-escape>~/dotfiles/mutt/offlineimap_sync.sh --inbox<enter>"
-macro index O "<shell-escape>~/dotfiles/mutt/offlineimap_sync.sh<enter>"
+macro index o "<shell-escape>mbsync inboxes<enter>"
+macro index O "<shell-escape>mbsync all-mail<enter>"
 
 # Just use notmuch for everything
-macro index / "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-py -G<enter><change-folder-readonly>~/.cache/mutt_results<enter>" \
+macro index / "<enter-command>unset wait_key<enter><shell-escape>~/code/mutt-notmuch-py/mutt-notmuch-py -G<enter><change-folder-readonly>~/.cache/mutt_results<enter>" \
           "search mail (using notmuch)"
 
 # Unlimit aka show [a]ll
