@@ -9,6 +9,7 @@ set -g -x VIRTUALFISH_COMPAT_ALIASES 1
 set -g -x GOPATH "$HOME/code/go"
 set -g -x KEYID "0xFFBD0899F2AD6A2B"
 set -g -x ANSIBLE_NOCOWS 1
+set -g -x TAR_OPTIONS '--one-top-level'
 set -g -x VIRTUAL_ENV_DISABLE_PROMPT 1
 set -g -x LEIN_GPG gpg2  # yes, in 2017
 set -g -x PYENV_ROOT "$HOME/.pyenv"
