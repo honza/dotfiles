@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+selected_dir=$(ls /mnt/video | fzf)
+
+touch /mnt/video/$selected_dir/.process
+
+echo "Adding $selected_dir to the queue..."
