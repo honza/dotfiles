@@ -5,6 +5,7 @@ DOTFILES=$HOME/dotfiles
 export EDITOR='vim'
 export PIP_DOWNLOAD_CACHE="$HOME/.pip/cache"
 alias vim='vim'  # Override
+export GPG_TTY=$(tty)
 
 # -----------------------------------------------------------------------------
 # Shortcuts
