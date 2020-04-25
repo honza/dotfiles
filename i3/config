@@ -132,6 +132,7 @@ mode "resize" {
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #333333 #333333 #ffffff #2e9ef4   #285577
+default_border none
 
 
 bindsym $mod+r mode "resize"
@@ -145,7 +146,8 @@ bindsym $hyper+u exec ~/dotfiles/bin/take-screenshot
 # finds out, if available)
 bar {
         position top
-        status_command i3status -c ~/.i3/i3status.conf | ~/.i3/i3status.py
+        swaybar_command waybar
+        # status_command i3status -c ~/.i3/i3status.conf | ~/.i3/i3status.py
         # status_command ~/bin/i3status-rs ~/dotfiles/i3/i3bar.toml
         font pango:Monoid 8
 
@@ -178,13 +180,19 @@ exec dropbox 'start'
 # exec keyboard
 
 # mako gives you notifications (it's a dunst replacement)
-exec  mako
+exec_always  mako
 
 # For the built-in laptop keyboard, turn capslock into ctrl
 input 1:1:AT_Translated_Set_2_keyboard {
+
+  # ------ WARNING ------
+  # Do not set this to "cs", it's a Russian keyboard
+  # Use "cz" for the Czech keyboard
+  #
+  xkb_layout us
   xkb_options ctrl:nocaps
 }
 
-exec swayidle -w \
+exec_always swayidle -w \
     timeout 600 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"'
