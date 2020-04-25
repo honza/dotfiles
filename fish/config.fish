@@ -12,6 +12,7 @@ set -g -x ANSIBLE_NOCOWS 1
 set -g -x TAR_OPTIONS '--one-top-level'
 set -g -x VIRTUAL_ENV_DISABLE_PROMPT 1
 set -g -x LEIN_GPG gpg2  # yes, in 2017
+set -x GPG_TTY (tty)
 set -g -x PYENV_ROOT "$HOME/.pyenv"
 
 alias l 'ls -1'
