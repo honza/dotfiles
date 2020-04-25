@@ -57,16 +57,11 @@ set wildignore+=*CACHE                           " django compressor cache
 set cpoptions+=J
 
 " TODO: Only add the 73 to Python files
-set colorcolumn=80,73
+" set colorcolumn=80,73
 
-set cursorline
+" set cursorline
 set nojoinspaces
 
-set undodir=~/.vim/tmp/undo//     " undo files
-set backupdir=~/.vim/tmp/backup// " backups
-set directory=~/.vim/tmp/swap//   " swap files
-set backup                        " enable backups
-set noswapfile                    " It's 2012, Vim.
 
 filetype on
 filetype plugin on
@@ -109,8 +104,8 @@ nnoremap <leader>ft Vatzf
 " Toggle whitespace characters
 nmap <leader>l :set list!<cr>
 
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%80v.\+/
+" highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+" match OverLength /\%80v.\+/
 
 " Diplay cursor position in bottom right corner
 set ruler
@@ -200,3 +195,7 @@ set pastetoggle=<F9>
 
 syntax enable
 set background=dark
+
+set nobackup       " no backup files
+set nowritebackup  " only in case you don't want a backup file while editing
+set noswapfile     " It's 2012, Vim.
