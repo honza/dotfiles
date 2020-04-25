@@ -29,6 +29,10 @@ alias sub "subliminal download -l en -s --"
 alias el "echo 'Eliška' | xsel --clipboard --input"
 alias myip "dig +short myip.opendns.com @resolver1.opendns.com"
 alias cd.. "cd .."
+alias mygo 'cd $GOPATH/src/github.com/honza'
+
+alias control-center 'env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'
+alias today 'date +"%Y-%m-%d"'
 
 
 function p
