@@ -56,7 +56,11 @@ This function should only modify configuration layer settings."
      markdown
      notmuch
      (org :variables
+          org-enable-epub-support t
+          org-enable-org-journal-support t
+          org-enable-hugo-support t
           org-enable-bootstrap-support t)
+     org-roam
      python
      clojure
      html
@@ -82,6 +86,7 @@ This function should only modify configuration layer settings."
      restclient
      epub
      finance
+     terraform
      (spell-checking :variables spell-checking-enable-by-default nil))
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -563,14 +568,28 @@ dump."
         ("~/Dropbox/org/someday.org" :level . 1)
         ("~/Dropbox/org/tickler.org" :maxlevel . 2)))
 
-    (setq org-todo-keywords
-          '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELLED(c)")))
-
     (setq org-agenda-files '("~/Dropbox/org/inbox.org"
                              "~/Dropbox/org/gtd.org"
                              "~/Dropbox/org/tickler.org"))
 
-    (setq org-default-notes-file "~/Dropbox/org/inbox.org"))
+    (setq org-default-notes-file "~/Dropbox/org/inbox.org")
+    (setq org-roam-directory "~/Dropbox/org/")
+
+    ;; (add-hook 'org-mode-hook 'org-roam-mode)
+    ;; (add-hook 'after-init-hook 'org-roam--build-cache-async)
+
+    ;; (defun org-journal-today ()
+    ;;   (interactive)
+    ;;   (org-journal-new-entry t))
+
+    (setq org-journal-date-prefix "#+TITLE: ")
+    (setq org-journal-file-format "%Y-%m-%d-journal.org")
+    (setq org-journal-date-format "%Y-%m-%d")
+
+    (setq org-journal-dir "~/Dropbox/org/"))
+
+  (setq nov-text-width 80)
+  (setq nov-variable-pitch nil)
 
   (eval-after-load 'magit-popup
     '(magit-define-popup-switch 'magit-log-popup
