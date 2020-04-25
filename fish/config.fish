@@ -179,3 +179,7 @@ alias reindex "ssh silo '/usr/syno/bin/synoindex -R /volume1/video'"
 
 status --is-interactive; and source (pyenv init -|psub)
 status --is-interactive; and source (pyenv virtualenv-init -|psub)
+
+if [ (tty) = "/dev/tty1" ]
+    exec sway
+end
