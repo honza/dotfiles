@@ -147,3 +147,7 @@ export LD_LIBRARY_PATH=/usr/local/lib64/:$LD_LIBRARY_PATH
 
 if [[ -s $HOME/.bashrc_local ]] ; then source $HOME/.bashrc_local ; fi
 if [[ -s $DOTFILES/bash_functions ]] ; then source $DOTFILES/bash_functions ; fi
+
+if [ "$(tty)" = "/dev/tty1" ]; then
+	exec sway
+fi
