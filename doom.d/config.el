@@ -30,10 +30,19 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/Dropbox/org/")
 (setq org-roam-directory "~/Dropbox/org/")
+(setq org-journal-dir "~/Dropbox/org/")
 (setq org-journal-date-prefix "#+TITLE: ")
-(setq org-journal-file-format "%Y-%m-%d-journal.org")
+(setq org-journal-file-format "%Y%m%d.org")
 (setq org-journal-date-format "%Y-%m-%d")
 
+(setq org-refile-targets
+  '(("~/Dropbox/org/gtd.org" :maxlevel . 3)
+    ("~/Dropbox/org/someday.org" :level . 1)
+    ("~/Dropbox/org/tickler.org" :maxlevel . 2)))
+
+(setq org-agenda-files '("~/Dropbox/org/inbox.org"
+                          "~/Dropbox/org/gtd.org"
+                          "~/Dropbox/org/tickler.org"))
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative)
