@@ -136,13 +136,17 @@ function virtualenv_prompt
 end
 
 function git_prompt
-    set -l branch_name (command git symbolic-ref --short HEAD ^/dev/null)
+    set branch_name (command git symbolic-ref --short HEAD ^/dev/null)
+
+    if test -z "$branch_name"
+        set branch_name (command git show --format="%D" --no-patch ^/dev/null)
+    end
 
     if test -n "$branch_name"
         set_color normal
         printf ' on '
         set_color magenta
-        printf '%s ' "$branch_name"
+        printf '%s' "$branch_name"
         set_color normal
     end
 end
