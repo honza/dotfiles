@@ -177,7 +177,22 @@ exec dropbox 'start'
 # exec nm-applet
 
 # keyboard doesn't work with wayland because it contains x11-specific settings
-exec keyboard
+# exec keyboard
 
 # mako gives you notifications (it's a dunst replacement)
-exec_always dunst
+exec_always  mako
+
+# For the built-in laptop keyboard, turn capslock into ctrl
+input 1:1:AT_Translated_Set_2_keyboard {
+
+  # ------ WARNING ------
+  # Do not set this to "cs", it's a Russian keyboard
+  # Use "cz" for the Czech keyboard
+  #
+  xkb_layout us
+  xkb_options ctrl:nocaps
+}
+
+exec_always swayidle -w \
+    timeout 600 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"'
