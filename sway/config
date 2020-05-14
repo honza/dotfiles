@@ -139,7 +139,7 @@ bindsym $mod+r mode "resize"
 
 bindsym $mod+i exec $term -e htop
 
-bindsym Print exec gnome-screenshot
+bindsym Print exec ~/dotfiles/bin/take-screenshot
 bindsym $hyper+u exec ~/dotfiles/bin/take-screenshot
 
 # Start i3bar to display a workspace bar (plus the system information i3status
