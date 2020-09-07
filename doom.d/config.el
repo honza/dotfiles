@@ -77,3 +77,17 @@
 
 (use-package! nov
   :mode ("\\.epub\\'" . nov-mode))
+
+;; Add modes to this list if you want to disable automatic formatting
+;; Note the negation
+(setq +format-on-save-enabled-modes
+      '(not
+        emacs-lisp-mode  ; elisp's mechanisms are good enough
+        sql-mode         ; sqlformat is currently broken
+        tex-mode         ; latexindent is broken
+        latex-mode
+
+        scss-mode
+        yaml-mode
+        gfm
+        markdown))
