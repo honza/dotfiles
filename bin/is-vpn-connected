@@ -1,22 +1,8 @@
-#!/usr/bin/env python
+#!/usr/bin/env bash
 
 # Status code:
 #
 #   0 => Connected
 #   1 => Not connected
 
-import subprocess
-
-cmd = 'nmcli --terse connection show --active'
-
-def main():
-    out = subprocess.check_output(cmd.split(' '))
-    for line in out.splitlines():
-        if 'vpn' in str(line):
-            print('{"text": "VPN: up"}')
-            return
-
-    print('{"text": "VPN: down"}')
-
-
-main()
+nmcli --terse connection show --active | grep vpn
