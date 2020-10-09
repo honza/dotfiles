@@ -90,6 +90,9 @@
         latex-mode
 
         scss-mode
+        css-mode
         yaml-mode
-        gfm
-        markdown))
+        evil-markdown
+        markdown-toc
+        gfm-mode
+        markdown-mode))
