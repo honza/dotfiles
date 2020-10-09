@@ -78,6 +78,8 @@
 (use-package! nov
   :mode ("\\.epub\\'" . nov-mode))
 
+(setq sentence-end-double-space t)
+
 ;; Add modes to this list if you want to disable automatic formatting
 ;; Note the negation
 (setq +format-on-save-enabled-modes
