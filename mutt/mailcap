@@ -33,6 +33,7 @@ application/pdf; ~/dotfiles/mutt/view_attachment.sh %s pdf
 
 # HTML
 text/html; ~/dotfiles/mutt/view_attachment.sh %s html
+# text/html; w3m -I %{charset} -T text/html; copiousoutput;
 
 # Unidentified.
 application/octet-stream; ~/dotfiles/mutt/view_attachment.sh %s "-" 

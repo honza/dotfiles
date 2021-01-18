@@ -4,7 +4,7 @@
 
 # settings
 # colors
-color sidebar_new color221 color233
+# color sidebar_new color221 color233
 
 # bindings
 bind index,pager <down>   sidebar-next
