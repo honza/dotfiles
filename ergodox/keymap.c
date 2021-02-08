@@ -28,6 +28,10 @@
 #define SYMB 1 // symbols
 #define MDIA 2 // media keys
 
+enum custom_keycodes {
+  IF_ERR_NIL = EZ_SAFE_RANGE,
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
  *
@@ -55,7 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [BASE] = LAYOUT_ergodox(  // layer 0 : default
         // left hand
         KC_EQL,         KC_1,           KC_2,    KC_3,   KC_4,   KC_5,   KC_LEFT,
-        KC_DELT,        KC_QUOT,        KC_COMM, KC_DOT, KC_P,   KC_Y,   TG(1),
+        KC_DELT,        KC_QUOT,        KC_COMM, KC_DOT, KC_P,   KC_Y,   IF_ERR_NIL,
         KC_TRNS,        KC_A,           KC_O,    KC_E,   KC_U,   KC_I,
         KC_LSPO,        KC_SCLN,        KC_Q,    KC_J,   KC_K,   KC_X,   ALL_T(KC_NO),
         MO(MDIA)       ,KC_QUOT,      LALT(KC_LSFT),  KC_LEFT,KC_BSPC,
@@ -156,3 +160,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS, KC_TRNS, KC_WBAK
 ),
 };
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case IF_ERR_NIL:
+            if (record->event.pressed) {
+                SEND_STRING("if err =! nil {\n\t\n}");
+            }
+            return false;
+    }
+    return true;
+}
