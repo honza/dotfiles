@@ -1,5 +1,10 @@
-cd ~/GitHub/qmk_firmware
+QMK_TREE=~/code/qmk_firmware
+TEENSY_BIN=~/code/teensy_loader_cli/teensy_loader_cli 
+
+pushd $QMK_TREE || exit
+
 make ergodox_ez:honza
-~/GitHub/teensy_loader_cli/teensy_loader_cli \
-    -mmcu=atmega32u4 -w ergodox_ez_honza.hex
-cd -
+
+$TEENSY_BIN -mmcu=atmega32u4 -w ergodox_ez_honza.hex
+
+popd || exit
