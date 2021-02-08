@@ -165,7 +165,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case IF_ERR_NIL:
             if (record->event.pressed) {
-                SEND_STRING("if err =! nil {\n\t\n}");
+                SEND_STRING("if err != nil {\n\t\n}");
             }
             return false;
     }
