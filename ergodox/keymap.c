@@ -38,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * |   =    |   1  |   2  |   3  |   4  |   5  | LEFT |           | RIGHT|   6  |   7  |   8  |   9  |   0  |   \    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * | Del    |   '  |   ,  |   .  |   P  |   Y  |  if  |           |  L1  |   F  |   G  |   C  |   R  |   L  |   /    |
+ * | Tab    |   '  |   ,  |   .  |   P  |   Y  |  if  |           |  L1  |   F  |   G  |   C  |   R  |   L  |   /    |
  * |--------+------+------+------+------+------|  err |           |      |------+------+------+------+------+--------|
  * |ctrl/esc|   A  |   O  |   E  |   U  |   I  |------|           |------|   D  |   H  |   T  |   N  |   S  |   -    |
  * |--------+------+------+------+------+------| Hyper|           | Meh  |------+------+------+------+------+--------|
@@ -59,7 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [BASE] = LAYOUT_ergodox(  // layer 0 : default
         // left hand
         KC_EQL,         KC_1,           KC_2,    KC_3,   KC_4,   KC_5,   KC_LEFT,
-        KC_DELT,        KC_QUOT,        KC_COMM, KC_DOT, KC_P,   KC_Y,   IF_ERR_NIL,
+        KC_TAB,         KC_QUOT,        KC_COMM, KC_DOT, KC_P,   KC_Y,   IF_ERR_NIL,
         LCTL_T(KC_ESC), KC_A,           KC_O,    KC_E,   KC_U,   KC_I,
         KC_LSPO,        KC_SCLN,        KC_Q,    KC_J,   KC_K,   KC_X,   ALL_T(KC_NO),
         MO(MDIA)       ,KC_QUOT,      LALT(KC_LSFT),  KC_LEFT,KC_BSPC,
