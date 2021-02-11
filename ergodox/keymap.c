@@ -21,8 +21,6 @@
 // I expect to customize this heavily.
 
 #include QMK_KEYBOARD_H
-#include "debug.h"
-#include "action_layer.h"
 
 enum custom_keycodes {
   IF_ERR_NIL = EZ_SAFE_RANGE,
