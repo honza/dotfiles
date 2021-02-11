@@ -1,6 +1,6 @@
 /*
  *  ergodox ez keymap
- *  Copyright (C) 2019, Honza Pokorny <me@honza.ca>
+ *  Copyright (C) 2019-2021, Honza Pokorny <me@honza.ca>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -38,13 +38,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * |   =    |   1  |   2  |   3  |   4  |   5  | LEFT |           | RIGHT|   6  |   7  |   8  |   9  |   0  |   \    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * | Tab    |   '  |   ,  |   .  |   P  |   Y  |  if  |           |  L1  |   F  |   G  |   C  |   R  |   L  |   /    |
+ * | Tab    |   '  |   ,  |   .  |   P  |   Y  |  if  |           |  L1  |   F  |   G  |   C  |   R  |   L  |  bkspc |
  * |--------+------+------+------+------+------|  err |           |      |------+------+------+------+------+--------|
  * |ctrl/esc|   A  |   O  |   E  |   U  |   I  |------|           |------|   D  |   H  |   T  |   N  |   S  |   -    |
  * |--------+------+------+------+------+------| Hyper|           | Meh  |------+------+------+------+------+--------|
  * | LS + ( |   :  |   Q  |   J  |   K  |   X  |      |           |      |   B  |   M  |   W  |   V  |   Z  | RS + ) |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |Grv/L1|  '"  |AltShf| Left | bkspc|                                       | Space| Down |   [  |   ]  | ~L1  |
+ *   |Grv/L1|  '"  |AltShf| Left |  L1  |                                       | Space| Down |   [  |   ]  | ~L1  |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        | App  | LGui |       | Alt  |Ctrl/Esc|
@@ -62,13 +62,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,         KC_QUOT,        KC_COMM, KC_DOT, KC_P,   KC_Y,   IF_ERR_NIL,
         LCTL_T(KC_ESC), KC_A,           KC_O,    KC_E,   KC_U,   KC_I,
         KC_LSPO,        KC_SCLN,        KC_Q,    KC_J,   KC_K,   KC_X,   ALL_T(KC_NO),
-        MO(MDIA)       ,KC_QUOT,      LALT(KC_LSFT),  KC_LEFT,KC_BSPC,
+        MO(MDIA)       ,KC_QUOT,      LALT(KC_LSFT),  KC_LEFT,MO(SYMB),
                                               ALT_T(KC_APP),  KC_LGUI,
                                                               KC_HOME,
                                                KC_LCTL,KC_ESC,KC_END,
         // right hand
              KC_RGHT,     KC_6,   KC_7,   KC_8,   KC_9,   KC_0,             KC_BSLS,
-             TG(1),       KC_F,   KC_G,   KC_C,   KC_R,   KC_L,             KC_SLSH,
+             TG(1),       KC_F,   KC_G,   KC_C,   KC_R,   KC_L,             KC_BSPC,
                           KC_D,   KC_H,   KC_T,   KC_N,   KC_S,             KC_MINS,
              MEH_T(KC_NO),KC_B,   KC_M,   KC_W,   KC_V,   KC_Z,             KC_RSPC,
                                   KC_SPC, KC_DOWN,KC_LBRC,KC_RBRC,          TT(SYMB),
