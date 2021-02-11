@@ -36,7 +36,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |   =    |   1  |   2  |   3  |   4  |   5  | LEFT |           | RIGHT|   6  |   7  |   8  |   9  |   0  |   \    |
+ * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * | Tab    |   '  |   ,  |   .  |   P  |   Y  |  if  |           |  L1  |   F  |   G  |   C  |   R  |   L  |  bkspc |
  * |--------+------+------+------+------+------|  err |           |      |------+------+------+------+------+--------|
@@ -58,20 +58,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Otherwise, it needs KC_*
 [BASE] = LAYOUT_ergodox(  // layer 0 : default
         // left hand
-        KC_EQL,         KC_1,           KC_2,    KC_3,   KC_4,   KC_5,   KC_LEFT,
-        KC_TAB,         KC_QUOT,        KC_COMM, KC_DOT, KC_P,   KC_Y,   IF_ERR_NIL,
-        LCTL_T(KC_ESC), KC_A,           KC_O,    KC_E,   KC_U,   KC_I,
-        KC_LSPO,        KC_SCLN,        KC_Q,    KC_J,   KC_K,   KC_X,   ALL_T(KC_NO),
-        MO(MDIA),       KC_QUOT,        LALT(KC_LSFT),  KC_LEFT,MO(SYMB),
+        KC_TRNS,        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TAB,         KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,    IF_ERR_NIL,
+        LCTL_T(KC_ESC), KC_A,    KC_O,    KC_E,    KC_U,    KC_I,
+        KC_LSPO,        KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    ALL_T(KC_NO),
+        MO(MDIA),       KC_QUOT, LALT(KC_LSFT),  KC_LEFT,MO(SYMB),
                                               ALT_T(KC_APP),  KC_LGUI,
                                                               KC_HOME,
                                                KC_LCTL,KC_ESC,KC_END,
         // right hand
-             KC_RGHT,     KC_6,   KC_7,   KC_8,   KC_9,   KC_0,             KC_BSLS,
-             TG(1),       KC_F,   KC_G,   KC_C,   KC_R,   KC_L,             KC_BSPC,
-                          KC_D,   KC_H,   KC_T,   KC_N,   KC_S,             KC_MINS,
-             MEH_T(KC_NO),KC_B,   KC_M,   KC_W,   KC_V,   KC_Z,             KC_RSPC,
-                                  KC_SPC, KC_DOWN,KC_LBRC,KC_RBRC,          TT(SYMB),
+             KC_TRNS,     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+             TG(1),       KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_BSPC,
+                          KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KC_MINS,
+             MEH_T(KC_NO),KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KC_RSPC,
+                                   KC_SPC,  KC_DOWN, KC_LBRC, KC_RBRC, TT(SYMB),
              KC_LALT,        CTL_T(KC_ESC),
              KC_PGUP,
              KC_PGDN,MO(SYMB), KC_ENT
