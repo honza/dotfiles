@@ -24,10 +24,6 @@
 #include "debug.h"
 #include "action_layer.h"
 
-#define BASE 0 // default layer
-#define SYMB 1 // symbols
-#define MDIA 2 // media keys
-
 enum custom_keycodes {
   IF_ERR_NIL = EZ_SAFE_RANGE,
 };
@@ -56,13 +52,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 // If it accepts an argument (i.e, is a function), it doesn't need KC_.
 // Otherwise, it needs KC_*
-[BASE] = LAYOUT_ergodox(  // layer 0 : default
+[0] = LAYOUT_ergodox(  // layer 0 : default
         // left hand
         KC_TRNS,        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TAB,         KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,    IF_ERR_NIL,
         LCTL_T(KC_ESC), KC_A,    KC_O,    KC_E,    KC_U,    KC_I,
         KC_LSPO,        KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    ALL_T(KC_NO),
-        KC_TRNS,        KC_TRNS, KC_TRNS, KC_LGUI, MO(SYMB),
+        KC_TRNS,        KC_TRNS, KC_TRNS, KC_LGUI, MO(1),
                                                       KC_TRNS, KC_TRNS,
                                                                KC_TRNS,
                                                KC_SPC,KC_TRNS,KC_TRNS,
@@ -71,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              TG(1),       KC_F,    KC_G,     KC_C,    KC_R,    KC_L,    KC_BSPC,
                           KC_D,    KC_H,     KC_T,    KC_N,    KC_S,    KC_MINS,
              MEH_T(KC_NO),KC_B,    KC_M,     KC_W,    KC_V,    KC_Z,    KC_RSPC,
-                                   MO(MDIA), KC_RALT, KC_TRNS, KC_TRNS, KC_TRNS,
+                                   MO(2),    KC_RALT, KC_TRNS, KC_TRNS, KC_TRNS,
              KC_TRNS, KC_TRNS,
              KC_TRNS,
              KC_TRNS, KC_TRNS, KC_ENT
@@ -98,7 +94,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 `--------------------'       `--------------------'
  */
 // SYMBOLS
-[SYMB] = LAYOUT_ergodox(
+[1] = LAYOUT_ergodox(
        // left hand
        KC_TRNS,KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,  KC_TRNS,
        KC_TRNS,KC_EXLM,KC_AT,  KC_LCBR,KC_RCBR,KC_PIPE,KC_TRNS,
@@ -140,7 +136,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 `--------------------'       `--------------------'
  */
 // MEDIA AND MOUSE
-[MDIA] = LAYOUT_ergodox(
+[2] = LAYOUT_ergodox(
        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
        KC_TRNS, KC_TRNS, KC_TRNS, KC_MS_U, KC_TRNS, KC_TRNS, KC_TRNS,
        KC_TRNS, KC_TRNS, KC_MS_L, KC_MS_D, KC_MS_R, KC_TRNS,
