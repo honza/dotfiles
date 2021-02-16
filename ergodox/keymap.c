@@ -17,9 +17,6 @@
  *  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-// This is the default dvorak layout file
-// I expect to customize this heavily.
-
 #include QMK_KEYBOARD_H
 
 enum custom_keycodes {
