@@ -27,13 +27,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * | Tab    |   '  |   ,  |   .  |   P  |   Y  |      |           |      |   F  |   G  |   C  |   R  |   L  |  bkspc |
+ * |        |      |   ,  |   .  |   P  |   Y  |      |           |      |   F  |   G  |   C  |   R  |      |        |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |ctrl/esc|   A  |   O  |   E  |   U  |   I  |  if  |           |  L1  |   D  |   H  |   T  |   N  |   S  |   -    |
+ * | Tab    |   '  |   O  |   E  |   U  |   I  |  if  |           |  L1  |   D  |   H  |   T  |   N  |   L  |  bkspc |
  * |--------+------+------+------+------+------|  err |           |      |------+------+------+------+------+--------|
- * | LS + ( |   :  |   Q  |   J  |   K  |   X  |------|           |------|   B  |   M  |   W  |   V  |   Z  | RS + ) |
+ * |ctrl/esc|   A  |   Q  |   J  |   K  |   X  |------|           |------|   B  |   M  |   W  |   V  |   S  |   -    |
  * |--------+------+------+------+------+------| Hyper|           | Meh  |------+------+------+------+------+--------|
- * |        |      |      |      | LGUI |  L1  |      |           |      |   L1 |  Alt |      |      |      |        |
+ * | LS + ( |   :  |      |      | LGUI |  L1  |      |           |      |   L1 |  Alt |      |      |   Z  | RS + )|
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   |      |      |      |      |      |                                       |      |      |      |      |      |
  *   `----------------------------------'                                       `----------------------------------'
@@ -49,19 +49,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Otherwise, it needs KC_*
 [0] = LAYOUT_ergodox(  // layer 0 : default
         // left hand
-        KC_TAB,         KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,  KC_TRNS,
-        LCTL_T(KC_ESC), KC_A,    KC_O,    KC_E,    KC_U,    KC_I,  IF_ERR_NIL,
-        KC_LSPO,        KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,
-        KC_TRNS,        KC_TRNS, KC_TRNS, KC_TRNS, KC_LGUI, MO(1), ALL_T(KC_NO),
+        KC_TRNS,        KC_TRNS, KC_COMM, KC_DOT,  KC_P,    KC_Y,  KC_TRNS,
+        KC_TAB,         KC_QUOT, KC_O,    KC_E,    KC_U,    KC_I,  IF_ERR_NIL,
+        LCTL_T(KC_ESC), KC_A,    KC_Q,    KC_J,    KC_K,    KC_X,
+        KC_LSPO,        KC_SCLN, KC_TRNS, KC_TRNS, KC_LGUI, MO(1), ALL_T(KC_NO),
         KC_TRNS,        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
                                                       KC_TRNS, KC_TRNS,
                                                                KC_TRNS,
                                                 KC_SPC,KC_TRNS,KC_TRNS,
         // right hand
-             KC_TRNS,     KC_F,  KC_G,    KC_C,    KC_R,    KC_L,    KC_BSPC,
-             TG(1),       KC_D,  KC_H,    KC_T,    KC_N,    KC_S,    KC_MINS,
-                          KC_B,  KC_M,    KC_W,    KC_V,    KC_Z,    KC_RSPC,
-             MEH_T(KC_NO),MO(1), KC_RALT, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+             KC_TRNS,     KC_F,  KC_G,    KC_C,    KC_R,    KC_TRNS, KC_TRNS,
+             TG(1),       KC_D,  KC_H,    KC_T,    KC_N,    KC_L,    KC_BSPC,
+                          KC_B,  KC_M,    KC_W,    KC_V,    KC_S,    KC_MINS,
+             MEH_T(KC_NO),MO(1), KC_RALT, KC_TRNS, KC_TRNS, KC_Z,    KC_RSPC,
                                  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
              KC_TRNS, KC_TRNS,
              KC_TRNS,
