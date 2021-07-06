@@ -156,11 +156,9 @@ bar {
         tray_output none
 }
 
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
-bindsym Shift+XF86AudioRaiseVolume exec pactl set-sink-volume 0 150%
-bindsym Shift+XF86AudioLowerVolume exec pactl set-sink-volume 0 50%
-bindsym XF86AudioMute exec amixer -q set Master toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 bindsym XF86MonBrightnessUp exec /bin/brightnessctl set +10%
 bindsym XF86MonBrightnessDown exec /bin/brightnessctl set 10%-
