@@ -136,10 +136,10 @@ function virtualenv_prompt
 end
 
 function git_prompt
-    set branch_name (command git symbolic-ref --short HEAD ^/dev/null)
+    set branch_name (command git symbolic-ref --short HEAD 2>/dev/null)
 
     if test -z "$branch_name"
-        set branch_name (command git show --format="%D" --no-patch ^/dev/null)
+        set branch_name (command git show --format="%D" --no-patch 2>/dev/null)
     end
 
     if test -n "$branch_name"
