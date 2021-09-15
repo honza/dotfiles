@@ -1,0 +1,42 @@
+Config { font = "xft:Monoid:pixelsize=14"
+       , additionalFonts = [ "xft:Apple Color Emoji:pixelsize=18" ]
+       , borderColor = "black"
+       , border = TopB
+       , bgColor = "black"
+       , fgColor = "grey"
+       , alpha = 255
+       , position = Top
+       , textOffset = -1
+       , iconOffset = -1
+       , lowerOnStart = True
+       , pickBroadest = False
+       , persistent = True
+       , hideOnStart = False
+       , iconRoot = "."
+       , allDesktops = True
+       , overrideRedirect = True
+       , commands = [ 
+                      Run Wireless "wlp2s0"
+                        [
+                            "-a", "l",
+                            "-x", "-",
+                            "-L", "50",
+                            "-H", "75" ,
+                            "-t", "<essid> <quality>%"
+                        ] 10
+                    , Run Network "eth1" ["-L","0","-H","32",
+                                          "--normal","green","--high","red"] 10
+                    , Run Cpu ["-L","3","-H","50",
+                               "--normal","green","--high","red"] 10
+                    , Run Memory ["-t","Mem: <usedratio>%"] 10
+                    -- , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+                    , Run Date "<fn=1>\xf133</fn>  %b %d %Y - (%H:%M) " "date" 10
+        , Run StdinReader
+
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "hi %StdinReader% }{ --- %cpu% | %memory% | %wlp2s0wi% %eth1% }\
+                    \{ <fc=#ee9a00>%date%</fc>"
+       }
+-- vim: ft=haskell:foldmethod=marker:expandtab:ts=4:shiftwidth=4
